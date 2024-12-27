@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4i3ju0meaac1"]
+
+[ext_resource type="PackedScene" uid="uid://cvaajdbmn24id" path="res://Scenes/enemy_infantry.tscn" id="1_lt3c2"]
+[ext_resource type="Texture2D" uid="uid://dyey7io5bachk" path="res://Assets/Enemies/Triangle.png" id="2_5naw6"]
+
+[node name="EnemyInfantry" instance=ExtResource("1_lt3c2")]
+collision_layer = 0
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_5naw6")
+
+[node name="CharacterHitbox" parent="." index="2"]
+max_health = 1
