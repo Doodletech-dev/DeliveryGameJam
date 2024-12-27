@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dw8rnoc8qbsje"]
+
+[ext_resource type="PackedScene" uid="uid://b65bt2xrerpm5" path="res://Scenes/turret.tscn" id="1_8k8v6"]
+[ext_resource type="Script" path="res://Scripts/selection_manager.gd" id="1_smm5y"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="SelectionManager" type="Node2D" parent="." node_paths=PackedStringArray("turrets")]
+script = ExtResource("1_smm5y")
+turrets = NodePath("../Turrets")
+
+[node name="Turrets" type="Node2D" parent="."]
+
+[node name="Turret" parent="Turrets" instance=ExtResource("1_8k8v6")]
+position = Vector2(186, 507)
+
+[node name="Turret2" parent="Turrets" instance=ExtResource("1_8k8v6")]
+position = Vector2(187, 704)
+
+[node name="Turret3" parent="Turrets" instance=ExtResource("1_8k8v6")]
+position = Vector2(187, 315)

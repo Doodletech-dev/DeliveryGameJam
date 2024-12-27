@@ -1,0 +1,35 @@
+extends Area2D
+
+signal turret_selected
+
+@export var bullet: PackedScene
+
+@onready var turret: Sprite2D = $Turret
+
+var selected: bool = false
+var can_shoot: bool = true
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	if(selected):
+		turret.look_at(get_global_mouse_position())
+		shoot()
+		
+func shoot():
+	if(Input.is_action_pressed("Shoot") and can_shoot):
+		var bullet_instance = bullet.instantiate()
+		bullet_instance.global_transform = turret.global_transform
+		get_parent().add_child(bullet_instance)
+		can_shoot = false
+		await get_tree().create_timer(0.2).timeout
+		can_shoot = true
+
+
+func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if(event.is_action_pressed("Select")):
+		turret_selected.emit(self)
