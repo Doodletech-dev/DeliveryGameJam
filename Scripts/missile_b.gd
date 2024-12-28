@@ -11,7 +11,7 @@ var rotation_speed = 2
 var start_time
 var time_alive: float
 var target: Vector2
-var effect_instance
+var effect_instance: Node2D
 var target_direction
 func _ready():
 	start_time = Time.get_ticks_msec()
@@ -53,4 +53,5 @@ func _notification(what: int) -> void:
 			on_predelete()
 
 func on_predelete() -> void:
-	effect_instance.destroy()
+	if(!effect_instance.is_queued_for_deletion()):
+		effect_instance.destroy()
