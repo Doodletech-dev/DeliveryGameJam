@@ -26,6 +26,7 @@ animations = [{
 }]
 
 [node name="Walker" type="Node2D"]
+z_index = -5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(960, 540)
