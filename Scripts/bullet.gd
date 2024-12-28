@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Bullet
 
-@export var speed = 1500.0
+@export var speed = 1400.0
 @export var damage = 1
 @export var trail_effect: PackedScene
 
