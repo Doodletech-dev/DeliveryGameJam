@@ -8,8 +8,6 @@ var current_health
 
 func  _ready():
 	current_health = max_health 
-	
-	
 
 func _on_body_entered(body):
 	if(body is Bullet):
