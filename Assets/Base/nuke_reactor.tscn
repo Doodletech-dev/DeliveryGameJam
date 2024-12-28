@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctbxga7505yvm"]
+
+[ext_resource type="Texture2D" uid="uid://cuwf6l00vl5d2" path="res://Assets/Enemies/Square.png" id="1_f0f4a"]
+[ext_resource type="PackedScene" uid="uid://d20d0fgvllb27" path="res://Scenes/Components/character_hitbox.tscn" id="2_vdjws"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gs2nb"]
+size = Vector2(296, 295)
+
+[node name="NukeReactor" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_f0f4a")
+
+[node name="CharacterHitbox" parent="." instance=ExtResource("2_vdjws")]
+collision_layer = 1024
+collision_mask = 1024
+max_health = 100
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterHitbox"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_gs2nb")
