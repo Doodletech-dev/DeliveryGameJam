@@ -12,10 +12,12 @@ size = Vector2(296, 295)
 texture = ExtResource("1_f0f4a")
 
 [node name="CharacterHitbox" parent="." instance=ExtResource("2_vdjws")]
-collision_layer = 1024
+collision_layer = 1025
 collision_mask = 1024
 max_health = 100
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterHitbox"]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_gs2nb")
+
+[connection signal="body_entered" from="CharacterHitbox" to="CharacterHitbox" method="_on_body_entered"]

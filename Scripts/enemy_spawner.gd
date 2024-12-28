@@ -36,8 +36,8 @@ func _on_spawn_timer_timeout():
 	for i in enemy_to_spawn.size():
 		if(rang < spawn_weightf):
 			var enemy_spawned = enemy_to_spawn[i].instantiate()
-			enemy_spawned._set_target_position(target_position)
 			enemy_spawned._get_ai_paths(ai_paths)
+			enemy_spawned._set_reactor_position(target_position)
 			enemy_spawned.global_position = global_position
 			add_child(enemy_spawned)
 			_begin_spawn_timer()

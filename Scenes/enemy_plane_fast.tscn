@@ -1,9 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4i3ju0meaac1"]
+[gd_scene load_steps=4 format=3 uid="uid://b4i3ju0meaac1"]
 
 [ext_resource type="PackedScene" uid="uid://cvaajdbmn24id" path="res://Scenes/enemy_infantry.tscn" id="1_lt3c2"]
 [ext_resource type="Texture2D" uid="uid://dyey7io5bachk" path="res://Assets/Enemies/Triangle.png" id="2_5naw6"]
+[ext_resource type="PackedScene" uid="uid://ctuhxde0buw1g" path="res://Scenes/laser_enemy.tscn" id="2_b8txg"]
 
-[node name="EnemyInfantry" instance=ExtResource("1_lt3c2")]
+[node name="EnemyPlaneDrone" instance=ExtResource("1_lt3c2")]
+move_speed = 500
+attack_distance = 1200
+bullet_scene = ExtResource("2_b8txg")
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_5naw6")

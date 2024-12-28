@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dw8rnoc8qbsje"]
+[gd_scene load_steps=10 format=3 uid="uid://dw8rnoc8qbsje"]
 
 [ext_resource type="PackedScene" uid="uid://b65bt2xrerpm5" path="res://Scenes/turret.tscn" id="1_8k8v6"]
 [ext_resource type="Script" path="res://Scripts/selection_manager.gd" id="1_smm5y"]
@@ -6,23 +6,21 @@
 [ext_resource type="PackedScene" uid="uid://cvaajdbmn24id" path="res://Scenes/enemy_infantry.tscn" id="3_l0al1"]
 [ext_resource type="PackedScene" uid="uid://b4i3ju0meaac1" path="res://Scenes/enemy_plane_fast.tscn" id="5_5c7dq"]
 [ext_resource type="PackedScene" uid="uid://ctbxga7505yvm" path="res://Assets/Base/nuke_reactor.tscn" id="6_p0ssd"]
+[ext_resource type="PackedScene" uid="uid://s4juae0ia88j" path="res://Scenes/enemy_plane_bomber.tscn" id="6_tfng5"]
 
-[sub_resource type="Curve2D" id="Curve2D_awegj"]
+[sub_resource type="Curve2D" id="Curve2D_6x2y0"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 873, 146, 0, 0, 0, 0, 1110, 550, 0, 0, 0, 0, 461, 468, 0, 0, 0, 0, 523, 878, 0, 0, 0, 0, 1433, 554, 0, 0, 0, 0, 398, 206)
+"points": PackedVector2Array(0, 0, 0, 0, 1499, 529, 0, 0, 0, 0, 742, 100, 0, 0, 0, 0, 819, 918, 0, 0, 0, 0, 1714, 670, 0, 0, 0, 0, 979, 69)
 }
-point_count = 6
+point_count = 5
 
-[sub_resource type="Curve2D" id="Curve2D_kjtj8"]
+[sub_resource type="Curve2D" id="Curve2D_slj60"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 888, 790, 0, 0, 0, 0, 823, 211, 0, 0, 0, 0, 1412, 270, 0, 0, 0, 0, 1336, 1087, 0, 0, 0, 0, 582, 349)
+"points": PackedVector2Array(0, 0, 0, 0, 1499, 529, 0, 0, 0, 0, 569, 507, 0, 0, 0, 0, 1101, 3, 0, 0, 0, 0, 1371, 1009, 0, 0, 0, 0, 867, 625)
 }
 point_count = 5
 
 [node name="Node2D" type="Node2D"]
-
-[node name="NukeReactor" parent="." instance=ExtResource("6_p0ssd")]
-position = Vector2(-78, 523)
 
 [node name="SelectionManager" type="Node2D" parent="." node_paths=PackedStringArray("turrets")]
 script = ExtResource("1_smm5y")
@@ -31,18 +29,18 @@ turrets = NodePath("../Turrets")
 [node name="Turrets" type="Node2D" parent="."]
 
 [node name="Turret" parent="Turrets" instance=ExtResource("1_8k8v6")]
-position = Vector2(186, 507)
+position = Vector2(182, 507)
 
 [node name="Turret2" parent="Turrets" instance=ExtResource("1_8k8v6")]
-position = Vector2(187, 704)
+position = Vector2(183, 704)
 
 [node name="Turret3" parent="Turrets" instance=ExtResource("1_8k8v6")]
-position = Vector2(187, 315)
+position = Vector2(183, 315)
 
 [node name="EnemySpawner" parent="." node_paths=PackedStringArray("target", "ai_paths") instance=ExtResource("3_5dody")]
 position = Vector2(1886, 77)
-enemy_to_spawn = Array[PackedScene]([ExtResource("3_l0al1"), ExtResource("5_5c7dq")])
-spawn_weight = Array[float]([30.0, 70.0])
+enemy_to_spawn = Array[PackedScene]([ExtResource("3_l0al1"), ExtResource("5_5c7dq"), ExtResource("6_tfng5")])
+spawn_weight = Array[float]([10.0, 70.0, 20.0])
 target = NodePath("../NukeReactor")
 ai_paths = [NodePath("../AI_Paths/Path2D"), NodePath("../AI_Paths/Path2D2")]
 
@@ -53,11 +51,31 @@ spawn_weight = Array[float]([70.0, 30.0])
 target = NodePath("../NukeReactor")
 ai_paths = [NodePath("../AI_Paths/Path2D"), NodePath("../AI_Paths/Path2D2")]
 
+[node name="EnemySpawner4" parent="." node_paths=PackedStringArray("target", "ai_paths") instance=ExtResource("3_5dody")]
+position = Vector2(1887, 220)
+enemy_to_spawn = Array[PackedScene]([ExtResource("3_l0al1"), ExtResource("5_5c7dq")])
+spawn_weight = Array[float]([70.0, 30.0])
+target = NodePath("../NukeReactor")
+ai_paths = [NodePath("../AI_Paths/Path2D"), NodePath("../AI_Paths/Path2D2")]
+
+[node name="EnemySpawner3" parent="." node_paths=PackedStringArray("target", "ai_paths") instance=ExtResource("3_5dody")]
+position = Vector2(1887, 603)
+enemy_to_spawn = Array[PackedScene]([ExtResource("3_l0al1"), ExtResource("5_5c7dq")])
+spawn_weight = Array[float]([70.0, 30.0])
+target = NodePath("../NukeReactor")
+ai_paths = [NodePath("../AI_Paths/Path2D"), NodePath("../AI_Paths/Path2D2")]
+
 [node name="AI_Paths" type="Node" parent="."]
 
 [node name="Path2D" type="Path2D" parent="AI_Paths"]
-curve = SubResource("Curve2D_awegj")
+curve = SubResource("Curve2D_6x2y0")
 
 [node name="Path2D2" type="Path2D" parent="AI_Paths"]
-position = Vector2(-341, -162)
-curve = SubResource("Curve2D_kjtj8")
+curve = SubResource("Curve2D_slj60")
+
+[node name="NukeReactor" parent="." instance=ExtResource("6_p0ssd")]
+position = Vector2(-13, 520)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1118, 661)
+zoom = Vector2(0.75, 0.75)

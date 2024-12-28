@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://s4juae0ia88j"]
+
+[ext_resource type="PackedScene" uid="uid://cvaajdbmn24id" path="res://Scenes/enemy_infantry.tscn" id="1_v5ve7"]
+[ext_resource type="PackedScene" uid="uid://crppycgwa5q8d" path="res://Scenes/missile_enemy.tscn" id="2_klfb1"]
+[ext_resource type="Texture2D" uid="uid://dyey7io5bachk" path="res://Assets/Enemies/Triangle.png" id="2_rms1t"]
+
+[node name="EnemyPlaneBomber" instance=ExtResource("1_v5ve7")]
+move_speed = 200
+attack_distance = 400
+bullet_scene = ExtResource("2_klfb1")
+
+[node name="Sprite2D" parent="." index="0"]
+modulate = Color(0.8125, 0, 1, 1)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_rms1t")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0.5, 7)
+
+[node name="CharacterHitbox" parent="." index="2"]
+max_health = 5
+
+[node name="CollisionShape2D" parent="CharacterHitbox" index="0"]
+position = Vector2(0, 1.25)
