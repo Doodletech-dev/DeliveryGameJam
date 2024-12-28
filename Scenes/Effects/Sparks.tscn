@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbgpqaqm4fuuk"]
+
+[ext_resource type="Material" uid="uid://bav2pnl5mtbre" path="res://Effects/ProcessMaterials/Sparks_Sparks.tres" id="1_nwdhd"]
+[ext_resource type="Texture2D" uid="uid://d3mp41ey6n33k" path="res://Effects/Textures/Smoke.png" id="2_ot2mv"]
+
+[node name="Sparks" type="Node2D"]
+
+[node name="Spark(ParticleGen)" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 15
+process_material = ExtResource("1_nwdhd")
+texture = ExtResource("2_ot2mv")
+lifetime = 0.6
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+trail_enabled = true

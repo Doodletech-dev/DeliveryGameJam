@@ -9,54 +9,88 @@ gradient = SubResource("Gradient_5dkey")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_01gao"]
 texture = SubResource("GradientTexture2D_awyk4")
 
-[node name="GameOverlayUi" type="Node2D"]
+[node name="GameOverlayUi" type="CanvasLayer"]
 
-[node name="HealthBar" type="ProgressBar" parent="."]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 1680.0
-offset_top = 29.0
-offset_right = 1905.0
-offset_bottom = 56.0
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HealthBar" type="ProgressBar" parent="Control"]
+layout_mode = 1
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 225.0
+offset_bottom = 50.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_styles/fill = SubResource("StyleBoxTexture_01gao")
 value = 50.0
 show_percentage = false
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
+[node name="ProgressBar" type="ProgressBar" parent="Control"]
+layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 489.0
+offset_left = -500.0
 offset_top = 25.0
-offset_right = 1404.0
+offset_right = 500.0
 offset_bottom = 52.0
 grow_horizontal = 2
-value = 50.0
+value = 42.0
 
-[node name="Currency" type="Label" parent="."]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = 1745.0
-offset_top = 87.0
-offset_right = 1810.0
-offset_bottom = 110.0
-grow_horizontal = 0
+[node name="Currency" type="Label" parent="Control"]
+layout_mode = 1
+offset_left = 25.0
+offset_top = 75.0
+offset_right = 100.0
+offset_bottom = 100.0
 text = "Scrap : 0"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-offset_left = 873.0
-offset_top = 985.0
-offset_right = 1027.0
-offset_bottom = 1025.0
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -56.0
+offset_right = 100.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 50
 
-[node name="Button 1" type="Button" parent="HBoxContainer"]
+[node name="Button 1" type="Button" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 text = "Button 1"
 
-[node name="Button 2" type="Button" parent="HBoxContainer"]
+[node name="Button 2" type="Button" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 text = "Button 2"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -78.0
+offset_top = -56.0
+offset_right = -25.0
+offset_bottom = -25.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Menu" type="Button" parent="Control/HBoxContainer2"]
+layout_mode = 2
+text = "Menu"

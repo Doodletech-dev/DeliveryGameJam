@@ -1,33 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cf6ehdejsfkq5"]
+[gd_scene load_steps=3 format=3 uid="uid://cf6ehdejsfkq5"]
 
-[ext_resource type="Texture2D" uid="uid://d3mp41ey6n33k" path="res://Effects/Projectiles/Smoke.png" id="1_qb433"]
-
-[sub_resource type="Gradient" id="Gradient_j5s52"]
-colors = PackedColorArray(0.277528, 0.277528, 0.277528, 1, 0.419813, 0.419813, 0.419813, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_tt5dl"]
-gradient = SubResource("Gradient_j5s52")
-
-[sub_resource type="Curve" id="Curve_ga5yc"]
-max_value = 5.0
-_data = [Vector2(0, 0), 0.0, 0.54945, 0, 1, Vector2(1, 0.54945), 0.54945, 0.0, 1, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_llutt"]
-curve = SubResource("Curve_ga5yc")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v8e3i"]
-particle_flag_disable_z = true
-emission_shape = 1
-emission_sphere_radius = 3.0
-spread = 0.0
-initial_velocity_min = -400.0
-initial_velocity_max = -400.0
-gravity = Vector3(100, -50, 0)
-scale_min = 0.6
-scale_max = 0.6
-scale_curve = SubResource("CurveTexture_llutt")
-color_ramp = SubResource("GradientTexture1D_tt5dl")
+[ext_resource type="Material" uid="uid://d4bjoa24r32xm" path="res://Effects/ProcessMaterials/SmokePlume_Smoke.tres" id="1_nqvpn"]
+[ext_resource type="Texture2D" uid="uid://d3mp41ey6n33k" path="res://Effects/Textures/Smoke.png" id="1_qb433"]
 
 [node name="SmokePlume" type="Node2D"]
 position = Vector2(-1, 0)
@@ -35,6 +9,6 @@ position = Vector2(-1, 0)
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 position = Vector2(0, -1)
 amount = 16
-process_material = SubResource("ParticleProcessMaterial_v8e3i")
+process_material = ExtResource("1_nqvpn")
 texture = ExtResource("1_qb433")
 lifetime = 1.5

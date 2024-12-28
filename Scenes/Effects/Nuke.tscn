@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyn23ciuvfjq0"]
+
+[ext_resource type="Material" uid="uid://biaul4f57mfqp" path="res://Effects/ProcessMaterials/Nuke.tres" id="1_1dsc8"]
+
+[node name="Nuke" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(920, 980)
+process_material = ExtResource("1_1dsc8")
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
