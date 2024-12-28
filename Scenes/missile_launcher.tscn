@@ -74,7 +74,7 @@ position = Vector2(0, -80)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_bejb3")
 frame = 5
-frame_progress = 0.388898
+frame_progress = 0.363466
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 1
