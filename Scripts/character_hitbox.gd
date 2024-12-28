@@ -10,7 +10,7 @@ func  _ready():
 	current_health = max_health 
 
 func _on_body_entered(body):
-	if(body is Bullet):
+	if(body is Bullet or body is Missile):
 		current_health -= body.damage
 		body.queue_free()
 		if(current_health <= 0):	

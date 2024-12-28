@@ -25,7 +25,7 @@ func shoot():
 		missile_instance.global_transform = global_transform
 		get_parent().add_child(missile_instance)
 		can_shoot = false
-		await get_tree().create_timer(0.2).timeout
+		await get_tree().create_timer(0.5).timeout
 		can_shoot = true
 
 
