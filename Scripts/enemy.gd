@@ -1,7 +1,9 @@
 extends CharacterBody2D
+class_name Enemy
 
 @export var move_speed = 700
 @export var attack_distance = 500
+@export var scraps_given = 1
 
 @export var bullet_scene: PackedScene
 
@@ -75,3 +77,6 @@ func _on_idle_time_timeout():
 	print("set new target position")
 	target_location = _set_new_target_position()
 	can_move = true
+func _death():
+	GameManager.update_scraps.emit(scraps_given)
+	
