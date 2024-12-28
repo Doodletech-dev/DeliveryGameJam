@@ -12,6 +12,7 @@ z_index = -1
 position = Vector2(222, 690)
 collision_layer = 513
 script = ExtResource("2_vmfky")
+trail_effect = ExtResource("3_a280x")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_yejek")
@@ -19,6 +20,3 @@ texture = ExtResource("1_yejek")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2.5, 0)
 shape = SubResource("RectangleShape2D_wo1k4")
-
-[node name="MissileTail" parent="." instance=ExtResource("3_a280x")]
-position = Vector2(-6, 0)

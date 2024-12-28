@@ -1,61 +1,18 @@
-[gd_scene load_steps=12 format=3 uid="uid://cdr87c8p04707"]
+[gd_scene load_steps=5 format=3 uid="uid://cdr87c8p04707"]
 
 [ext_resource type="Script" path="res://Scripts/missile.gd" id="1_jb85s"]
 [ext_resource type="Texture2D" uid="uid://dgip1vyhfchgv" path="res://Assets/Turret/Bullet.png" id="2_0and4"]
 [ext_resource type="PackedScene" uid="uid://cwh4ho7ri8ino" path="res://Scenes/Effects/MissileTail.tscn" id="2_kxsk6"]
-[ext_resource type="Texture2D" uid="uid://d3mp41ey6n33k" path="res://Effects/Projectiles/Smoke.png" id="3_4qywg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wo1k4"]
 size = Vector2(29, 18)
-
-[sub_resource type="Gradient" id="Gradient_x55iy"]
-offsets = PackedFloat32Array(0, 0.0666667, 1)
-colors = PackedColorArray(0.754813, 0.669965, 0.440253, 0, 0.707967, 0.707967, 0.707967, 1, 0.709804, 0.709804, 0.709804, 0)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_3gt6x"]
-gradient = SubResource("Gradient_x55iy")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jixmc"]
-particle_flag_disable_z = true
-spread = 1.0
-initial_velocity_min = -800.0
-initial_velocity_max = -800.0
-gravity = Vector3(0, 0, 0)
-radial_accel_min = 15.0
-radial_accel_max = 30.0
-scale_min = 0.02
-scale_max = 0.04
-color_ramp = SubResource("GradientTexture1D_3gt6x")
-
-[sub_resource type="Gradient" id="Gradient_xv5bm"]
-interpolation_color_space = 1
-offsets = PackedFloat32Array(0, 0.116667, 0.175, 0.733333, 0.883333, 1)
-colors = PackedColorArray(1, 1, 1, 0, 0, 0, 1, 0, 0.756863, 0.701961, 0, 0.160784, 1, 0.270588, 0, 0.380392, 0.545098, 0, 0, 0.196078, 0.184314, 0.309804, 0.309804, 0.129412)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_inxgb"]
-gradient = SubResource("Gradient_xv5bm")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_c18dm"]
-particle_flag_disable_z = true
-emission_shape = 1
-emission_sphere_radius = 5.0
-spread = 15.0
-initial_velocity_min = -800.0
-initial_velocity_max = -800.0
-gravity = Vector3(0, 0, 0)
-scale_min = 0.01
-scale_max = 0.01
-color_ramp = SubResource("GradientTexture1D_inxgb")
-turbulence_enabled = true
-turbulence_noise_strength = 0.1
-turbulence_noise_scale = 0.1
 
 [node name="Missile" type="CharacterBody2D"]
 z_index = -1
 position = Vector2(222, 690)
 collision_layer = 513
 script = ExtResource("1_jb85s")
-smoke_effect = ExtResource("2_kxsk6")
+trail_effect = ExtResource("2_kxsk6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_0and4")
@@ -63,28 +20,3 @@ texture = ExtResource("2_0and4")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2.5, 0)
 shape = SubResource("RectangleShape2D_wo1k4")
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-show_behind_parent = true
-z_index = -1
-position = Vector2(-27, 0)
-amount = 400
-process_material = SubResource("ParticleProcessMaterial_jixmc")
-texture = ExtResource("3_4qywg")
-lifetime = 3.0
-fixed_fps = 60
-visibility_rect = Rect2(-10000, -10000, 20000, 20000)
-local_coords = true
-
-[node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
-show_behind_parent = true
-amount = 200
-process_material = SubResource("ParticleProcessMaterial_c18dm")
-texture = ExtResource("3_4qywg")
-lifetime = 0.1
-explosiveness = 0.1
-randomness = 1.0
-fixed_fps = 60
-visibility_rect = Rect2(-10000, -10000, 20000, 20000)
-local_coords = true
-trail_enabled = true
