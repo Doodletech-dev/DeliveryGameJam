@@ -65,6 +65,8 @@ turbulence_noise_strength = 0.1
 turbulence_noise_scale = 0.1
 
 [node name="MissileTail" type="Node2D"]
+z_index = -2
+z_as_relative = false
 
 [node name="SmokeTrail(ParticleGen)" type="GPUParticles2D" parent="."]
 show_behind_parent = true

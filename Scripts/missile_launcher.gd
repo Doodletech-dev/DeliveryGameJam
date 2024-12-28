@@ -4,7 +4,6 @@ signal turret_selected
 
 @export var missile: PackedScene
 
-@onready var turret: Sprite2D = $Turret
 
 var selected: bool = false
 var can_shoot: bool = true
@@ -23,7 +22,7 @@ func shoot():
 	if(Input.is_action_pressed("Shoot") and can_shoot):
 		var missile_instance = missile.instantiate()
 		missile_instance.target = get_global_mouse_position()
-		missile_instance.global_transform = turret.global_transform
+		missile_instance.global_transform = global_transform
 		get_parent().add_child(missile_instance)
 		can_shoot = false
 		await get_tree().create_timer(0.2).timeout
