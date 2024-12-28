@@ -19,7 +19,7 @@ func _ready():
 
 func _process(delta: float) -> void:
 	time_alive = (Time.get_ticks_msec() - start_time) / 100
-	effect_instance.global_transform = global_transform
+	effect_instance.global_position = global_position
 	#if(target):
 	#	rotation = lerp_angle(rotation, get_angle_to(target), rotation_speed * delta)
 	velocity = speed * cartesian_to_isometric(get_global_transform().basis_xform(Vector2.UP))

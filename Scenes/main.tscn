@@ -7,9 +7,8 @@
 
 [node name="Node2D" type="Node2D"]
 
-[node name="SelectionManager" type="Node2D" parent="." node_paths=PackedStringArray("turrets")]
+[node name="SelectionManager" type="Node2D" parent="."]
 script = ExtResource("1_smm5y")
-turrets = NodePath("")
 
 [node name="EnemySpawner" parent="." instance=ExtResource("3_5dody")]
 position = Vector2(1886, 77)
