@@ -10,7 +10,7 @@ size = Vector2(29, 18)
 [node name="Missile" type="CharacterBody2D"]
 z_index = 1
 z_as_relative = false
-position = Vector2(222, 690)
+position = Vector2(223, 686)
 collision_layer = 513
 script = ExtResource("1_jb85s")
 trail_effect = ExtResource("2_kxsk6")
@@ -22,3 +22,6 @@ texture = ExtResource("3_e2xfx")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2.5, 0)
 shape = SubResource("RectangleShape2D_wo1k4")
+
+[node name="Effect_Location" type="Node2D" parent="."]
+position = Vector2(-54, 20)
