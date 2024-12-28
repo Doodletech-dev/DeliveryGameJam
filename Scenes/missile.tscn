@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdr87c8p04707"]
+
+[ext_resource type="Script" path="res://Scripts/missile.gd" id="1_jb85s"]
+[ext_resource type="PackedScene" uid="uid://cwh4ho7ri8ino" path="res://Scenes/Effects/MissileTail.tscn" id="2_kxsk6"]
+[ext_resource type="Texture2D" uid="uid://jy78uv7eb82u" path="res://Assets/MissileLauncher/Missile/sprite_2.png" id="3_e2xfx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wo1k4"]
+size = Vector2(29, 18)
+
+[node name="Missile" type="CharacterBody2D"]
+z_index = 1
+z_as_relative = false
+position = Vector2(223, 686)
+collision_layer = 513
+script = ExtResource("1_jb85s")
+trail_effect = ExtResource("2_kxsk6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(5, 5)
+texture = ExtResource("3_e2xfx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.5, 0)
+shape = SubResource("RectangleShape2D_wo1k4")
+
+[node name="Effect_Location" type="Node2D" parent="."]
+position = Vector2(-54, 20)

@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://d01xdcl83e80i"]
+
+[ext_resource type="Texture2D" uid="uid://d28e11h0nq7p0" path="res://Assets/Walker/sprite_0.png" id="1_xrnrb"]
+[ext_resource type="Texture2D" uid="uid://t5wxbyxxfdt0" path="res://Assets/Walker/sprite_1.png" id="2_51wbx"]
+[ext_resource type="Texture2D" uid="uid://b2xd0k6n36my8" path="res://Assets/Walker/sprite_2.png" id="3_3xf5h"]
+[ext_resource type="Texture2D" uid="uid://dd3651et63pes" path="res://Assets/Walker/sprite_3.png" id="4_0ci6c"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l50wp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_xrnrb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_51wbx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3xf5h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0ci6c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.0
+}]
+
+[node name="Walker" type="Node2D"]
+z_index = -5
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(960, 540)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_l50wp")
+frame_progress = 0.038163
