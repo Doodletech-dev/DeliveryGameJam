@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://s5mawxwdd6pm"]
+
+[ext_resource type="Script" path="res://Scripts/missile_launcher.gd" id="1_0yqax"]
+[ext_resource type="PackedScene" uid="uid://cgvnud308helj" path="res://Scenes/missile.tscn" id="2_p2tc4"]
+[ext_resource type="Texture2D" uid="uid://sxnogrxh3cy5" path="res://Assets/Turret/Turret_Base.png" id="3_75ibj"]
+[ext_resource type="Texture2D" uid="uid://c8r48o5i5f6b5" path="res://Assets/Turret/Turret.png" id="4_fxibm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_odsxs"]
+size = Vector2(64, 64)
+
+[node name="MissileLauncher" type="Area2D"]
+script = ExtResource("1_0yqax")
+missile = ExtResource("2_p2tc4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_75ibj")
+
+[node name="Turret" type="Sprite2D" parent="."]
+rotation = -1.5708
+texture = ExtResource("4_fxibm")
+offset = Vector2(21.985, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_odsxs")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

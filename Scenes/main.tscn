@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dw8rnoc8qbsje"]
+[gd_scene load_steps=7 format=3 uid="uid://dw8rnoc8qbsje"]
 
 [ext_resource type="PackedScene" uid="uid://b65bt2xrerpm5" path="res://Scenes/turret.tscn" id="1_8k8v6"]
 [ext_resource type="Script" path="res://Scripts/selection_manager.gd" id="1_smm5y"]
 [ext_resource type="PackedScene" uid="uid://b50wc4c4ic3wf" path="res://Scenes/enemy_spawner.tscn" id="3_5dody"]
 [ext_resource type="PackedScene" uid="uid://cvaajdbmn24id" path="res://Scenes/enemy_infantry.tscn" id="3_l0al1"]
+[ext_resource type="PackedScene" uid="uid://s5mawxwdd6pm" path="res://Scenes/missile_launcher.tscn" id="3_surah"]
 [ext_resource type="PackedScene" uid="uid://b4i3ju0meaac1" path="res://Scenes/enemy_plane_fast.tscn" id="5_5c7dq"]
 
 [node name="Node2D" type="Node2D"]
@@ -22,6 +23,9 @@ position = Vector2(187, 704)
 
 [node name="Turret3" parent="Turrets" instance=ExtResource("1_8k8v6")]
 position = Vector2(187, 315)
+
+[node name="MissileLauncher" parent="Turrets" instance=ExtResource("3_surah")]
+position = Vector2(76, 502)
 
 [node name="EnemySpawner" parent="." instance=ExtResource("3_5dody")]
 position = Vector2(1886, 77)

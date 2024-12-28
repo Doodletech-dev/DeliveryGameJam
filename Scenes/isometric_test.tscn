@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8hjkxt1gudmi"]
+
+[ext_resource type="PackedScene" uid="uid://d01xdcl83e80i" path="res://Scenes/Prefabs/walker.tscn" id="1_cmh8w"]
+[ext_resource type="PackedScene" uid="uid://bjt3ffrrgrm6e" path="res://Scenes/Prefabs/turret.tscn" id="2_ne1bu"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Walker" parent="." instance=ExtResource("1_cmh8w")]
+
+[node name="Turret" parent="Walker" instance=ExtResource("2_ne1bu")]
+position = Vector2(725, 555)
+
+[node name="Turret2" parent="Walker" instance=ExtResource("2_ne1bu")]
+position = Vector2(970, 680)

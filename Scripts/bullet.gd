@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Bullet
 
-@export var speed = 800.0
+@export var speed = 2000.0
 @export var damage = 1
 
 func _process(delta: float) -> void:
