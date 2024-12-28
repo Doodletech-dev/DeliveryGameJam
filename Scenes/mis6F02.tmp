@@ -1,8 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://fxy8wdu3ucyv"]
+[gd_scene load_steps=11 format=3 uid="uid://cgvnud308helj"]
 
-[ext_resource type="Texture2D" uid="uid://dgip1vyhfchgv" path="res://Assets/Turret/Bullet.png" id="1_yejek"]
-[ext_resource type="Script" path="res://Scripts/bullet.gd" id="2_vmfky"]
-[ext_resource type="Texture2D" uid="uid://d3mp41ey6n33k" path="res://Effects/Projectiles/Smoke.png" id="3_a3jly"]
+[ext_resource type="Script" path="res://Scripts/missile.gd" id="1_jb85s"]
+[ext_resource type="Texture2D" uid="uid://dgip1vyhfchgv" path="res://Assets/Turret/Bullet.png" id="2_0and4"]
+[ext_resource type="Texture2D" uid="uid://d3mp41ey6n33k" path="res://Effects/Projectiles/Smoke.png" id="3_4qywg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wo1k4"]
 size = Vector2(29, 18)
@@ -49,14 +49,14 @@ turbulence_enabled = true
 turbulence_noise_strength = 0.1
 turbulence_noise_scale = 0.1
 
-[node name="Bullet" type="CharacterBody2D"]
+[node name="Missile" type="CharacterBody2D"]
 z_index = -1
 position = Vector2(222, 690)
 collision_layer = 513
-script = ExtResource("2_vmfky")
+script = ExtResource("1_jb85s")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_yejek")
+texture = ExtResource("2_0and4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2.5, 0)
@@ -68,7 +68,7 @@ z_index = -1
 position = Vector2(-27, 0)
 amount = 400
 process_material = SubResource("ParticleProcessMaterial_jixmc")
-texture = ExtResource("3_a3jly")
+texture = ExtResource("3_4qywg")
 lifetime = 3.0
 fixed_fps = 60
 visibility_rect = Rect2(-10000, -10000, 20000, 20000)
@@ -78,7 +78,7 @@ local_coords = true
 show_behind_parent = true
 amount = 200
 process_material = SubResource("ParticleProcessMaterial_c18dm")
-texture = ExtResource("3_a3jly")
+texture = ExtResource("3_4qywg")
 lifetime = 0.1
 explosiveness = 0.1
 randomness = 1.0
