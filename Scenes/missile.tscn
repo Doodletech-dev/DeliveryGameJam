@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cdr87c8p04707"]
+[gd_scene load_steps=12 format=3 uid="uid://cdr87c8p04707"]
 
 [ext_resource type="Script" path="res://Scripts/missile.gd" id="1_jb85s"]
 [ext_resource type="Texture2D" uid="uid://dgip1vyhfchgv" path="res://Assets/Turret/Bullet.png" id="2_0and4"]
+[ext_resource type="PackedScene" uid="uid://cwh4ho7ri8ino" path="res://Scenes/Effects/MissileTail.tscn" id="2_kxsk6"]
 [ext_resource type="Texture2D" uid="uid://d3mp41ey6n33k" path="res://Effects/Projectiles/Smoke.png" id="3_4qywg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wo1k4"]
@@ -54,6 +55,7 @@ z_index = -1
 position = Vector2(222, 690)
 collision_layer = 513
 script = ExtResource("1_jb85s")
+smoke_effect = ExtResource("2_kxsk6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_0and4")

@@ -3,6 +3,8 @@ class_name Missile
 
 @export var speed = 2000.0
 @export var damage = 1
+@export var smoke_effect: PackedScene
+
 var rotation_speed = 2
 
 var start_time
