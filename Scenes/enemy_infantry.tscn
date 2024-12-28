@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cvaajdbmn24id"]
+[gd_scene load_steps=8 format=3 uid="uid://cvaajdbmn24id"]
 
 [ext_resource type="PackedScene" uid="uid://d20d0fgvllb27" path="res://Scenes/Components/character_hitbox.tscn" id="1_6mvn5"]
 [ext_resource type="Script" path="res://Scripts/enemy_infantry.gd" id="1_jynr0"]
 [ext_resource type="Texture2D" uid="uid://cuwf6l00vl5d2" path="res://Assets/Enemies/Square.png" id="1_yuin3"]
 [ext_resource type="Script" path="res://Scripts/character_hitbox.gd" id="3_txfkc"]
+[ext_resource type="PackedScene" uid="uid://cf6ehdejsfkq5" path="res://Scenes/Effects/SmokePlume.tscn" id="5_tvlpm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lhuww"]
 size = Vector2(42, 42)
@@ -32,5 +33,8 @@ max_health = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterHitbox"]
 shape = SubResource("RectangleShape2D_lwpjj")
 debug_color = Color(0.354937, 0.963542, 0.0577121, 0.42)
+
+[node name="SmokePlume" parent="." instance=ExtResource("5_tvlpm")]
+position = Vector2(0, -22)
 
 [connection signal="body_entered" from="CharacterHitbox" to="CharacterHitbox" method="_on_body_entered"]

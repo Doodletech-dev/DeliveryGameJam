@@ -1,0 +1,94 @@
+[gd_scene load_steps=12 format=3 uid="uid://cwh4ho7ri8ino"]
+
+[ext_resource type="Texture2D" uid="uid://d3mp41ey6n33k" path="res://Effects/Projectiles/Smoke.png" id="1_mh31v"]
+
+[sub_resource type="Gradient" id="Gradient_k7p5v"]
+offsets = PackedFloat32Array(0, 0.0666667, 1)
+colors = PackedColorArray(0.754813, 0.669965, 0.440253, 0, 0.707967, 0.707967, 0.707967, 1, 0.709804, 0.709804, 0.709804, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3gt6x"]
+gradient = SubResource("Gradient_k7p5v")
+
+[sub_resource type="Curve" id="Curve_50rvg"]
+min_value = 0.99
+max_value = 5.0
+_data = [Vector2(0, 0.99), 0.0, 2.005, 0, 1, Vector2(1, 2.995), 2.005, 0.0, 1, 0]
+point_count = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_vom4c"]
+curve = SubResource("Curve_50rvg")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hh3l7"]
+particle_flag_disable_z = true
+spread = 0.5
+initial_velocity_min = -800.0
+initial_velocity_max = -800.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = 15.0
+radial_accel_max = 30.0
+scale_min = 0.03
+scale_max = 0.03
+scale_curve = SubResource("CurveTexture_vom4c")
+color_ramp = SubResource("GradientTexture1D_3gt6x")
+
+[sub_resource type="Gradient" id="Gradient_ufuds"]
+interpolation_color_space = 1
+offsets = PackedFloat32Array(0, 0.180328, 0.733333, 0.883333, 1)
+colors = PackedColorArray(1, 1, 1, 0, 0.87635, 0.813369, 0, 0.027451, 1, 0.270588, 0, 0.380392, 0.545098, 0, 0, 0.196078, 0.184314, 0.309804, 0.309804, 0.129412)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_inxgb"]
+gradient = SubResource("Gradient_ufuds")
+
+[sub_resource type="Curve" id="Curve_dgymc"]
+max_value = 3.0
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1.68132), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_0wap3"]
+curve = SubResource("Curve_dgymc")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_t0dvd"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 8.0
+spread = 15.0
+initial_velocity_min = -800.0
+initial_velocity_max = -800.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.02
+scale_max = 0.02
+scale_curve = SubResource("CurveTexture_0wap3")
+color_ramp = SubResource("GradientTexture1D_inxgb")
+turbulence_enabled = true
+turbulence_noise_strength = 0.1
+turbulence_noise_scale = 0.1
+
+[node name="MissileTail" type="Node2D"]
+
+[node name="SmokeTrail(ParticleGen)" type="GPUParticles2D" parent="."]
+show_behind_parent = true
+z_index = -1
+position = Vector2(-28, 0)
+amount = 300
+process_material = SubResource("ParticleProcessMaterial_hh3l7")
+texture = ExtResource("1_mh31v")
+lifetime = 1.75
+fixed_fps = 60
+visibility_rect = Rect2(-10000, -10000, 20000, 20000)
+local_coords = true
+
+[node name="FlameTrail(ParticleGen)" type="GPUParticles2D" parent="."]
+show_behind_parent = true
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_t0dvd")
+texture = ExtResource("1_mh31v")
+lifetime = 0.1
+explosiveness = 0.1
+randomness = 1.0
+fixed_fps = 60
+interpolate = false
+visibility_rect = Rect2(-10000, -10000, 20000, 20000)
+local_coords = true
+trail_enabled = true
+trail_lifetime = 0.2
