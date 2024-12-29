@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://cvaajdbmn24id"]
+
+[ext_resource type="PackedScene" uid="uid://d20d0fgvllb27" path="res://Scenes/Components/character_hitbox.tscn" id="1_6mvn5"]
+[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_jynr0"]
+[ext_resource type="PackedScene" uid="uid://coltcnpgcv86x" path="res://Scenes/bullet_enemy.tscn" id="2_ibvh2"]
+[ext_resource type="PackedScene" uid="uid://hl2i4fr237v2" path="res://Scenes/Effects/MissileExplosion.tscn" id="6_gouhx"]
+[ext_resource type="Texture2D" uid="uid://cy28n6lny80r1" path="res://Assets/Enemies/infantry/outline/sprite_0.png" id="9_td3ye"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_chhw2"]
+radius = 6.0
+height = 14.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_if1i0"]
+radius = 15.0
+height = 63.5
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_jynr0")
+move_speed = 300
+attack_distance = 200
+bullet_scene = ExtResource("2_ibvh2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("9_td3ye")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_chhw2")
+
+[node name="CharacterHitbox" parent="." instance=ExtResource("1_6mvn5")]
+collision_layer = 0
+collision_mask = 512
+death_effect = ExtResource("6_gouhx")
+max_health = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterHitbox"]
+shape = SubResource("CapsuleShape2D_if1i0")
+debug_color = Color(0.354937, 0.963542, 0.0577121, 0.42)
+
+[node name="IdleTime" type="Timer" parent="."]
+wait_time = 1.2
+one_shot = true
+
+[node name="MissileExplosion" parent="." instance=ExtResource("6_gouhx")]
+
+[connection signal="body_entered" from="CharacterHitbox" to="CharacterHitbox" method="_on_body_entered"]
+[connection signal="timeout" from="IdleTime" to="." method="_on_idle_time_timeout"]

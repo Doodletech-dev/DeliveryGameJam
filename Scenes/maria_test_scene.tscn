@@ -1,0 +1,93 @@
+[gd_scene load_steps=13 format=3 uid="uid://cp2ro0017sxf5"]
+
+[ext_resource type="PackedScene" uid="uid://d01xdcl83e80i" path="res://Scenes/Prefabs/walker.tscn" id="1_fj3cu"]
+[ext_resource type="PackedScene" uid="uid://bjt3ffrrgrm6e" path="res://Scenes/Prefabs/turret.tscn" id="2_brwlu"]
+[ext_resource type="PackedScene" uid="uid://s5mawxwdd6pm" path="res://Scenes/Prefabs/missile_launcher.tscn" id="3_kygu0"]
+[ext_resource type="Script" path="res://Scripts/selection_manager.gd" id="4_hqjxa"]
+[ext_resource type="PackedScene" uid="uid://b50wc4c4ic3wf" path="res://Scenes/enemy_spawner.tscn" id="5_qct7m"]
+[ext_resource type="PackedScene" uid="uid://cvaajdbmn24id" path="res://Scenes/enemy.tscn" id="6_wu0yd"]
+[ext_resource type="PackedScene" uid="uid://b4i3ju0meaac1" path="res://Scenes/enemy_plane_fast.tscn" id="7_bkk6g"]
+[ext_resource type="PackedScene" uid="uid://s4juae0ia88j" path="res://Scenes/enemy_plane_bomber.tscn" id="8_swar0"]
+[ext_resource type="PackedScene" uid="uid://ctbxga7505yvm" path="res://Assets/Base/cargo_nuke.tscn" id="9_kgxww"]
+
+[sub_resource type="Curve2D" id="Curve2D_gn704"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 862, 632, 0, 0, 0, 0, 323, 908, 0, 0, 0, 0, 294, 785, 0, 0, 0, 0, 611, 896, 0, 0, 0, 0, 710, 600, 0, 0, 0, 0, 958, 731)
+}
+point_count = 6
+
+[sub_resource type="Curve2D" id="Curve2D_if2dp"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1493, 1020, 0, 0, 0, 0, 784, 1039, 0, 0, 0, 0, 113, 305, 0, 0, 0, 0, 643, 281, 0, 0, 0, 0, 1546, 425, 0, 0, 0, 0, 1372, 697)
+}
+point_count = 6
+
+[sub_resource type="Curve2D" id="Curve2D_yowre"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 140, 626, 0, 0, 0, 0, 1011, 157, 0, 0, 0, 0, 113, 305, 0, 0, 0, 0, 1787, 613, 0, 0, 0, 0, 1546, 425, 0, 0, 0, 0, 1102, 906)
+}
+point_count = 6
+
+[node name="MariaTestScene" type="Node2D"]
+
+[node name="Walker" parent="." instance=ExtResource("1_fj3cu")]
+
+[node name="Turret" parent="Walker" instance=ExtResource("2_brwlu")]
+position = Vector2(100, 880)
+
+[node name="Turret2" parent="Walker" instance=ExtResource("2_brwlu")]
+position = Vector2(340, 1000)
+
+[node name="MissileLauncher" parent="Walker" instance=ExtResource("3_kygu0")]
+position = Vector2(805, 762)
+
+[node name="MissileLauncher2" parent="Walker" instance=ExtResource("3_kygu0")]
+position = Vector2(565, 640)
+
+[node name="SelectionManager" type="Node2D" parent="." node_paths=PackedStringArray("turrets")]
+script = ExtResource("4_hqjxa")
+turrets = NodePath("../Walker")
+
+[node name="EnemySpawner" parent="." node_paths=PackedStringArray("target", "ai_paths") instance=ExtResource("5_qct7m")]
+position = Vector2(883, 626)
+enemy_to_spawn = Array[PackedScene]([ExtResource("6_wu0yd")])
+spawn_weight = Array[float]([100.0])
+target = NodePath("../NukeReactor")
+ai_paths = [NodePath("../AIPath Ground/Path2D")]
+
+[node name="EnemySpawner2" parent="." node_paths=PackedStringArray("target", "ai_paths") instance=ExtResource("5_qct7m")]
+position = Vector2(1887, 371)
+enemy_to_spawn = Array[PackedScene]([ExtResource("7_bkk6g")])
+spawn_weight = Array[float]([100.0])
+target = NodePath("../NukeReactor")
+ai_paths = [NodePath("../AIPath Air/Path2D"), NodePath("../AIPath Air/Path2D2")]
+
+[node name="EnemySpawner3" parent="." node_paths=PackedStringArray("target", "ai_paths") instance=ExtResource("5_qct7m")]
+position = Vector2(1428, 58)
+enemy_to_spawn = Array[PackedScene]([ExtResource("7_bkk6g"), ExtResource("8_swar0")])
+spawn_weight = Array[float]([50.0, 50.0])
+target = NodePath("../NukeReactor")
+ai_paths = [NodePath("../AIPath Air/Path2D"), NodePath("../AIPath Air/Path2D2")]
+
+[node name="EnemySpawner4" parent="." node_paths=PackedStringArray("target", "ai_paths") instance=ExtResource("5_qct7m")]
+position = Vector2(1839, 66)
+enemy_to_spawn = Array[PackedScene]([ExtResource("7_bkk6g"), ExtResource("8_swar0")])
+spawn_weight = Array[float]([70.0, 30.0])
+target = NodePath("../NukeReactor")
+ai_paths = [NodePath("../AIPath Air/Path2D"), NodePath("../AIPath Air/Path2D2")]
+
+[node name="AIPath Ground" type="Node" parent="."]
+
+[node name="Path2D" type="Path2D" parent="AIPath Ground"]
+curve = SubResource("Curve2D_gn704")
+
+[node name="AIPath Air" type="Node" parent="."]
+
+[node name="Path2D" type="Path2D" parent="AIPath Air"]
+curve = SubResource("Curve2D_if2dp")
+
+[node name="Path2D2" type="Path2D" parent="AIPath Air"]
+curve = SubResource("Curve2D_yowre")
+
+[node name="NukeReactor" parent="." instance=ExtResource("9_kgxww")]
+position = Vector2(106, 1078)

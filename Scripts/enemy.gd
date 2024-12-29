@@ -5,6 +5,8 @@ class_name Enemy
 @export var attack_distance = 500
 @export var scraps_given = 1
 
+@export var animation_player : AnimationPlayer
+
 @export var bullet_scene: PackedScene
 
 @onready var idle_timer = $IdleTime
@@ -21,6 +23,7 @@ var new_waypoint : Vector2
 var ai_paths : Array[Path2D] = []
 
 func _ready():
+	animation_player.play("move")
 	can_fire = true
 	can_move = true
 
@@ -55,6 +58,7 @@ func _set_new_target_position():
 	var choice_rng = randi_range(0,1)
 	if(choice_rng == 0):
 		new_waypoint = reactor_position
+		animation_player.play("move_attack")
 		can_fire = true
 	else:
 		var rng = RandomNumberGenerator.new()
@@ -64,6 +68,7 @@ func _set_new_target_position():
 		var rang2 = rng.randi_range(0, max_random_point)
 		var new_target_position = ai_paths[rang].curve.get_point_position(rang2)
 		new_waypoint = new_target_position
+		animation_player.play("move")
 	return new_waypoint
 
 func _set_reactor_position(target_pos: Vector2):

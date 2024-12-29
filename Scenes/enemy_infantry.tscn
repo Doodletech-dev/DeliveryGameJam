@@ -1,48 +1,87 @@
-[gd_scene load_steps=8 format=3 uid="uid://cvaajdbmn24id"]
+[gd_scene load_steps=15 format=3 uid="uid://bdyo18342wno4"]
 
-[ext_resource type="PackedScene" uid="uid://d20d0fgvllb27" path="res://Scenes/Components/character_hitbox.tscn" id="1_6mvn5"]
-[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_jynr0"]
-[ext_resource type="Texture2D" uid="uid://cuwf6l00vl5d2" path="res://Assets/Enemies/Square.png" id="1_yuin3"]
-[ext_resource type="PackedScene" uid="uid://coltcnpgcv86x" path="res://Scenes/bullet_enemy.tscn" id="2_ibvh2"]
-[ext_resource type="PackedScene" uid="uid://hl2i4fr237v2" path="res://Scenes/Effects/MissileExplosion.tscn" id="6_gouhx"]
+[ext_resource type="PackedScene" uid="uid://cvaajdbmn24id" path="res://Scenes/enemy.tscn" id="1_3t01f"]
+[ext_resource type="Texture2D" uid="uid://dbg0btl1y4u2p" path="res://Assets/Enemies/infantry/sprite_0.png" id="3_idyb1"]
+[ext_resource type="Texture2D" uid="uid://di125ww3yuiof" path="res://Assets/Enemies/infantry/sprite_1.png" id="6_l5ed7"]
+[ext_resource type="Texture2D" uid="uid://c171rqvsx4wld" path="res://Assets/Enemies/infantry/sprite_2.png" id="7_0i5cb"]
+[ext_resource type="Texture2D" uid="uid://nspobiijb0ot" path="res://Assets/Enemies/infantry/sprite_3.png" id="8_aqxns"]
+[ext_resource type="Texture2D" uid="uid://cy28n6lny80r1" path="res://Assets/Enemies/infantry/outline/sprite_0.png" id="9_td3ye"]
+[ext_resource type="Texture2D" uid="uid://bro6yb85ped77" path="res://Assets/Enemies/infantry/outline/sprite_1.png" id="10_qq4sx"]
+[ext_resource type="Texture2D" uid="uid://dqx84acoso0ia" path="res://Assets/Enemies/infantry/outline/sprite_2.png" id="11_4imfc"]
+[ext_resource type="Texture2D" uid="uid://dd61fk3c02ocp" path="res://Assets/Enemies/infantry/outline/sprite_3.png" id="12_iiynb"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lhuww"]
-size = Vector2(29, 58)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c3txn"]
+radius = 7.0
+height = 16.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lwpjj"]
-size = Vector2(45.25, 71.5)
+[sub_resource type="Animation" id="Animation_a28cu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_idyb1")]
+}
 
-[node name="EnemyInfantry" type="CharacterBody2D"]
-collision_layer = 0
-collision_mask = 0
-script = ExtResource("1_jynr0")
-move_speed = 300
-attack_distance = 600
-bullet_scene = ExtResource("2_ibvh2")
+[sub_resource type="Animation" id="Animation_dsubs"]
+resource_name = "move"
+length = 0.500003
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_idyb1"), ExtResource("6_l5ed7"), ExtResource("7_0i5cb"), ExtResource("8_aqxns")]
+}
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 0, 0, 1)
-scale = Vector2(0.15, 0.15)
-texture = ExtResource("1_yuin3")
+[sub_resource type="Animation" id="Animation_t45uq"]
+resource_name = "move_attack"
+length = 0.500003
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("9_td3ye"), ExtResource("10_qq4sx"), ExtResource("11_4imfc"), ExtResource("12_iiynb")]
+}
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_lhuww")
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sqtl7"]
+_data = {
+"RESET": SubResource("Animation_a28cu"),
+"move": SubResource("Animation_dsubs"),
+"move_attack": SubResource("Animation_t45uq")
+}
 
-[node name="CharacterHitbox" parent="." instance=ExtResource("1_6mvn5")]
-collision_layer = 0
-collision_mask = 512
-death_effect = ExtResource("6_gouhx")
-max_health = 2
+[node name="EnemyInfantry" node_paths=PackedStringArray("animation_player") instance=ExtResource("1_3t01f")]
+position = Vector2(2, 2)
+scale = Vector2(3, 3)
+animation_player = NodePath("AnimationPlayer")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterHitbox"]
-shape = SubResource("RectangleShape2D_lwpjj")
-debug_color = Color(0.354937, 0.963542, 0.0577121, 0.42)
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("3_idyb1")
 
-[node name="IdleTime" type="Timer" parent="."]
-wait_time = 1.2
-one_shot = true
+[node name="CollisionShape2D" parent="CharacterHitbox" index="0"]
+shape = SubResource("CapsuleShape2D_c3txn")
 
-[node name="MissileExplosion" parent="." instance=ExtResource("6_gouhx")]
-
-[connection signal="body_entered" from="CharacterHitbox" to="CharacterHitbox" method="_on_body_entered"]
-[connection signal="timeout" from="IdleTime" to="." method="_on_idle_time_timeout"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
+libraries = {
+"": SubResource("AnimationLibrary_sqtl7")
+}
