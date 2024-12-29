@@ -1,11 +1,35 @@
-[gd_scene load_steps=9 format=3 uid="uid://bjt3ffrrgrm6e"]
+[gd_scene load_steps=14 format=3 uid="uid://bjt3ffrrgrm6e"]
 
-[ext_resource type="Script" path="res://Scripts/laser_turret.gd" id="1_kyujw"]
+[ext_resource type="Script" path="res://Scripts/turret.gd" id="1_unrih"]
 [ext_resource type="PackedScene" uid="uid://fxy8wdu3ucyv" path="res://Scenes/Prefabs/bullet.tscn" id="2_ysxpq"]
 [ext_resource type="Texture2D" uid="uid://lixwf2cb5ytv" path="res://Assets/Turret/sprite_3.png" id="3_haqka"]
 [ext_resource type="Texture2D" uid="uid://uddqx4sn2i7n" path="res://Assets/Turret/sprite_0.png" id="4_qs4kb"]
 [ext_resource type="Texture2D" uid="uid://5ynq8wqnjjc1" path="res://Assets/Turret/sprite_1.png" id="5_b3mue"]
 [ext_resource type="Texture2D" uid="uid://br1n4aup85qjh" path="res://Assets/Turret/sprite_2.png" id="6_6w3i2"]
+[ext_resource type="Texture2D" uid="uid://bhcvspdmb5h32" path="res://Assets/LaserTurret/Outline/sprite_3.png" id="6_w13bw"]
+[ext_resource type="Texture2D" uid="uid://cvtpkjabrenqh" path="res://Assets/LaserTurret/Outline/sprite_0.png" id="7_bgdoo"]
+[ext_resource type="Texture2D" uid="uid://b18prl56qn8rd" path="res://Assets/LaserTurret/Outline/sprite_1.png" id="8_05k4i"]
+[ext_resource type="Texture2D" uid="uid://cryvmkjs0klwp" path="res://Assets/LaserTurret/Outline/sprite_2.png" id="9_hfjjc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wwpad"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_w13bw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_bgdoo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_05k4i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_hfjjc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_eqq3m"]
 animations = [{
@@ -28,23 +52,30 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ym0lk"]
-size = Vector2(170, 160)
+size = Vector2(34, 31)
 
 [node name="Turret" type="Area2D"]
-script = ExtResource("1_kyujw")
+scale = Vector2(5, 5)
+script = ExtResource("1_unrih")
 bullet = ExtResource("2_ysxpq")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(5, 5)
+[node name="Outline" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(-3, -16)
+sprite_frames = SubResource("SpriteFrames_wwpad")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_eqq3m")
 frame = 3
 frame_progress = 0.378288
 
-[node name="Node2D" type="Node2D" parent="AnimatedSprite2D"]
-position = Vector2(18.4, -15.6)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 5)
+position = Vector2(-3, 0.5)
 shape = SubResource("RectangleShape2D_ym0lk")
 
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(17, -15)
+
 [connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

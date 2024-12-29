@@ -4,7 +4,6 @@
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_jynr0"]
 [ext_resource type="Texture2D" uid="uid://cuwf6l00vl5d2" path="res://Assets/Enemies/Square.png" id="1_yuin3"]
 [ext_resource type="PackedScene" uid="uid://coltcnpgcv86x" path="res://Scenes/bullet_enemy.tscn" id="2_ibvh2"]
-[ext_resource type="Script" path="res://Scripts/character_hitbox.gd" id="3_txfkc"]
 [ext_resource type="PackedScene" uid="uid://hl2i4fr237v2" path="res://Scenes/Effects/MissileExplosion.tscn" id="6_gouhx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lhuww"]
@@ -32,7 +31,6 @@ shape = SubResource("RectangleShape2D_lhuww")
 [node name="CharacterHitbox" parent="." instance=ExtResource("1_6mvn5")]
 collision_layer = 0
 collision_mask = 512
-script = ExtResource("3_txfkc")
 death_effect = ExtResource("6_gouhx")
 max_health = 2
 
@@ -43,6 +41,7 @@ debug_color = Color(0.354937, 0.963542, 0.0577121, 0.42)
 [node name="IdleTime" type="Timer" parent="."]
 wait_time = 1.2
 one_shot = true
+
 [node name="MissileExplosion" parent="." instance=ExtResource("6_gouhx")]
 
 [connection signal="body_entered" from="CharacterHitbox" to="CharacterHitbox" method="_on_body_entered"]

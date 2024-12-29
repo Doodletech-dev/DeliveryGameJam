@@ -66,14 +66,11 @@ turbulence_noise_strength = 0.1
 turbulence_noise_scale = 0.1
 
 [node name="MissileTail" type="Node2D"]
-z_index = -2
-z_as_relative = false
 rotation = -0.462512
 script = ExtResource("1_40obo")
 
 [node name="SmokeTrail(ParticleGen)" type="GPUParticles2D" parent="."]
 show_behind_parent = true
-z_index = -1
 position = Vector2(-28, 0)
 amount = 300
 process_material = SubResource("ParticleProcessMaterial_hh3l7")

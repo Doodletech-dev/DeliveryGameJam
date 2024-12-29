@@ -1,8 +1,9 @@
-extends Area2D
+extends Turret
 
 signal turret_selected
 
 @export var missile: PackedScene
+@onready var outline: AnimatedSprite2D = %Outline
 
 
 var selected: bool = false
@@ -16,6 +17,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if(selected):
+		outline.visible = true
 		shoot()
 		
 func shoot():
@@ -32,3 +34,15 @@ func shoot():
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if(event.is_action_pressed("Select")):
 		turret_selected.emit(self)
+
+func clear_selection():
+	selected = false
+	outline.visible = false
+
+func _on_mouse_entered() -> void:
+	outline.visible = true
+
+
+func _on_mouse_exited() -> void:
+	if(!selected):
+		outline.visible = false

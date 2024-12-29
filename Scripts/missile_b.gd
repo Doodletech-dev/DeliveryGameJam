@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Missile
 @onready var effect_location: Node2D = $Effect_Location
 
-@export var speed = 1000.0
+@export var speed = 800.0
 @export var damage = 5
 @export var trail_effect: PackedScene
 
@@ -53,5 +53,5 @@ func _notification(what: int) -> void:
 			on_predelete()
 
 func on_predelete() -> void:
-	if(!effect_instance.is_queued_for_deletion()):
+	if(is_instance_valid(effect_instance)):
 		effect_instance.destroy()

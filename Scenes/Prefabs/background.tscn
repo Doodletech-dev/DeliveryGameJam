@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5lbuhwk5nj4k"]
+
+[ext_resource type="Texture2D" uid="uid://cgbn54waesn2g" path="res://Assets/Background/sprite_0.png" id="1_qp0o7"]
+[ext_resource type="Texture2D" uid="uid://0eg52m7epx7a" path="res://Assets/Background/sprite_1.png" id="2_f4rq2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s8cvf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_qp0o7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_f4rq2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="Background" type="Node2D"]
+z_index = -1000
+z_as_relative = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(960, 540)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_s8cvf")
+autoplay = "default"
