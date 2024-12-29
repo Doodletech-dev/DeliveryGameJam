@@ -1,4 +1,5 @@
 extends Node2D
+class_name Enemy_Spawner
 
 @export var enemy_to_spawn : Array[PackedScene] = []
 @export var spawn_weight : Array[float] = []
@@ -14,8 +15,10 @@ extends Node2D
 
 var spawn_weightf
 var target_position
+var can_spawn
 
 func _ready():
+	can_spawn = true
 	if(enemy_to_spawn.size() != spawn_weight.size()):
 		printerr("Enemy to spawn and spawn weights are not equal. Please check that each spawned enemy has a weight assigned")
 	
@@ -27,6 +30,8 @@ func _begin_spawn_timer():
 	spawn_timer.start()
 
 func _on_spawn_timer_timeout():
+	if(!can_spawn):
+		return
 	var rng = RandomNumberGenerator.new()
 	var rang = rng.randf_range(0, 1.0)
 	var sum_of_weight = 0
@@ -46,3 +51,6 @@ func _on_spawn_timer_timeout():
 		rang -= spawn_weightf
 	spawn_weightf = 0
 	_begin_spawn_timer()
+func _end_spawn():
+	print("No More Spawn")
+	can_spawn = false

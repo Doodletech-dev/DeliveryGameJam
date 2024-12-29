@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c8hjkxt1gudmi"]
+[gd_scene load_steps=16 format=3 uid="uid://c8hjkxt1gudmi"]
 
 [ext_resource type="PackedScene" uid="uid://d01xdcl83e80i" path="res://Scenes/Prefabs/walker.tscn" id="1_cmh8w"]
 [ext_resource type="PackedScene" uid="uid://bjt3ffrrgrm6e" path="res://Scenes/Prefabs/turret.tscn" id="2_ne1bu"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bdyo18342wno4" path="res://Scenes/enemy_infantry.tscn" id="9_3gfhd"]
 [ext_resource type="PackedScene" uid="uid://s4juae0ia88j" path="res://Scenes/enemy_plane_bomber.tscn" id="10_omssg"]
 [ext_resource type="PackedScene" uid="uid://b4i3ju0meaac1" path="res://Scenes/enemy_plane_fast.tscn" id="11_xfruy"]
+[ext_resource type="PackedScene" uid="uid://iwdca27w1gbk" path="res://Scenes/Components/scene_controller.tscn" id="12_r2fv0"]
 
 [sub_resource type="Curve2D" id="Curve2D_1xir1"]
 _data = {
@@ -102,3 +103,6 @@ curve = SubResource("Curve2D_icj03")
 
 [node name="Path2D2" type="Path2D" parent="AIPath"]
 curve = SubResource("Curve2D_phcmu")
+
+[node name="SceneController" parent="." node_paths=PackedStringArray("enemy_spawners") instance=ExtResource("12_r2fv0")]
+enemy_spawners = [NodePath("../EnemySpawners/EnemySpawner"), NodePath("../EnemySpawners/EnemySpawner2"), NodePath("../EnemySpawners/EnemySpawner3"), NodePath("../EnemySpawners/EnemySpawner4")]
