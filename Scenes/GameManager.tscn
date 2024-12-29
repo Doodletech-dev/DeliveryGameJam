@@ -7,4 +7,5 @@ script = ExtResource("1_d7uhx")
 
 [connection signal="game_over" from="." to="." method="_on_game_over"]
 [connection signal="stop_enemy_spawners" from="." to="." method="_on_stop_enemy_spawners"]
+[connection signal="update_enemy_count" from="." to="." method="_on_update_enemy_count"]
 [connection signal="update_scraps" from="." to="." method="_on_update_scraps"]

@@ -40,6 +40,7 @@ func _on_spawn_timer_timeout():
 		sum_of_weight += spawn_weightf
 	for i in enemy_to_spawn.size():
 		if(rang < spawn_weightf):
+			GameManager.update_enemy_count.emit(1)
 			var enemy_spawned = enemy_to_spawn[i].instantiate()
 			enemy_spawned._get_ai_paths(ai_paths)
 			enemy_spawned._set_reactor_position(target_position)
@@ -52,5 +53,5 @@ func _on_spawn_timer_timeout():
 	spawn_weightf = 0
 	_begin_spawn_timer()
 func _end_spawn():
-	print("No More Spawn")
+	spawn_timer.stop()
 	can_spawn = false

@@ -34,13 +34,11 @@ func _physics_process(delta):
 		if(global_position.distance_to(reactor_position) <= attack_distance && target_location == reactor_position && can_fire):
 			can_fire = false
 			move_direction = Vector2.ZERO
-			print("Start idle timer")
 			idle_timer.start()
 			_fire()
 		else: if(global_position.distance_to(target_location) <= 10):
 			look_at(target_location)
 			move_direction = Vector2.ZERO
-			print("Start idle timer")
 			idle_timer.start()
 			can_move = false
 			
@@ -79,9 +77,9 @@ func _get_ai_paths(paths : Array [Path2D]):
 	ai_paths = paths
 
 func _on_idle_time_timeout():
-	print("set new target position")
 	target_location = _set_new_target_position()
 	can_move = true
 func _death():
 	GameManager.update_scraps.emit(scraps_given)
+	GameManager.update_enemy_count.emit(-1)
 	
