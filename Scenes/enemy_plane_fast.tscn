@@ -72,12 +72,13 @@ _data = {
 [node name="EnemyPlaneDrone" node_paths=PackedStringArray("animation_player") instance=ExtResource("1_lt3c2")]
 scale = Vector2(2, 2)
 move_speed = 500
-attack_distance = 300
+attack_distance = 500
 scraps_given = 2
 animation_player = NodePath("AnimationPlayer")
 bullet_scene = ExtResource("2_b8txg")
 
 [node name="Sprite2D" parent="." index="0"]
+z_index = 1
 texture = ExtResource("3_lv6w3")
 
 [node name="CollisionShape2D" parent="." index="1"]

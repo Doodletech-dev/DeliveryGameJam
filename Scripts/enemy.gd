@@ -10,6 +10,7 @@ class_name Enemy
 @export var damage_types := DamageTypes.type.bullet
 
 @onready var idle_timer = $IdleTime
+@onready var sprite = $Sprite2D
 
 var target_location
 var move_direction
@@ -28,6 +29,7 @@ func _ready():
 	can_move = true
 
 func _physics_process(delta):
+	sprite.rotation = -get_parent().rotation
 	if(can_move && target_location):
 		move_direction = target_location - global_position
 		move_direction = move_direction.normalized()
@@ -37,7 +39,7 @@ func _physics_process(delta):
 			idle_timer.start()
 			_fire()
 		else: if(global_position.distance_to(target_location) <= 10):
-			look_at(target_location)
+			#look_at(target_location)
 			move_direction = Vector2.ZERO
 			idle_timer.start()
 			can_move = false
@@ -47,10 +49,12 @@ func _physics_process(delta):
 
 func _fire():
 	can_move = false
-	look_at(reactor_position)
+	var fire_direction = reactor_position - global_position
+	fire_direction.normalized()
 	var bullet = bullet_scene.instantiate()
 	get_parent().add_child(bullet)
 	bullet.global_transform = global_transform
+	bullet._set_fire_direction(fire_direction)
 
 func _set_new_target_position():
 	var choice_rng = randi_range(0,1)
@@ -59,6 +63,7 @@ func _set_new_target_position():
 		animation_player.play("move_attack")
 		can_fire = true
 	else:
+		can_fire = false
 		var rng = RandomNumberGenerator.new()
 		var max_rang = ai_paths.size() - 1
 		var rang = rng.randi_range(0, max_rang)
