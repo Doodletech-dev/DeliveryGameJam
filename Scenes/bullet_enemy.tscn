@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://coltcnpgcv86x"]
 
-[ext_resource type="PackedScene" uid="uid://fxy8wdu3ucyv" path="res://Scenes/bullet.tscn" id="1_rt6yn"]
+[ext_resource type="PackedScene" uid="uid://fxy8wdu3ucyv" path="res://Scenes/Prefabs/bullet.tscn" id="1_rt6yn"]
 
 [node name="BulletEnemy" instance=ExtResource("1_rt6yn")]
 collision_layer = 1024
