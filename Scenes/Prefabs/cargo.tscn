@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvyl70tuqu5xy"]
+
+[ext_resource type="Texture2D" uid="uid://cqn636w3c7pv8" path="res://Assets/Base/cargo.png" id="1_s1gpr"]
+[ext_resource type="Script" path="res://Scripts/cargo.gd" id="1_uy7er"]
+
+[node name="Cargo" type="Node2D"]
+script = ExtResource("1_uy7er")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(5, 5)
+texture = ExtResource("1_s1gpr")

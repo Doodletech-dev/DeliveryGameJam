@@ -1,0 +1,90 @@
+[gd_scene load_steps=12 format=3 uid="uid://s4juae0ia88j"]
+
+[ext_resource type="PackedScene" uid="uid://cvaajdbmn24id" path="res://Scenes/enemy.tscn" id="1_v5ve7"]
+[ext_resource type="PackedScene" uid="uid://crppycgwa5q8d" path="res://Scenes/missile_enemy.tscn" id="2_klfb1"]
+[ext_resource type="Texture2D" uid="uid://dwext0kb2i11p" path="res://Assets/Enemies/drone/sprite_0.png" id="3_ribye"]
+[ext_resource type="Texture2D" uid="uid://d2q6dlc8twyup" path="res://Assets/Enemies/drone/sprite_1.png" id="4_ytbf7"]
+[ext_resource type="Texture2D" uid="uid://c6euw68q1nieb" path="res://Assets/Enemies/drone/outline/sprite_0.png" id="5_hxbj3"]
+[ext_resource type="Texture2D" uid="uid://cog6opytdvne0" path="res://Assets/Enemies/drone/outline/sprite_1.png" id="6_h6kow"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3rgc2"]
+radius = 14.0
+height = 62.0
+
+[sub_resource type="Animation" id="Animation_8ds3l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_ribye")]
+}
+
+[sub_resource type="Animation" id="Animation_cobn1"]
+resource_name = "move"
+length = 0.500003
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_ribye"), ExtResource("4_ytbf7"), ExtResource("3_ribye"), ExtResource("4_ytbf7")]
+}
+
+[sub_resource type="Animation" id="Animation_w0o0r"]
+resource_name = "move_attack"
+length = 0.500003
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("5_hxbj3"), ExtResource("6_h6kow"), ExtResource("5_hxbj3"), ExtResource("6_h6kow")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_elbwn"]
+_data = {
+"RESET": SubResource("Animation_8ds3l"),
+"move": SubResource("Animation_cobn1"),
+"move_attack": SubResource("Animation_w0o0r")
+}
+
+[node name="EnemyPlaneBomber" node_paths=PackedStringArray("animation_player") instance=ExtResource("1_v5ve7")]
+scale = Vector2(2, 2)
+move_speed = 200
+attack_distance = 100
+scraps_given = 5
+animation_player = NodePath("AnimationPlayer")
+bullet_scene = ExtResource("2_klfb1")
+
+[node name="Sprite2D" parent="." index="0"]
+modulate = Color(0.8125, 0, 1, 1)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_ribye")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CapsuleShape2D_3rgc2")
+
+[node name="CharacterHitbox" parent="." index="2"]
+max_health = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
+libraries = {
+"": SubResource("AnimationLibrary_elbwn")
+}

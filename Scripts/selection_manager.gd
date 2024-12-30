@@ -11,6 +11,6 @@ func _ready():
 
 func _on_turret_selected(turret):
 	if selected_turret and turret != selected_turret:
-		selected_turret.selected = false;
+		selected_turret.clear_selection()
 	selected_turret = turret
 	selected_turret.selected = true;

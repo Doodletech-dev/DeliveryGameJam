@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dt7qixvlcpmfw"]
+
+[ext_resource type="Script" path="res://Scripts/laser_beam.gd" id="1_4h364"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_11af3"]
+size = Vector2(20, 20)
+
+[node name="LaserBeam" type="Node2D"]
+script = ExtResource("1_4h364")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(1095, 1.42109e-14)
+scale = Vector2(109.5, 1)
+mesh = SubResource("QuadMesh_11af3")

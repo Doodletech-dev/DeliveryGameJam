@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctbxga7505yvm"]
+
+[ext_resource type="Texture2D" uid="uid://cqn636w3c7pv8" path="res://Assets/Base/cargo.png" id="1_nuf84"]
+[ext_resource type="PackedScene" uid="uid://d20d0fgvllb27" path="res://Scenes/Components/character_hitbox.tscn" id="2_vdjws"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gs2nb"]
+size = Vector2(210.261, 119)
+
+[node name="CargoNuke" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("1_nuf84")
+
+[node name="CharacterHitbox" parent="." instance=ExtResource("2_vdjws")]
+collision_layer = 1025
+collision_mask = 1024
+max_health = 100
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterHitbox"]
+position = Vector2(-10.411, 23.3503)
+rotation = 0.536449
+shape = SubResource("RectangleShape2D_gs2nb")
+
+[connection signal="body_entered" from="CharacterHitbox" to="CharacterHitbox" method="_on_body_entered"]

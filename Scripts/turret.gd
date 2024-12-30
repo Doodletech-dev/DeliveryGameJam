@@ -1,20 +1,22 @@
-extends Area2D
+extends Turret
 
 signal turret_selected
 
 @export var bullet: PackedScene
 
-@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var sprite: AnimatedSprite2D = $Sprite
+@onready var outline: AnimatedSprite2D = $Outline
 
 
 var selected: bool = false
 var can_shoot: bool = true
-var bullet_spawn_locations = [Vector2(100,38),Vector2(-130,38),Vector2(-123,-78),Vector2(77,-78)]
+var bullet_spawn_locations = [Vector2(100,38),Vector2(-130,38),Vector2(-123,-78),Vector2(123,-78)]
 var current_spawn_location: Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	animated_sprite.set_frame(6)
+	sprite.frame = 6
+	outline.frame = 3
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -26,19 +28,22 @@ func _physics_process(delta: float) -> void:
 		# Determine which quadrant the angle falls into and set the animation frame
 		if(angle < 90):
 			current_spawn_location = bullet_spawn_locations[0]
-			animated_sprite.frame = 0
+			sprite.frame = 0
+			outline.frame = 0
 		elif(angle < 180):
 			current_spawn_location = bullet_spawn_locations[1]
-			animated_sprite.frame = 1
+			sprite.frame = 1
+			outline.frame = 1
 		elif(angle < 270):
 			current_spawn_location = bullet_spawn_locations[2]
-			animated_sprite.frame = 2
+			sprite.frame = 2
+			outline.frame = 2
 		else:
 			current_spawn_location = bullet_spawn_locations[3]
-			animated_sprite.frame = 3
+			sprite.frame = 3
+			outline.frame = 3
 		shoot()
-	else:
-		animated_sprite.frame = 3
+
 		
 func shoot():
 	if(Input.is_action_pressed("Shoot") and can_shoot):
@@ -54,3 +59,18 @@ func shoot():
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if(event.is_action_pressed("Select")):
 		turret_selected.emit(self)
+		
+func clear_selection():
+	selected = false
+	sprite.frame = 3
+	outline.frame = 3
+	outline.visible = false
+
+
+func _on_mouse_entered() -> void:
+	outline.visible = true
+
+
+func _on_mouse_exited() -> void:
+	if(!selected):
+		outline.visible = false

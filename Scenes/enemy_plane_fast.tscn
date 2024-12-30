@@ -1,13 +1,96 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4i3ju0meaac1"]
+[gd_scene load_steps=13 format=3 uid="uid://b4i3ju0meaac1"]
 
-[ext_resource type="PackedScene" uid="uid://cvaajdbmn24id" path="res://Scenes/enemy_infantry.tscn" id="1_lt3c2"]
-[ext_resource type="Texture2D" uid="uid://dyey7io5bachk" path="res://Assets/Enemies/Triangle.png" id="2_5naw6"]
+[ext_resource type="PackedScene" uid="uid://cvaajdbmn24id" path="res://Scenes/enemy.tscn" id="1_lt3c2"]
+[ext_resource type="PackedScene" uid="uid://ctuhxde0buw1g" path="res://Scenes/laser_enemy.tscn" id="2_b8txg"]
+[ext_resource type="Texture2D" uid="uid://dwext0kb2i11p" path="res://Assets/Enemies/drone/sprite_0.png" id="3_lv6w3"]
+[ext_resource type="Texture2D" uid="uid://d2q6dlc8twyup" path="res://Assets/Enemies/drone/sprite_1.png" id="4_hvt41"]
+[ext_resource type="Texture2D" uid="uid://c6euw68q1nieb" path="res://Assets/Enemies/drone/outline/sprite_0.png" id="5_h6s32"]
+[ext_resource type="Texture2D" uid="uid://cog6opytdvne0" path="res://Assets/Enemies/drone/outline/sprite_1.png" id="6_d3cug"]
 
-[node name="EnemyInfantry" instance=ExtResource("1_lt3c2")]
-collision_layer = 0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8ikya"]
+radius = 8.0
+height = 38.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qd5b1"]
+radius = 9.0
+height = 40.0
+
+[sub_resource type="Animation" id="Animation_8ds3l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_lv6w3")]
+}
+
+[sub_resource type="Animation" id="Animation_cobn1"]
+resource_name = "move"
+length = 0.500003
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_lv6w3"), ExtResource("4_hvt41"), ExtResource("3_lv6w3"), ExtResource("4_hvt41")]
+}
+
+[sub_resource type="Animation" id="Animation_w0o0r"]
+resource_name = "move_attack"
+length = 0.500003
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("5_h6s32"), ExtResource("6_d3cug"), ExtResource("5_h6s32"), ExtResource("6_d3cug")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_elbwn"]
+_data = {
+"RESET": SubResource("Animation_8ds3l"),
+"move": SubResource("Animation_cobn1"),
+"move_attack": SubResource("Animation_w0o0r")
+}
+
+[node name="EnemyPlaneDrone" node_paths=PackedStringArray("animation_player") instance=ExtResource("1_lt3c2")]
+scale = Vector2(2, 2)
+move_speed = 500
+attack_distance = 300
+scraps_given = 2
+animation_player = NodePath("AnimationPlayer")
+bullet_scene = ExtResource("2_b8txg")
 
 [node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("2_5naw6")
+texture = ExtResource("3_lv6w3")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CapsuleShape2D_8ikya")
+disabled = true
 
 [node name="CharacterHitbox" parent="." index="2"]
 max_health = 1
+
+[node name="CollisionShape2D" parent="CharacterHitbox" index="0"]
+shape = SubResource("CapsuleShape2D_qd5b1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
+libraries = {
+"": SubResource("AnimationLibrary_elbwn")
+}

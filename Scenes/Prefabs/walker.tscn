@@ -1,35 +1,39 @@
-[gd_scene load_steps=6 format=3 uid="uid://d01xdcl83e80i"]
+[gd_scene load_steps=7 format=3 uid="uid://d01xdcl83e80i"]
 
-[ext_resource type="Texture2D" uid="uid://d28e11h0nq7p0" path="res://Assets/Walker/sprite_0.png" id="1_xrnrb"]
-[ext_resource type="Texture2D" uid="uid://t5wxbyxxfdt0" path="res://Assets/Walker/sprite_1.png" id="2_51wbx"]
-[ext_resource type="Texture2D" uid="uid://b2xd0k6n36my8" path="res://Assets/Walker/sprite_2.png" id="3_3xf5h"]
-[ext_resource type="Texture2D" uid="uid://dd3651et63pes" path="res://Assets/Walker/sprite_3.png" id="4_0ci6c"]
+[ext_resource type="Texture2D" uid="uid://lli4yh3fpxpa" path="res://Assets/Walker/Outlined/sprite_0.png" id="1_pyksv"]
+[ext_resource type="Texture2D" uid="uid://ca2uo0j75a226" path="res://Assets/Walker/Outlined/sprite_1.png" id="2_2h1pk"]
+[ext_resource type="Texture2D" uid="uid://c0h4nu0io5wt0" path="res://Assets/Walker/Outlined/sprite_2.png" id="3_k1lar"]
+[ext_resource type="Texture2D" uid="uid://dsaxjpmqjetaq" path="res://Assets/Walker/Outlined/sprite_3.png" id="4_cu6jy"]
+[ext_resource type="Script" path="res://Scripts/walker.gd" id="5_y7suq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_l50wp"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_xrnrb")
+"texture": ExtResource("1_pyksv")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_51wbx")
+"texture": ExtResource("2_2h1pk")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_3xf5h")
+"texture": ExtResource("3_k1lar")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_0ci6c")
+"texture": ExtResource("4_cu6jy")
 }],
 "loop": true,
 "name": &"default",
-"speed": 0.0
+"speed": 2.0
 }]
 
 [node name="Walker" type="Node2D"]
-z_index = -5
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(960, 540)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_l50wp")
-frame_progress = 0.038163
+autoplay = "default"
+frame_progress = 0.394784
+script = ExtResource("5_y7suq")
+
+[connection signal="frame_changed" from="AnimatedSprite" to="AnimatedSprite" method="_on_frame_changed"]
