@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://blmnvpu8kayb8"]
+[gd_scene load_steps=8 format=3 uid="uid://blmnvpu8kayb8"]
 
 [ext_resource type="Script" path="res://Scenes/UI/game_overlay_ui.gd" id="1_y0ndp"]
 [ext_resource type="Texture2D" uid="uid://b6y6mptkjoscv" path="res://Assets/UI/Button1.png" id="2_m2fdj"]
@@ -14,6 +14,10 @@ texture = SubResource("GradientTexture2D_awyk4")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tfyhn"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jb5ml"]
+content_margin_left = 10.0
+content_margin_top = 30.0
+
 [node name="GameOverlayUi" type="CanvasLayer"]
 script = ExtResource("1_y0ndp")
 
@@ -24,6 +28,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="HealthBar" type="ProgressBar" parent="Window_Gameplay"]
 layout_mode = 1
@@ -54,7 +59,7 @@ offset_left = 25.0
 offset_top = 75.0
 offset_right = 100.0
 offset_bottom = 100.0
-text = "Scrap : 0"
+text = "Scrap : 1000"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Window_Gameplay"]
 layout_mode = 1
@@ -146,6 +151,22 @@ icon = ExtResource("2_m2fdj")
 icon_alignment = 1
 expand_icon = true
 
+[node name="TextEdit" type="TextEdit" parent="Window_SupplyDrop/GridContainer/Button"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_top = -100.0
+offset_right = 125.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_jb5ml")
+text = "This is placeholder text"
+
 [node name="Button2" type="Button" parent="Window_SupplyDrop/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -206,7 +227,6 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.282353)
 
 [node name="Window_Menu" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 3
 anchor_left = 1.0
