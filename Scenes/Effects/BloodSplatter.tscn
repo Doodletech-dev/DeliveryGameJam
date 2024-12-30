@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnobrd8yhbbi4"]
+
+[ext_resource type="Material" uid="uid://1u4ead3be2wm" path="res://Effects/ProcessMaterials/BloodSplatter_Blood.tres" id="1_ausmv"]
+[ext_resource type="Texture2D" uid="uid://d3mp41ey6n33k" path="res://Effects/Textures/Smoke.png" id="2_akar6"]
+
+[node name="BloodSplatter" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 32
+process_material = ExtResource("1_ausmv")
+texture = ExtResource("2_akar6")
