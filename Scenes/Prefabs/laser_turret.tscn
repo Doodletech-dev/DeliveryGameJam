@@ -1,7 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://dohehyaqflnk8"]
 
 [ext_resource type="Script" path="res://Scripts/laser_turret.gd" id="1_eslmb"]
-[ext_resource type="PackedScene" uid="uid://dt7qixvlcpmfw" path="res://Scenes/Prefabs/laser_beam.tscn" id="2_q1bfc"]
 [ext_resource type="Texture2D" uid="uid://bhcvspdmb5h32" path="res://Assets/LaserTurret/Outline/sprite_3.png" id="3_aavsh"]
 [ext_resource type="Texture2D" uid="uid://0hbrai3iyee8" path="res://Assets/LaserTurret/sprite_3.png" id="3_wv8v5"]
 [ext_resource type="Texture2D" uid="uid://cvtpkjabrenqh" path="res://Assets/LaserTurret/Outline/sprite_0.png" id="4_8rqsc"]
@@ -10,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b18prl56qn8rd" path="res://Assets/LaserTurret/Outline/sprite_1.png" id="5_g5cv8"]
 [ext_resource type="Texture2D" uid="uid://b6o58wc7oxpao" path="res://Assets/LaserTurret/sprite_2.png" id="6_1hord"]
 [ext_resource type="Texture2D" uid="uid://cryvmkjs0klwp" path="res://Assets/LaserTurret/Outline/sprite_2.png" id="6_vygax"]
+[ext_resource type="PackedScene" uid="uid://be8wfp13knxgo" path="res://Scenes/Effects/ParticleBeam.tscn" id="11_16cq7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_expm1"]
 animations = [{
@@ -58,7 +58,7 @@ size = Vector2(34, 31)
 z_as_relative = false
 scale = Vector2(5, 5)
 script = ExtResource("1_eslmb")
-bullet = ExtResource("2_q1bfc")
+bullet = ExtResource("11_16cq7")
 
 [node name="Outline" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -71,6 +71,9 @@ frame_progress = 0.424709
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 16.5)
 shape = SubResource("RectangleShape2D_ym0lk")
+
+[node name="ParticleBeam" parent="." instance=ExtResource("11_16cq7")]
+position = Vector2(25.2, 24.8)
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

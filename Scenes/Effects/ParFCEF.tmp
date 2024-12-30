@@ -1,11 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://be8wfp13knxgo"]
+[gd_scene load_steps=5 format=3 uid="uid://be8wfp13knxgo"]
 
 [ext_resource type="Material" uid="uid://dj8jpxa3bej6m" path="res://Effects/ProcessMaterials/ParticleBeam_Beam.tres" id="1_50u1y"]
-[ext_resource type="Script" path="res://Scripts/particle_beam.gd" id="1_a47x5"]
 [ext_resource type="Material" uid="uid://bha8foio0qykq" path="res://Effects/ProcessMaterials/ParticleBeam_Collector.tres" id="1_ox3kh"]
+[ext_resource type="Script" path="res://Scenes/Effects/beam.gd" id="2_ii1xa"]
+[ext_resource type="Script" path="res://Scenes/Effects/collector.gd" id="2_uqqma"]
 
 [node name="ParticleBeam" type="Node2D"]
-script = ExtResource("1_a47x5")
 
 [node name="Collector" type="GPUParticles2D" parent="."]
 emitting = false
@@ -16,6 +16,7 @@ one_shot = true
 explosiveness = 1.0
 trail_enabled = true
 trail_lifetime = 0.2
+script = ExtResource("2_uqqma")
 
 [node name="Beam" type="GPUParticles2D" parent="."]
 position = Vector2(7, 0)
@@ -26,5 +27,4 @@ one_shot = true
 explosiveness = 1.0
 trail_enabled = true
 trail_lifetime = 1.0
-
-[connection signal="finished" from="Collector" to="." method="_on_collector_finished"]
+script = ExtResource("2_ii1xa")
