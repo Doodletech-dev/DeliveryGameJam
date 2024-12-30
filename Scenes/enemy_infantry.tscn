@@ -73,9 +73,11 @@ _data = {
 [node name="EnemyInfantry" node_paths=PackedStringArray("animation_player") instance=ExtResource("1_3t01f")]
 position = Vector2(2, 2)
 scale = Vector2(3, 3)
+attack_distance = 300
 animation_player = NodePath("AnimationPlayer")
 
 [node name="Sprite2D" parent="." index="0"]
+z_index = 1
 texture = ExtResource("3_idyb1")
 
 [node name="CollisionShape2D" parent="CharacterHitbox" index="0"]

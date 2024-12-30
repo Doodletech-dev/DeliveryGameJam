@@ -30,6 +30,10 @@ window/vsync/vsync_mode=0
 
 enabled=PackedStringArray("res://addons/godot_state_charts/plugin.cfg")
 
+[gui]
+
+theme/custom="res://test/main_theme.tres"
+
 [input]
 
 Shoot={

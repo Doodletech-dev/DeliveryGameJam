@@ -68,13 +68,14 @@ _data = {
 [node name="EnemyPlaneBomber" node_paths=PackedStringArray("animation_player") instance=ExtResource("1_v5ve7")]
 scale = Vector2(2, 2)
 move_speed = 200
-attack_distance = 100
+attack_distance = 150
 scraps_given = 5
 animation_player = NodePath("AnimationPlayer")
 bullet_scene = ExtResource("2_klfb1")
 
 [node name="Sprite2D" parent="." index="0"]
 modulate = Color(0.8125, 0, 1, 1)
+z_index = 1
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_ribye")
 
