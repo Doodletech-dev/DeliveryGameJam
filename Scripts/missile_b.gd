@@ -4,6 +4,8 @@ class_name Missile
 @onready var timer: Timer = $Timer
 @onready var explosion_collision: CollisionShape2D = $Explosion_Collision
 
+@export var damage_types := DamageTypes.type.missile
+
 @export var seconds_alive: float = 2
 @export var max_speed: float = 20
 @export var initial_speed: float = 5

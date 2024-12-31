@@ -2,6 +2,6 @@ class_name DamageTypes
 enum type
 {
 	bullet, 
-	missle, 
+	missile, 
 	laser
 }
