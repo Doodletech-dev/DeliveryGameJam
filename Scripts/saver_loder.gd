@@ -13,6 +13,7 @@ func _save_game(data : Dictionary):
 	
 func _load_game():
 	var file = FileAccess.open("user://savegame.json", FileAccess.READ)
+	if(file == null): return
 	var json = file.get_as_text()
 	
 	var saved_data = JSON.parse_string(json)
