@@ -1,12 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://be8wfp13knxgo"]
+[gd_scene load_steps=6 format=3 uid="uid://be8wfp13knxgo"]
 
 [ext_resource type="Script" path="res://Scripts/particle_beam.gd" id="1_a47x5"]
 [ext_resource type="Material" uid="uid://bha8foio0qykq" path="res://Effects/ProcessMaterials/ParticleBeam_Collector.tres" id="1_ox3kh"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_s2hkd"]
+size = Vector2(0, 5)
+
+[sub_resource type="Gradient" id="Gradient_hg1rm"]
+colors = PackedColorArray(0, 1, 0, 1, 0, 0.701961, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fomm8"]
+gradient = SubResource("Gradient_hg1rm")
 
 [node name="ParticleBeam" type="Node2D"]
 script = ExtResource("1_a47x5")
 
 [node name="Collector" type="GPUParticles2D" parent="."]
+visible = false
 emitting = false
 amount = 50
 process_material = ExtResource("1_ox3kh")
@@ -15,5 +25,10 @@ one_shot = true
 explosiveness = 1.0
 trail_enabled = true
 trail_lifetime = 0.2
+
+[node name="Beam" type="MeshInstance2D" parent="."]
+z_index = -2
+mesh = SubResource("QuadMesh_s2hkd")
+texture = SubResource("GradientTexture1D_fomm8")
 
 [connection signal="finished" from="Collector" to="." method="_on_collector_finished"]
