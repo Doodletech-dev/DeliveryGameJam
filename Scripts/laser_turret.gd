@@ -79,7 +79,6 @@ func spawn_laser_effect(spawn_location: Vector2):
 	var effect_instance = laser_hit_effect.instantiate()
 	get_tree().get_root().add_child(effect_instance)
 	effect_instance.position = spawn_location
-	effect_instance.trigger()
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if(event.is_action_pressed("Select")):
