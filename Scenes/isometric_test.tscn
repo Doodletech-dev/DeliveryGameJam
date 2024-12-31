@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c8hjkxt1gudmi"]
+[gd_scene load_steps=18 format=3 uid="uid://c8hjkxt1gudmi"]
 
 [ext_resource type="PackedScene" uid="uid://d01xdcl83e80i" path="res://Scenes/Prefabs/walker.tscn" id="1_cmh8w"]
 [ext_resource type="PackedScene" uid="uid://bjt3ffrrgrm6e" path="res://Scenes/Prefabs/turret.tscn" id="2_ne1bu"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dohehyaqflnk8" path="res://Scenes/Prefabs/laser_turret.tscn" id="4_uknpp"]
 [ext_resource type="PackedScene" uid="uid://ctbxga7505yvm" path="res://Assets/Base/cargo_nuke.tscn" id="5_schhh"]
 [ext_resource type="PackedScene" uid="uid://b50wc4c4ic3wf" path="res://Scenes/enemy_spawner.tscn" id="8_8ywvu"]
+[ext_resource type="Script" path="res://Scripts/cargo.gd" id="8_wqs2c"]
 [ext_resource type="PackedScene" uid="uid://c5lbuhwk5nj4k" path="res://Scenes/Prefabs/background.tscn" id="9_2qssh"]
 [ext_resource type="PackedScene" uid="uid://bdyo18342wno4" path="res://Scenes/enemy_infantry.tscn" id="9_3gfhd"]
 [ext_resource type="PackedScene" uid="uid://s4juae0ia88j" path="res://Scenes/enemy_plane_bomber.tscn" id="10_omssg"]
@@ -30,6 +31,9 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 147, 99, 0, 0, 0, 0, 958, 217, 0, 0, 0, 0, 253, 924, 0, 0, 0, 0, 942, 979, 0, 0, 0, 0, 1333, 1056, 0, 0, 0, 0, 1806, 506)
 }
 point_count = 6
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ekek6"]
+size = Vector2(20, 1000)
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(-7, 0)
@@ -71,6 +75,7 @@ position = Vector2(100, 881)
 
 [node name="NukeReactor" parent="Walker" instance=ExtResource("5_schhh")]
 position = Vector2(203, 926)
+script = ExtResource("8_wqs2c")
 
 [node name="Turret2" parent="Walker" instance=ExtResource("2_ne1bu")]
 position = Vector2(340, 1000)
@@ -106,3 +111,9 @@ curve = SubResource("Curve2D_phcmu")
 
 [node name="SceneController" parent="." node_paths=PackedStringArray("enemy_spawners") instance=ExtResource("12_r2fv0")]
 enemy_spawners = [NodePath("../EnemySpawners/EnemySpawner"), NodePath("../EnemySpawners/EnemySpawner2"), NodePath("../EnemySpawners/EnemySpawner3"), NodePath("../EnemySpawners/EnemySpawner4")]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1457, 491)
+shape = SubResource("RectangleShape2D_ekek6")
