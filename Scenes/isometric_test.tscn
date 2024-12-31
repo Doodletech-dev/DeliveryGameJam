@@ -31,7 +31,7 @@ _data = {
 }
 point_count = 6
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" groups=["savable"]]
 position = Vector2(-7, 0)
 
 [node name="EnemySpawners" type="Node" parent="."]

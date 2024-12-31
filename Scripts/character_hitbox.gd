@@ -16,8 +16,6 @@ func _on_body_entered(body):
 		if(current_health <= 0):	
 			if(owner is Enemy):
 				owner._death()
-			if(get_parent().name == "NukeReactor"):
-				GameManager.game_over.emit()
 			create_effects()
 			get_parent().queue_free()
 			
