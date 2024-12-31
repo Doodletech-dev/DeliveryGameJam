@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://be8wfp13knxgo"]
+
+[ext_resource type="Material" uid="uid://dj8jpxa3bej6m" path="res://Effects/ProcessMaterials/ParticleBeam_Beam.tres" id="1_50u1y"]
+[ext_resource type="Material" uid="uid://bha8foio0qykq" path="res://Effects/ProcessMaterials/ParticleBeam_Collector.tres" id="1_ox3kh"]
+[ext_resource type="Script" path="res://Scenes/Effects/beam.gd" id="2_ii1xa"]
+[ext_resource type="Script" path="res://Scenes/Effects/collector.gd" id="2_uqqma"]
+
+[node name="ParticleBeam" type="Node2D"]
+
+[node name="Collector" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 50
+process_material = ExtResource("1_ox3kh")
+lifetime = 0.2
+one_shot = true
+explosiveness = 1.0
+trail_enabled = true
+trail_lifetime = 0.2
+script = ExtResource("2_uqqma")
+
+[node name="Beam" type="GPUParticles2D" parent="."]
+position = Vector2(7, 0)
+emitting = false
+amount = 100
+process_material = ExtResource("1_50u1y")
+one_shot = true
+explosiveness = 1.0
+trail_enabled = true
+trail_lifetime = 1.0
+script = ExtResource("2_ii1xa")

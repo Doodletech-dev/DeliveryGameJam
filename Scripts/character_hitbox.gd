@@ -12,7 +12,7 @@ func  _ready():
 func _on_body_entered(body):
 	if(body is Bullet or body is Missile):
 		current_health -= body.damage
-		body.queue_free()
+		body.hit_detected()
 		if(current_health <= 0):	
 			if(owner is Enemy):
 				owner._death()
@@ -24,4 +24,4 @@ func create_effects():
 	effect_instance.global_transform = global_transform
 	get_tree().get_root().add_child(effect_instance)
 	for emitter in effect_instance.get_children():
-				emitter.emitting = true
+		emitter.emitting = true

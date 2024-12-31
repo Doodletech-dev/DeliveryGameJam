@@ -1,0 +1,607 @@
+[gd_scene load_steps=18 format=3 uid="uid://blmnvpu8kayb8"]
+
+[ext_resource type="Script" path="res://Scenes/UI/game_overlay_ui.gd" id="1_y0ndp"]
+[ext_resource type="Texture2D" uid="uid://dnkosxwtpvt4o" path="res://Assets/UI/40_7.png" id="2_glsdp"]
+[ext_resource type="Texture2D" uid="uid://c74doanchijgq" path="res://Assets/UI/HealthIcon.png" id="3_vkba2"]
+[ext_resource type="Texture2D" uid="uid://c5olg6l5tdfci" path="res://Assets/UI/200_7.png" id="4_ot04r"]
+[ext_resource type="Texture2D" uid="uid://t7734swoic70" path="res://Assets/UI/20_5.png" id="5_jd2hu"]
+[ext_resource type="Texture2D" uid="uid://dph3kfwifmwss" path="res://Assets/UI/20_15.png" id="6_wp1ca"]
+[ext_resource type="StyleBox" uid="uid://bc48xv8f81hbs" path="res://Assets/UI/GameOverlayUI.tres" id="7_lcwi7"]
+[ext_resource type="Texture2D" uid="uid://d0yyh3qj7v51q" path="res://Assets/UI/UpgradeIcon.png" id="8_eo6hj"]
+[ext_resource type="Texture2D" uid="uid://bxjr7ocg10hy0" path="res://Assets/UI/50_20_no_grid.png" id="9_87xlk"]
+[ext_resource type="Texture2D" uid="uid://diagxhr1ulu3a" path="res://Assets/UI/MissileUpgradeIcon.png" id="10_laqrd"]
+[ext_resource type="Texture2D" uid="uid://dfwgnsxw7jk5b" path="res://Assets/UI/LaserUpgradeIcon.png" id="11_fxgi4"]
+[ext_resource type="Texture2D" uid="uid://dvkrnspovwaiw" path="res://Assets/UI/TurretUpgradeIcon.png" id="12_wbmf1"]
+[ext_resource type="Texture2D" uid="uid://3nybwgrtjcoc" path="res://Assets/UI/WalkerUpgradeIcon.png" id="13_6cugr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vfnyb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f3t0a"]
+bg_color = Color(0.635613, 0.169289, 9.62615e-08, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u1klq"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wsier"]
+texture = ExtResource("5_jd2hu")
+
+[node name="GameOverlayUi" type="CanvasLayer"]
+script = ExtResource("1_y0ndp")
+
+[node name="Window_Gameplay" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="Window_Gameplay"]
+layout_mode = 1
+offset_left = 95.0
+offset_top = 45.0
+offset_right = 295.0
+offset_bottom = 80.0
+texture = ExtResource("2_glsdp")
+stretch_mode = 2
+
+[node name="HealthBar" type="ProgressBar" parent="Window_Gameplay/TextureRect"]
+show_behind_parent = true
+layout_mode = 1
+offset_right = 200.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/background = SubResource("StyleBoxEmpty_vfnyb")
+theme_override_styles/fill = SubResource("StyleBoxFlat_f3t0a")
+value = 50.0
+show_percentage = false
+
+[node name="TextureRect2" type="TextureRect" parent="Window_Gameplay"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -500.0
+offset_top = 25.0
+offset_right = 500.0
+offset_bottom = 60.0
+grow_horizontal = 2
+texture = ExtResource("4_ot04r")
+
+[node name="ProgressBar" type="ProgressBar" parent="Window_Gameplay/TextureRect2"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -500.0
+offset_right = 500.0
+offset_bottom = 35.0
+grow_horizontal = 2
+theme_override_styles/background = SubResource("StyleBoxEmpty_u1klq")
+value = 42.0
+
+[node name="HealthBarIcon" type="TextureRect" parent="Window_Gameplay"]
+layout_mode = 1
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 100.0
+offset_bottom = 100.0
+texture = ExtResource("3_vkba2")
+
+[node name="Currency" type="Label" parent="Window_Gameplay"]
+layout_mode = 1
+offset_left = 12.5
+offset_top = 105.0
+offset_right = 112.5
+offset_bottom = 130.0
+theme_override_colors/font_color = Color(0.767848, 0.845673, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_wsier")
+text = "Scrap : 100"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Window_Gameplay"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -100.0
+offset_right = 50.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 50
+
+[node name="Button_Upgrades" type="Button" parent="Window_Gameplay/HBoxContainer"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Upgrades"
+icon = ExtResource("6_wp1ca")
+icon_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Window_Gameplay"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -134.0
+offset_top = -79.0
+offset_right = -81.0
+offset_bottom = -48.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Button_Menu" type="Button" parent="Window_Gameplay/HBoxContainer2"]
+layout_mode = 2
+text = "Menu"
+
+[node name="Window_Upgrades" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -515.0
+offset_top = -355.0
+offset_right = 515.0
+offset_bottom = 355.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Window_Upgrades"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.282353)
+
+[node name="GridContainer" type="GridContainer" parent="Window_Upgrades"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 4
+
+[node name="Upgrade1_Button" type="Button" parent="Window_Upgrades/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = ExtResource("7_lcwi7")
+icon = ExtResource("8_eo6hj")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="Window_Upgrades/GridContainer/Upgrade1_Button"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_top = -100.0
+offset_right = 125.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("9_87xlk")
+
+[node name="Label" type="Label" parent="Window_Upgrades/GridContainer/Upgrade1_Button/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -35.0
+offset_right = 110.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Missile Launcher
+Increase damage by 50%"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="Window_Upgrades/GridContainer/Upgrade1_Button"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -125.0
+offset_right = 125.0
+offset_bottom = 250.0
+grow_horizontal = 2
+texture = ExtResource("10_laqrd")
+
+[node name="Upgrade2_Button" type="Button" parent="Window_Upgrades/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = ExtResource("7_lcwi7")
+icon = ExtResource("8_eo6hj")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="Window_Upgrades/GridContainer/Upgrade2_Button"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_top = -100.0
+offset_right = 125.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("9_87xlk")
+
+[node name="Label" type="Label" parent="Window_Upgrades/GridContainer/Upgrade2_Button/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -35.0
+offset_right = 110.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Laser Turret
+Increase recharge rate by 50%"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="Window_Upgrades/GridContainer/Upgrade2_Button"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -125.0
+offset_right = 125.0
+offset_bottom = 250.0
+grow_horizontal = 2
+texture = ExtResource("11_fxgi4")
+
+[node name="Upgrade3_Button" type="Button" parent="Window_Upgrades/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = ExtResource("7_lcwi7")
+icon = ExtResource("8_eo6hj")
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="TextureRect" type="TextureRect" parent="Window_Upgrades/GridContainer/Upgrade3_Button"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_top = -100.0
+offset_right = 125.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("9_87xlk")
+
+[node name="Label" type="Label" parent="Window_Upgrades/GridContainer/Upgrade3_Button/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -35.0
+offset_right = 110.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Gun Turret
+Increase fire rate by 50%"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="Window_Upgrades/GridContainer/Upgrade3_Button"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -125.0
+offset_right = 125.0
+offset_bottom = 250.0
+grow_horizontal = 2
+texture = ExtResource("12_wbmf1")
+
+[node name="Upgrade4_Button" type="Button" parent="Window_Upgrades/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = ExtResource("7_lcwi7")
+icon = ExtResource("8_eo6hj")
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="TextureRect" type="TextureRect" parent="Window_Upgrades/GridContainer/Upgrade4_Button"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_top = -100.0
+offset_right = 125.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("9_87xlk")
+
+[node name="Label" type="Label" parent="Window_Upgrades/GridContainer/Upgrade4_Button/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -35.0
+offset_right = 110.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Walker
+Increase HP by 15%"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="Window_Upgrades/GridContainer/Upgrade4_Button"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+texture = ExtResource("13_6cugr")
+
+[node name="Upgrade5_Button" type="Button" parent="Window_Upgrades/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = ExtResource("7_lcwi7")
+icon = ExtResource("8_eo6hj")
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="TextureRect" type="TextureRect" parent="Window_Upgrades/GridContainer/Upgrade5_Button"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_top = -100.0
+offset_right = 125.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("9_87xlk")
+
+[node name="Label" type="Label" parent="Window_Upgrades/GridContainer/Upgrade5_Button/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -35.0
+offset_right = 110.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "One-Time Use
+Deploy powerful shield"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Upgrade6_Button" type="Button" parent="Window_Upgrades/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = ExtResource("7_lcwi7")
+icon = ExtResource("8_eo6hj")
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="TextureRect" type="TextureRect" parent="Window_Upgrades/GridContainer/Upgrade6_Button"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_top = -100.0
+offset_right = 125.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("9_87xlk")
+
+[node name="Label" type="Label" parent="Window_Upgrades/GridContainer/Upgrade6_Button/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -35.0
+offset_right = 110.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "One-Time Use
+Deploy anti drone mines"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Upgrade7_Button" type="Button" parent="Window_Upgrades/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = ExtResource("7_lcwi7")
+icon = ExtResource("8_eo6hj")
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="TextureRect" type="TextureRect" parent="Window_Upgrades/GridContainer/Upgrade7_Button"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_top = -100.0
+offset_right = 125.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("9_87xlk")
+
+[node name="Label" type="Label" parent="Window_Upgrades/GridContainer/Upgrade7_Button/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -35.0
+offset_right = 110.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "One-Time Use
+Deploy bomber seeking missiles"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Upgrade8_Button" type="Button" parent="Window_Upgrades/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = ExtResource("7_lcwi7")
+icon = ExtResource("8_eo6hj")
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="TextureRect" type="TextureRect" parent="Window_Upgrades/GridContainer/Upgrade8_Button"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_top = -100.0
+offset_right = 125.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("9_87xlk")
+
+[node name="Label" type="Label" parent="Window_Upgrades/GridContainer/Upgrade8_Button/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -35.0
+offset_right = 110.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "One-Time Use
+Deploy high precision bombs"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Window_Menu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -198.0
+offset_top = -198.0
+offset_right = -18.0
+offset_bottom = -97.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="ColorRect" type="ColorRect" parent="Window_Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.282353)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Window_Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button_Menu_Resume" type="Button" parent="Window_Menu/VBoxContainer"]
+layout_mode = 2
+text = "Resume"
+
+[node name="Button_Menu_Options" type="Button" parent="Window_Menu/VBoxContainer"]
+layout_mode = 2
+text = "Options
+"
+
+[node name="Button_Menu_Quit" type="Button" parent="Window_Menu/VBoxContainer"]
+layout_mode = 2
+text = "Quit
+"

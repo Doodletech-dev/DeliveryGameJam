@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3mp41ey6n33k"
-path="res://.godot/imported/Smoke.png-fd23b8c145b96b328f834a26495199d7.ctex"
+uid="uid://d0yyh3qj7v51q"
+path="res://.godot/imported/UpgradeIcon.png-aa105c9876562dd5b4888e09267d0f9f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Effects/Projectiles/Smoke.png"
-dest_files=["res://.godot/imported/Smoke.png-fd23b8c145b96b328f834a26495199d7.ctex"]
+source_file="res://Assets/UI/UpgradeIcon.png"
+dest_files=["res://.godot/imported/UpgradeIcon.png-aa105c9876562dd5b4888e09267d0f9f.ctex"]
 
 [params]
 

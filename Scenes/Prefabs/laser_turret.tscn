@@ -1,8 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://dohehyaqflnk8"]
+[gd_scene load_steps=15 format=3 uid="uid://dohehyaqflnk8"]
 
 [ext_resource type="Script" path="res://Scripts/laser_turret.gd" id="1_eslmb"]
-[ext_resource type="PackedScene" uid="uid://dt7qixvlcpmfw" path="res://Scenes/Prefabs/laser_beam.tscn" id="2_q1bfc"]
 [ext_resource type="Texture2D" uid="uid://bhcvspdmb5h32" path="res://Assets/LaserTurret/Outline/sprite_3.png" id="3_aavsh"]
+[ext_resource type="PackedScene" uid="uid://hl2i4fr237v2" path="res://Scenes/Effects/MissileExplosion.tscn" id="3_budha"]
 [ext_resource type="Texture2D" uid="uid://0hbrai3iyee8" path="res://Assets/LaserTurret/sprite_3.png" id="3_wv8v5"]
 [ext_resource type="Texture2D" uid="uid://cvtpkjabrenqh" path="res://Assets/LaserTurret/Outline/sprite_0.png" id="4_8rqsc"]
 [ext_resource type="Texture2D" uid="uid://d3t5to2ha5qv1" path="res://Assets/LaserTurret/sprite_0.png" id="4_y6jqx"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b18prl56qn8rd" path="res://Assets/LaserTurret/Outline/sprite_1.png" id="5_g5cv8"]
 [ext_resource type="Texture2D" uid="uid://b6o58wc7oxpao" path="res://Assets/LaserTurret/sprite_2.png" id="6_1hord"]
 [ext_resource type="Texture2D" uid="uid://cryvmkjs0klwp" path="res://Assets/LaserTurret/Outline/sprite_2.png" id="6_vygax"]
+[ext_resource type="PackedScene" uid="uid://be8wfp13knxgo" path="res://Scenes/Effects/ParticleBeam.tscn" id="11_16cq7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_expm1"]
 animations = [{
@@ -57,8 +58,10 @@ size = Vector2(34, 31)
 [node name="LaserTurret" type="Area2D"]
 z_as_relative = false
 scale = Vector2(5, 5)
+collision_layer = 512
 script = ExtResource("1_eslmb")
-bullet = ExtResource("2_q1bfc")
+bullet = ExtResource("11_16cq7")
+laser_hit_effect = ExtResource("3_budha")
 
 [node name="Outline" type="AnimatedSprite2D" parent="."]
 visible = false

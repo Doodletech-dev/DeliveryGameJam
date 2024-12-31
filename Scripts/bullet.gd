@@ -18,9 +18,10 @@ func _process(delta: float) -> void:
 		velocity = speed * fire_direciton
 	else:
 		velocity = speed * get_global_transform().basis_xform(Vector2.RIGHT)
-		
 	move_and_slide()
 
+func hit_detected():
+	queue_free()
 
 func _on_visible_on_screen_notifier_screen_exited() -> void:
 	queue_free()

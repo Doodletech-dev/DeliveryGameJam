@@ -93,3 +93,5 @@ max_health = 5
 libraries = {
 "": SubResource("AnimationLibrary_elbwn")
 }
+
+[connection signal="area_entered" from="CharacterHitbox" to="CharacterHitbox" method="_on_area_entered"]
