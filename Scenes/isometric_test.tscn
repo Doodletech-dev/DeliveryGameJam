@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c8hjkxt1gudmi"]
+[gd_scene load_steps=19 format=3 uid="uid://c8hjkxt1gudmi"]
 
 [ext_resource type="PackedScene" uid="uid://d01xdcl83e80i" path="res://Scenes/Prefabs/walker.tscn" id="1_cmh8w"]
 [ext_resource type="PackedScene" uid="uid://bjt3ffrrgrm6e" path="res://Scenes/Prefabs/turret.tscn" id="2_ne1bu"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://c5lbuhwk5nj4k" path="res://Scenes/Prefabs/background.tscn" id="9_2qssh"]
 [ext_resource type="PackedScene" uid="uid://bdyo18342wno4" path="res://Scenes/enemy_infantry.tscn" id="9_3gfhd"]
 [ext_resource type="PackedScene" uid="uid://s4juae0ia88j" path="res://Scenes/enemy_plane_bomber.tscn" id="10_omssg"]
+[ext_resource type="PackedScene" uid="uid://bb0yc0gstyj4j" path="res://Scenes/Effects/BeamHitEffect.tscn" id="11_uvft5"]
 [ext_resource type="PackedScene" uid="uid://b4i3ju0meaac1" path="res://Scenes/enemy_plane_fast.tscn" id="11_xfruy"]
 [ext_resource type="PackedScene" uid="uid://iwdca27w1gbk" path="res://Scenes/Components/scene_controller.tscn" id="12_r2fv0"]
 
@@ -88,9 +89,11 @@ position = Vector2(639, 828)
 
 [node name="LaserTurret" parent="Walker" instance=ExtResource("4_uknpp")]
 position = Vector2(725, 480)
+laser_hit_effect = ExtResource("11_uvft5")
 
 [node name="LaserTurret2" parent="Walker" instance=ExtResource("4_uknpp")]
 position = Vector2(965, 600)
+laser_hit_effect = ExtResource("11_uvft5")
 
 [node name="SelectionManager" type="Node2D" parent="." node_paths=PackedStringArray("turrets")]
 script = ExtResource("3_q800n")
