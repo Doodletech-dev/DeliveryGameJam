@@ -98,12 +98,15 @@ turrets = NodePath("../Walker")
 [node name="AIPath" type="Node" parent="."]
 
 [node name="Path2D" type="Path2D" parent="AIPath"]
+visible = false
 curve = SubResource("Curve2D_1xir1")
 
 [node name="Path2D3" type="Path2D" parent="AIPath"]
+visible = false
 curve = SubResource("Curve2D_icj03")
 
 [node name="Path2D2" type="Path2D" parent="AIPath"]
+visible = false
 curve = SubResource("Curve2D_phcmu")
 
 [node name="SceneController" parent="." node_paths=PackedStringArray("enemy_spawners") instance=ExtResource("12_r2fv0")]
