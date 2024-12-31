@@ -89,15 +89,14 @@ offset_right = 100.0
 offset_bottom = 100.0
 texture = ExtResource("3_vkba2")
 
-[node name="Currency" type="Label" parent="Window_Gameplay"]
+[node name="Scrap" type="Label" parent="Window_Gameplay"]
 layout_mode = 1
-offset_left = 12.5
-offset_top = 105.0
-offset_right = 112.5
-offset_bottom = 130.0
+offset_left = 100.0
+offset_top = 135.0
+offset_right = 200.0
+offset_bottom = 160.0
 theme_override_colors/font_color = Color(0.767848, 0.845673, 1, 1)
 theme_override_styles/normal = SubResource("StyleBoxTexture_wsier")
-text = "Scrap : 100"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Window_Gameplay"]
@@ -130,16 +129,19 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -134.0
-offset_top = -79.0
-offset_right = -81.0
-offset_bottom = -48.0
+offset_left = -155.0
+offset_top = -105.0
+offset_right = -55.0
+offset_bottom = -30.0
 grow_horizontal = 0
 grow_vertical = 0
 
 [node name="Button_Menu" type="Button" parent="Window_Gameplay/HBoxContainer2"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Menu"
+icon = ExtResource("6_wp1ca")
+icon_alignment = 1
 
 [node name="Window_Upgrades" type="Control" parent="."]
 layout_mode = 3
@@ -199,7 +201,7 @@ grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("9_87xlk")
 
-[node name="Label" type="Label" parent="Window_Upgrades/GridContainer/Upgrade1_Button/TextureRect"]
+[node name="upgrade1" type="Label" parent="Window_Upgrades/GridContainer/Upgrade1_Button/TextureRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -213,7 +215,7 @@ offset_bottom = 35.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Missile Launcher
-Increase damage by 50%"
+Increase damage by 25%"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
@@ -229,6 +231,20 @@ offset_right = 125.0
 offset_bottom = 250.0
 grow_horizontal = 2
 texture = ExtResource("10_laqrd")
+
+[node name="Cost" type="Label" parent="Window_Upgrades/GridContainer/Upgrade1_Button"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -57.0
+offset_top = 16.0
+offset_right = -17.0
+offset_bottom = 39.0
+grow_horizontal = 0
+text = "25"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Upgrade2_Button" type="Button" parent="Window_Upgrades/GridContainer"]
 layout_mode = 2
@@ -429,7 +445,7 @@ offset_right = 110.0
 offset_bottom = 35.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "One-Time Use
+text = "Once Per Level
 Deploy powerful shield"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -472,7 +488,7 @@ offset_bottom = 35.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "One-Time Use
-Deploy anti drone mines"
+Repair Walker"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
@@ -569,9 +585,9 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -198.0
-offset_top = -198.0
+offset_top = -230.0
 offset_right = -18.0
-offset_bottom = -97.0
+offset_bottom = -129.0
 grow_horizontal = 0
 grow_vertical = 0
 
@@ -595,6 +611,10 @@ grow_vertical = 2
 [node name="Button_Menu_Resume" type="Button" parent="Window_Menu/VBoxContainer"]
 layout_mode = 2
 text = "Resume"
+
+[node name="Button" type="Button" parent="Window_Menu/VBoxContainer"]
+layout_mode = 2
+text = "Save"
 
 [node name="Button_Menu_Options" type="Button" parent="Window_Menu/VBoxContainer"]
 layout_mode = 2
