@@ -29,7 +29,7 @@ texture = ExtResource("9_td3ye")
 shape = SubResource("CapsuleShape2D_chhw2")
 
 [node name="CharacterHitbox" parent="." instance=ExtResource("1_6mvn5")]
-collision_layer = 0
+collision_layer = 512
 collision_mask = 512
 death_effect = ExtResource("6_gouhx")
 max_health = 2

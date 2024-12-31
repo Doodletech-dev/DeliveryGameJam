@@ -18,7 +18,6 @@ z_as_relative = false
 position = Vector2(223, 686)
 collision_layer = 513
 script = ExtResource("1_bg1xj")
-seconds_alive = 1.0
 trail_effect = ExtResource("2_hb1cy")
 explosion_effect = ExtResource("3_4rolc")
 

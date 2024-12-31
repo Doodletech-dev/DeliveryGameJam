@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c8hjkxt1gudmi"]
+[gd_scene load_steps=17 format=3 uid="uid://c8hjkxt1gudmi"]
 
 [ext_resource type="PackedScene" uid="uid://d01xdcl83e80i" path="res://Scenes/Prefabs/walker.tscn" id="1_cmh8w"]
 [ext_resource type="PackedScene" uid="uid://bjt3ffrrgrm6e" path="res://Scenes/Prefabs/turret.tscn" id="2_ne1bu"]
@@ -31,9 +31,6 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 147, 99, 0, 0, 0, 0, 958, 217, 0, 0, 0, 0, 253, 924, 0, 0, 0, 0, 942, 979, 0, 0, 0, 0, 1333, 1056, 0, 0, 0, 0, 1806, 506)
 }
 point_count = 6
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ekek6"]
-size = Vector2(20, 1000)
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(-7, 0)
@@ -111,9 +108,3 @@ curve = SubResource("Curve2D_phcmu")
 
 [node name="SceneController" parent="." node_paths=PackedStringArray("enemy_spawners") instance=ExtResource("12_r2fv0")]
 enemy_spawners = [NodePath("../EnemySpawners/EnemySpawner"), NodePath("../EnemySpawners/EnemySpawner2"), NodePath("../EnemySpawners/EnemySpawner3"), NodePath("../EnemySpawners/EnemySpawner4")]
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(1457, 491)
-shape = SubResource("RectangleShape2D_ekek6")

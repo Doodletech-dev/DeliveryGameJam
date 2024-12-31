@@ -58,6 +58,7 @@ size = Vector2(34, 31)
 [node name="LaserTurret" type="Area2D"]
 z_as_relative = false
 scale = Vector2(5, 5)
+collision_layer = 512
 script = ExtResource("1_eslmb")
 bullet = ExtResource("11_16cq7")
 laser_hit_effect = ExtResource("3_budha")
