@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name Laser
+
 @onready var collector: GPUParticles2D = $Collector
 @onready var beam: MeshInstance2D = $Beam
 
