@@ -18,6 +18,7 @@ func _ready():
 	current_level = 1
 
 func _on_game_over():
+	_reset_level()
 	get_tree().call_deferred("reload_current_scene")
 
 func _on_update_scraps(amount):
@@ -35,6 +36,9 @@ func _on_update_enemy_count(amount : int):
 	print("Current Enemy Count is " + str(total_enemy_count))
 	if(total_enemy_count <= 0 && can_win_level):
 		print("Level has been won")
+		
+func _reset_level():
+	total_enemy_count = 0
 
 func save_game():
 	var savable_objects = get_tree().get_nodes_in_group("savable")
