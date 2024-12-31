@@ -4,11 +4,13 @@ class_name Missile
 @onready var timer: Timer = $Timer
 @onready var explosion_collision: CollisionShape2D = $Explosion_Collision
 
+@export var seconds_alive: float = 2
 @export var max_speed: float = 20
 @export var initial_speed: float = 5
 @export var acceleration: float = 0.3
 @export var steering_speed: float = 5
 @export var turning_delay: float = 0.3
+
 
 @export var damage = 5
 @export var max_explosion_radius = 200
@@ -24,6 +26,8 @@ var exploded = false
 func _ready():
 	trail_instance = trail_effect.instantiate()
 	get_tree().get_root().add_child(trail_instance)
+	timer.wait_time = seconds_alive
+	timer.start()
 	
 	# Match the rotation of the launcher
 	rotation = deg_to_rad(-26.5)
@@ -47,7 +51,7 @@ func _physics_process(delta: float) -> void:
 			
 		var current_direction = Vector2(cos(rotation), sin(rotation))
 		var new_direction = current_direction
-		if(timer.wait_time - timer.time_left > turning_delay):
+		if(seconds_alive - timer.time_left > turning_delay):
 			
 			var desired_direction = (target - position).normalized()
 			var steering_force = desired_direction - current_direction
