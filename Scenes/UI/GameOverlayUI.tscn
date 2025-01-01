@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://blmnvpu8kayb8"]
+[gd_scene load_steps=21 format=3 uid="uid://blmnvpu8kayb8"]
 
 [ext_resource type="Script" path="res://Scenes/UI/game_overlay_ui.gd" id="1_y0ndp"]
 [ext_resource type="Texture2D" uid="uid://dnkosxwtpvt4o" path="res://Assets/UI/40_7.png" id="2_glsdp"]
@@ -13,6 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://dfwgnsxw7jk5b" path="res://Assets/UI/LaserUpgradeIcon.png" id="11_fxgi4"]
 [ext_resource type="Texture2D" uid="uid://dvkrnspovwaiw" path="res://Assets/UI/TurretUpgradeIcon.png" id="12_wbmf1"]
 [ext_resource type="Texture2D" uid="uid://3nybwgrtjcoc" path="res://Assets/UI/WalkerUpgradeIcon.png" id="13_6cugr"]
+[ext_resource type="Texture2D" uid="uid://b0uhchpvucp3c" path="res://Assets/UI/ShieldUpgradeIcon.png" id="14_pkhhw"]
+[ext_resource type="Texture2D" uid="uid://lndk4mexlk21" path="res://Assets/UI/RepairUpgradeIcon.png" id="15_4rupr"]
+[ext_resource type="Texture2D" uid="uid://cqwq3iy73c10b" path="res://Assets/UI/BombUpgradeIcon.png" id="16_j5a7o"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vfnyb"]
 
@@ -144,6 +147,7 @@ icon = ExtResource("6_wp1ca")
 icon_alignment = 1
 
 [node name="Window_Upgrades" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -237,13 +241,13 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -57.0
-offset_top = 16.0
-offset_right = -17.0
-offset_bottom = 39.0
+offset_left = -90.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = 40.0
 grow_horizontal = 0
 text = "25"
-horizontal_alignment = 1
+horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="Upgrade2_Button" type="Button" parent="Window_Upgrades/GridContainer"]
@@ -301,6 +305,20 @@ offset_bottom = 250.0
 grow_horizontal = 2
 texture = ExtResource("11_fxgi4")
 
+[node name="Cost" type="Label" parent="Window_Upgrades/GridContainer/Upgrade2_Button"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -90.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = 40.0
+grow_horizontal = 0
+text = "25"
+horizontal_alignment = 2
+vertical_alignment = 1
+
 [node name="Upgrade3_Button" type="Button" parent="Window_Upgrades/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -354,6 +372,20 @@ offset_right = 125.0
 offset_bottom = 250.0
 grow_horizontal = 2
 texture = ExtResource("12_wbmf1")
+
+[node name="Cost" type="Label" parent="Window_Upgrades/GridContainer/Upgrade3_Button"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -90.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = 40.0
+grow_horizontal = 0
+text = "25"
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="Upgrade4_Button" type="Button" parent="Window_Upgrades/GridContainer"]
 layout_mode = 2
@@ -409,6 +441,20 @@ offset_bottom = 40.0
 grow_horizontal = 2
 texture = ExtResource("13_6cugr")
 
+[node name="Cost" type="Label" parent="Window_Upgrades/GridContainer/Upgrade4_Button"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -90.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = 40.0
+grow_horizontal = 0
+text = "25"
+horizontal_alignment = 2
+vertical_alignment = 1
+
 [node name="Upgrade5_Button" type="Button" parent="Window_Upgrades/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -450,6 +496,32 @@ Deploy powerful shield"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="Window_Upgrades/GridContainer/Upgrade5_Button"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -125.0
+offset_right = 125.0
+offset_bottom = 250.0
+grow_horizontal = 2
+texture = ExtResource("14_pkhhw")
+
+[node name="Cost" type="Label" parent="Window_Upgrades/GridContainer/Upgrade5_Button"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -90.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = 40.0
+grow_horizontal = 0
+text = "25"
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="Upgrade6_Button" type="Button" parent="Window_Upgrades/GridContainer"]
 layout_mode = 2
@@ -493,6 +565,32 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
+[node name="TextureRect2" type="TextureRect" parent="Window_Upgrades/GridContainer/Upgrade6_Button"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -125.0
+offset_right = 125.0
+offset_bottom = 250.0
+grow_horizontal = 2
+texture = ExtResource("15_4rupr")
+
+[node name="Cost" type="Label" parent="Window_Upgrades/GridContainer/Upgrade6_Button"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -90.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = 40.0
+grow_horizontal = 0
+text = "25"
+horizontal_alignment = 2
+vertical_alignment = 1
+
 [node name="Upgrade7_Button" type="Button" parent="Window_Upgrades/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -534,6 +632,32 @@ Deploy bomber seeking missiles"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="Window_Upgrades/GridContainer/Upgrade7_Button"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -125.0
+offset_right = 125.0
+offset_bottom = 250.0
+grow_horizontal = 2
+texture = ExtResource("10_laqrd")
+
+[node name="Cost" type="Label" parent="Window_Upgrades/GridContainer/Upgrade7_Button"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -90.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = 40.0
+grow_horizontal = 0
+text = "25"
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="Upgrade8_Button" type="Button" parent="Window_Upgrades/GridContainer"]
 layout_mode = 2
@@ -577,7 +701,34 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
+[node name="TextureRect2" type="TextureRect" parent="Window_Upgrades/GridContainer/Upgrade8_Button"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -125.0
+offset_right = 125.0
+offset_bottom = 250.0
+grow_horizontal = 2
+texture = ExtResource("16_j5a7o")
+
+[node name="Cost" type="Label" parent="Window_Upgrades/GridContainer/Upgrade8_Button"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -90.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = 40.0
+grow_horizontal = 0
+text = "25"
+horizontal_alignment = 2
+vertical_alignment = 1
+
 [node name="Window_Menu" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 3
 anchor_left = 1.0
