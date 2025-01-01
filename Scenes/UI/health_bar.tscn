@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://de35cqxro3jwo"]
+[gd_scene load_steps=6 format=3 uid="uid://de35cqxro3jwo"]
 
 [ext_resource type="Texture2D" uid="uid://dnkosxwtpvt4o" path="res://Assets/UI/40_7.png" id="1_pueat"]
 [ext_resource type="Script" path="res://Scripts/health_bar.gd" id="2_juwy8"]
+[ext_resource type="PackedScene" uid="uid://d1nyir05413ls" path="res://Scenes/Effects/HPHeal.tscn" id="3_8l1h0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vfnyb"]
 
@@ -27,3 +28,7 @@ theme_override_styles/background = SubResource("StyleBoxEmpty_vfnyb")
 theme_override_styles/fill = SubResource("StyleBoxFlat_f3t0a")
 value = 50.0
 show_percentage = false
+
+[node name="HpHeal" parent="Border" instance=ExtResource("3_8l1h0")]
+show_behind_parent = true
+position = Vector2(104, 17)
