@@ -57,6 +57,7 @@ func _physics_process(delta):
 		shoot()
 		
 func shoot():
+	var shooting = true
 	var bullet_instance = bullet.instantiate()
 	var ray_start = current_spawn_location+global_position
 	var ray_end = (get_global_mouse_position() - ray_start) * ray_length
@@ -73,6 +74,7 @@ func shoot():
 	get_parent().add_child(bullet_instance)
 	can_shoot = false
 	await get_tree().create_timer(0.6).timeout
+	shooting = false
 	can_shoot = true
 
 func spawn_laser_effect(spawn_location: Vector2):
