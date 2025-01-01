@@ -7,6 +7,7 @@ signal update_scraps(amount)
 
 var current_scraps
 var current_level
+var current_health
 
 var can_win_level
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://be8wfp13knxgo"]
+[gd_scene load_steps=7 format=3 uid="uid://be8wfp13knxgo"]
 
 [ext_resource type="Script" path="res://Scripts/particle_beam.gd" id="1_a47x5"]
 [ext_resource type="Material" uid="uid://bha8foio0qykq" path="res://Effects/ProcessMaterials/ParticleBeam_Collector.tres" id="1_ox3kh"]
+[ext_resource type="PackedScene" uid="uid://bb0yc0gstyj4j" path="res://Scenes/Effects/BeamHitEffect.tscn" id="3_30jpr"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_s2hkd"]
 size = Vector2(0, 5)
@@ -31,5 +32,7 @@ trail_lifetime = 0.2
 z_index = -2
 mesh = SubResource("QuadMesh_s2hkd")
 texture = SubResource("GradientTexture1D_fomm8")
+
+[node name="BeamHitEffect" parent="." instance=ExtResource("3_30jpr")]
 
 [connection signal="finished" from="Collector" to="." method="_on_collector_finished"]

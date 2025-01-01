@@ -65,7 +65,6 @@ func shoot():
 	query.collide_with_areas = true
 	var collision = get_world_2d().direct_space_state.intersect_ray(query)
 	if collision:
-		spawn_laser_effect(collision.position)
 		var distance = collision.position - ray_start
 		bullet_instance.length = distance.length()
 	bullet_instance.global_position = global_position + current_spawn_location
@@ -74,11 +73,6 @@ func shoot():
 	can_shoot = false
 	await get_tree().create_timer(0.6).timeout
 	can_shoot = true
-
-func spawn_laser_effect(spawn_location: Vector2):
-	var effect_instance = laser_hit_effect.instantiate()
-	get_tree().get_root().add_child(effect_instance)
-	effect_instance.position = spawn_location
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if(event.is_action_pressed("Select")):
