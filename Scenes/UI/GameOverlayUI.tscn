@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://blmnvpu8kayb8"]
+[gd_scene load_steps=31 format=3 uid="uid://blmnvpu8kayb8"]
 
 [ext_resource type="Script" path="res://Scenes/UI/game_overlay_ui.gd" id="1_y0ndp"]
 [ext_resource type="PackedScene" uid="uid://de35cqxro3jwo" path="res://Scenes/UI/health_bar.tscn" id="2_vn7s4"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dx3mkbbdt2772" path="res://Assets/UI/ScrapIcon.png" id="8_80yje"]
 [ext_resource type="Texture2D" uid="uid://d0yyh3qj7v51q" path="res://Assets/UI/UpgradeIcon.png" id="8_eo6hj"]
 [ext_resource type="Texture2D" uid="uid://bxjr7ocg10hy0" path="res://Assets/UI/50_20_no_grid.png" id="9_87xlk"]
+[ext_resource type="Texture2D" uid="uid://dgqyxcw7y8rbc" path="res://Assets/UI/sold_banner.png" id="9_hta8q"]
 [ext_resource type="Texture2D" uid="uid://diagxhr1ulu3a" path="res://Assets/UI/MissileUpgradeIcon.png" id="10_laqrd"]
 [ext_resource type="Texture2D" uid="uid://dfwgnsxw7jk5b" path="res://Assets/UI/LaserUpgradeIcon.png" id="11_fxgi4"]
 [ext_resource type="Texture2D" uid="uid://dvkrnspovwaiw" path="res://Assets/UI/TurretUpgradeIcon.png" id="12_wbmf1"]
@@ -24,6 +25,30 @@
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wsier"]
 texture = ExtResource("5_jd2hu")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ddc0t"]
+texture = ExtResource("9_hta8q")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rk3nk"]
+texture = ExtResource("9_hta8q")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r4on3"]
+texture = ExtResource("9_hta8q")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vrv58"]
+texture = ExtResource("9_hta8q")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t1ke2"]
+texture = ExtResource("9_hta8q")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1pi5d"]
+texture = ExtResource("9_hta8q")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_myt4y"]
+texture = ExtResource("9_hta8q")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rajgr"]
+texture = ExtResource("9_hta8q")
 
 [node name="GameOverlayUi" type="CanvasLayer"]
 script = ExtResource("1_y0ndp")
@@ -189,7 +214,9 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_styles/disabled = SubResource("StyleBoxTexture_ddc0t")
 theme_override_styles/normal = ExtResource("7_lcwi7")
+disabled = true
 icon = ExtResource("8_eo6hj")
 icon_alignment = 1
 vertical_icon_alignment = 0
@@ -260,6 +287,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_styles/disabled = SubResource("StyleBoxTexture_rk3nk")
 theme_override_styles/normal = ExtResource("7_lcwi7")
 icon = ExtResource("8_eo6hj")
 icon_alignment = 1
@@ -330,6 +358,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_styles/disabled = SubResource("StyleBoxTexture_r4on3")
 theme_override_styles/normal = ExtResource("7_lcwi7")
 icon = ExtResource("8_eo6hj")
 icon_alignment = 1
@@ -399,6 +428,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_styles/disabled = SubResource("StyleBoxTexture_vrv58")
 theme_override_styles/normal = ExtResource("7_lcwi7")
 icon = ExtResource("8_eo6hj")
 icon_alignment = 1
@@ -468,6 +498,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_styles/disabled = SubResource("StyleBoxTexture_t1ke2")
 theme_override_styles/normal = ExtResource("7_lcwi7")
 icon = ExtResource("8_eo6hj")
 icon_alignment = 1
@@ -537,6 +568,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_styles/disabled = SubResource("StyleBoxTexture_1pi5d")
 theme_override_styles/normal = ExtResource("7_lcwi7")
 icon = ExtResource("8_eo6hj")
 icon_alignment = 1
@@ -606,6 +638,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_styles/disabled = SubResource("StyleBoxTexture_myt4y")
 theme_override_styles/normal = ExtResource("7_lcwi7")
 icon = ExtResource("8_eo6hj")
 icon_alignment = 1
@@ -675,6 +708,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_styles/disabled = SubResource("StyleBoxTexture_rajgr")
 theme_override_styles/normal = ExtResource("7_lcwi7")
 icon = ExtResource("8_eo6hj")
 icon_alignment = 1
