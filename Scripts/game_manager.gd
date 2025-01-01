@@ -19,7 +19,7 @@ var total_enemy_count : int
 
 func _ready():
 	can_win_level = false
-	current_scraps = 0
+	current_scraps = 500
 	current_level = 1
  
 

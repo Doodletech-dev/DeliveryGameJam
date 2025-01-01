@@ -177,6 +177,7 @@ text = "0"
 
 [node name="Upgrade2" type="TextureRect" parent="Window_Gameplay"]
 unique_name_in_owner = true
+layout_mode = 0
 offset_left = -1.0
 offset_top = 274.0
 offset_right = 63.0
@@ -193,6 +194,7 @@ text = "0"
 
 [node name="Upgrade3" type="TextureRect" parent="Window_Gameplay"]
 unique_name_in_owner = true
+layout_mode = 0
 offset_left = -1.0
 offset_top = 314.0
 offset_right = 63.0
@@ -209,6 +211,7 @@ text = "0"
 
 [node name="Upgrade4" type="TextureRect" parent="Window_Gameplay"]
 unique_name_in_owner = true
+layout_mode = 0
 offset_left = 10.0
 offset_top = 376.0
 offset_right = 78.0
@@ -226,7 +229,6 @@ scale = Vector2(1.51611, 1.51611)
 text = "0"
 
 [node name="Window_Upgrades" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5

@@ -8,6 +8,7 @@ signal turret_selected
 @export var laser_hit_effect: PackedScene
 @export var cooldown = 0.6
 @export var damage = 1
+@export var speed_mod = 0.5
 @export var damage_type := DamageTypes.type.laser
 
 @onready var sprite: AnimatedSprite2D = $Sprite
@@ -25,11 +26,13 @@ var wants_shoot: bool = false
 var space_state
 var query
 var timer
+var default_wait_time
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	sprite.frame = 3
 	outline.frame = 3
+	default_wait_time = cooldown_timer.wait_time
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -66,6 +69,7 @@ func _physics_process(delta):
 	recharge_bar.set_health(cooldown_timer.wait_time - cooldown_timer.time_left)
 		
 func shoot():
+	cooldown_timer.wait_time = default_wait_time
 	var bullet_instance = bullet.instantiate()
 	var ray_start = current_spawn_location+global_position
 	var ray_end = (get_global_mouse_position() - ray_start) * ray_length
@@ -85,6 +89,8 @@ func shoot():
 	bullet_instance.look_at(get_global_mouse_position())
 	get_parent().add_child(bullet_instance)
 	can_shoot = false
+	if(GameManager.laser_upgrades > 0):
+		cooldown_timer.wait_time = cooldown_timer.wait_time * (speed_mod / GameManager.laser_upgrades)
 	recharge_bar.set_max(cooldown_timer.wait_time)
 	recharge_bar.set_health(0)
 	recharge_bar.visible = true

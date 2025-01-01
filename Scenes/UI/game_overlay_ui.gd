@@ -81,32 +81,29 @@ func _on_upgrade_4_button_pressed() -> void:
 		flash_text_red(%Upgrade4_Button.get_child(2))
 
 func _on_upgrade_5_button_pressed() -> void:
-	var cost = int(%Upgrade5_Button.get_child(2).text)
-	if GameManager.current_scraps >= cost:
-		GameManager.current_scraps -= cost
-	else:
-		flash_text_red(%Upgrade5_Button.get_child(2))
-
+	var button = %Upgrade5_Button
+	handle_cooldown_purchase(button)
 
 func _on_upgrade_6_button_pressed() -> void:
-	var cost = int(%Upgrade6_Button.get_child(2).text)
-	if GameManager.current_scraps >= cost:
-		GameManager.current_scraps -= cost
-	else:
-		flash_text_red(%Upgrade6_Button.get_child(2))
-
+	var button = %Upgrade6_Button
+	handle_cooldown_purchase(button)
 
 func _on_upgrade_7_button_pressed() -> void:
-	var cost = int(%Upgrade7_Button.get_child(2).text)
-	if GameManager.current_scraps >= cost:
-		GameManager.current_scraps -= cost
-	else:
-		flash_text_red(%Upgrade7_Button.get_child(2))
+	var button = %Upgrade7_Button
+	handle_cooldown_purchase(button)
 
 
 func _on_upgrade_8_button_pressed() -> void:
-	var cost = int(%Upgrade8_Button.get_child(2).text)
+	var button = %Upgrade8_Button
+	handle_cooldown_purchase(button)
+
+func handle_cooldown_purchase(button):
+	var cost = int(button.get_child(2).text)
+	if(button.get_child(0).get_child(0).text == "SOLD OUT"):
+		return
 	if GameManager.current_scraps >= cost:
 		GameManager.current_scraps -= cost
+		button.get_child(0).get_child(0).text = "SOLD OUT"
+		button.get_child(2).visible = false
 	else:
-		flash_text_red(%Upgrade8_Button.get_child(2))
+		flash_text_red(button.get_child(2))

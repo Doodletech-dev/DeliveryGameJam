@@ -14,6 +14,7 @@ class_name Missile
 
 
 @export var damage = 1
+@export var damage_mod = 0.25
 @export var damage_type := DamageTypes.type.missile
 @export var max_explosion_radius = 200
 @export var explotion_effect_size = 3
@@ -30,7 +31,7 @@ func _ready():
 	get_tree().get_root().add_child(trail_instance)
 	timer.wait_time = seconds_alive
 	timer.start()
-	
+	damage += damage * damage_mod * GameManager.missile_upgrades
 	# Match the rotation of the launcher
 	rotation = deg_to_rad(-26.5)
 	explosion_collision.shape.radius = 0.1

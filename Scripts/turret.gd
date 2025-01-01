@@ -4,6 +4,7 @@ signal turret_selected
 
 @export var bullet: PackedScene
 
+
 @onready var sprite: AnimatedSprite2D = $Sprite
 @onready var outline: AnimatedSprite2D = $Outline
 @onready var recharge_bar: Node2D = $RechargeBar

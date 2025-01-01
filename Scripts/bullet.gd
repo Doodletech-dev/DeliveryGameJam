@@ -3,6 +3,7 @@ class_name Bullet
 
 @export var speed = 1500.0
 @export var damage = 1
+@export var damage_mod = 0.25
 @export var damage_type := DamageTypes.type.bullet
 @export var trail_effect: PackedScene
 
@@ -11,6 +12,7 @@ var fire_direciton = Vector2.ZERO
 func _ready():
 	effect_instance = trail_effect.instantiate()
 	get_tree().get_root().add_child(effect_instance)
+	damage += damage * damage_mod * GameManager.turret_upgrades
 
 func _process(delta: float) -> void:
 	effect_instance.global_transform = global_transform
