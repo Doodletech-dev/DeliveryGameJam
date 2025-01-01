@@ -147,6 +147,7 @@ icon = ExtResource("6_wp1ca")
 icon_alignment = 1
 
 [node name="Window_Upgrades" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -727,6 +728,7 @@ horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="Window_Menu" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 3
 anchor_left = 1.0
