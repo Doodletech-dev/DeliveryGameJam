@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://blmnvpu8kayb8"]
+[gd_scene load_steps=19 format=3 uid="uid://blmnvpu8kayb8"]
 
 [ext_resource type="Script" path="res://Scenes/UI/game_overlay_ui.gd" id="1_y0ndp"]
 [ext_resource type="PackedScene" uid="uid://de35cqxro3jwo" path="res://Scenes/UI/health_bar.tscn" id="2_kflq1"]
@@ -7,8 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://t7734swoic70" path="res://Assets/UI/20_5.png" id="5_jd2hu"]
 [ext_resource type="Texture2D" uid="uid://dph3kfwifmwss" path="res://Assets/UI/20_15.png" id="6_wp1ca"]
 [ext_resource type="StyleBox" uid="uid://bc48xv8f81hbs" path="res://Assets/UI/GameOverlayUI.tres" id="7_lcwi7"]
-[ext_resource type="Texture2D" uid="uid://cw15f7xtcilxk" path="res://Assets/UI/ProgressIcon.png" id="7_p3x6q"]
-[ext_resource type="Texture2D" uid="uid://dx3mkbbdt2772" path="res://Assets/UI/ScrapIcon.png" id="8_80yje"]
 [ext_resource type="Texture2D" uid="uid://d0yyh3qj7v51q" path="res://Assets/UI/UpgradeIcon.png" id="8_eo6hj"]
 [ext_resource type="Texture2D" uid="uid://bxjr7ocg10hy0" path="res://Assets/UI/50_20_no_grid.png" id="9_87xlk"]
 [ext_resource type="Texture2D" uid="uid://diagxhr1ulu3a" path="res://Assets/UI/MissileUpgradeIcon.png" id="10_laqrd"]
@@ -18,7 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://b0uhchpvucp3c" path="res://Assets/UI/ShieldUpgradeIcon.png" id="14_pkhhw"]
 [ext_resource type="Texture2D" uid="uid://lndk4mexlk21" path="res://Assets/UI/RepairUpgradeIcon.png" id="15_4rupr"]
 [ext_resource type="Texture2D" uid="uid://cqwq3iy73c10b" path="res://Assets/UI/BombUpgradeIcon.png" id="16_j5a7o"]
-[ext_resource type="Texture2D" uid="uid://c2apdqyaoqpv7" path="res://Assets/UI/36_7.png" id="19_od2xs"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u1klq"]
 
@@ -37,39 +34,21 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="HealthBar" type="TextureRect" parent="Window_Gameplay"]
-layout_mode = 1
-offset_left = 95.0
-offset_top = 45.0
-offset_right = 295.0
-offset_bottom = 80.0
-texture = ExtResource("2_glsdp")
-stretch_mode = 2
+[node name="Health_bar" parent="Window_Gameplay" instance=ExtResource("2_kflq1")]
 
-[node name="HealthBar" type="ProgressBar" parent="Window_Gameplay/HealthBar"]
-show_behind_parent = true
-layout_mode = 1
-offset_right = 200.0
-offset_bottom = 35.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_styles/background = SubResource("StyleBoxEmpty_vfnyb")
-theme_override_styles/fill = SubResource("StyleBoxFlat_f3t0a")
-value = 50.0
-show_percentage = false
-
-[node name="ProgressBar" type="TextureRect" parent="Window_Gameplay"]
+[node name="TextureRect2" type="TextureRect" parent="Window_Gameplay"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -500.0
-offset_top = 45.0
+offset_top = 25.0
 offset_right = 500.0
-offset_bottom = 80.0
+offset_bottom = 60.0
 grow_horizontal = 2
 texture = ExtResource("4_ot04r")
 
-[node name="ProgressBar" type="ProgressBar" parent="Window_Gameplay/ProgressBar"]
+[node name="ProgressBar" type="ProgressBar" parent="Window_Gameplay/TextureRect2"]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 5
@@ -93,14 +72,12 @@ texture = ExtResource("3_vkba2")
 [node name="Scrap" type="Label" parent="Window_Gameplay"]
 layout_mode = 1
 offset_left = 100.0
-offset_top = 130.0
+offset_top = 135.0
 offset_right = 200.0
-offset_bottom = 165.0
-theme_override_font_sizes/font_size = 23
+offset_bottom = 160.0
+theme_override_colors/font_color = Color(0.767848, 0.845673, 1, 1)
 theme_override_styles/normal = SubResource("StyleBoxTexture_wsier")
-text = "715"
 horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Window_Gameplay"]
 layout_mode = 1
@@ -145,26 +122,6 @@ size_flags_horizontal = 3
 text = "Menu"
 icon = ExtResource("6_wp1ca")
 icon_alignment = 1
-
-[node name="ProgressIcon" type="TextureRect" parent="Window_Gameplay"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -570.0
-offset_top = 25.0
-offset_right = -495.0
-offset_bottom = 100.0
-grow_horizontal = 2
-texture = ExtResource("7_p3x6q")
-
-[node name="ScrapIcon" type="TextureRect" parent="Window_Gameplay"]
-layout_mode = 1
-offset_left = 25.0
-offset_top = 112.5
-offset_right = 100.0
-offset_bottom = 187.5
-texture = ExtResource("8_80yje")
 
 [node name="Window_Upgrades" type="Control" parent="."]
 visible = false
@@ -776,33 +733,23 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -30.0
-offset_bottom = 21.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Button_Menu_Resume" type="Button" parent="Window_Menu/VBoxContainer"]
 layout_mode = 2
 text = "Resume"
-icon = ExtResource("19_od2xs")
-icon_alignment = 1
 
 [node name="Button" type="Button" parent="Window_Menu/VBoxContainer"]
 layout_mode = 2
 text = "Save"
-icon = ExtResource("19_od2xs")
-icon_alignment = 1
 
 [node name="Button_Menu_Options" type="Button" parent="Window_Menu/VBoxContainer"]
 layout_mode = 2
 text = "Options
 "
-icon = ExtResource("19_od2xs")
-icon_alignment = 1
 
 [node name="Button_Menu_Quit" type="Button" parent="Window_Menu/VBoxContainer"]
 layout_mode = 2
 text = "Quit
 "
-icon = ExtResource("19_od2xs")
-icon_alignment = 1
