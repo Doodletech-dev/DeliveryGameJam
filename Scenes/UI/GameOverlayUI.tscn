@@ -158,16 +158,16 @@ offset_right = 100.0
 offset_bottom = 187.5
 texture = ExtResource("8_80yje")
 
-[node name="Upgrade1" type="TextureRect" parent="Window_Gameplay"]
+[node name="Upgrade3" type="TextureRect" parent="Window_Gameplay"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 1.0
-offset_top = 255.0
-offset_right = 65.0
-offset_bottom = 319.0
+offset_left = 2.0
+offset_top = 330.0
+offset_right = 66.0
+offset_bottom = 394.0
 texture = ExtResource("9_7huvq")
 
-[node name="Label" type="Label" parent="Window_Gameplay/Upgrade1"]
+[node name="Label" type="Label" parent="Window_Gameplay/Upgrade3"]
 layout_mode = 0
 offset_left = 57.0
 offset_top = 18.0
@@ -175,16 +175,15 @@ offset_right = 97.0
 offset_bottom = 41.0
 text = "0"
 
-[node name="Upgrade2" type="TextureRect" parent="Window_Gameplay"]
+[node name="Upgrade1" type="TextureRect" parent="Window_Gameplay"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = -1.0
-offset_top = 274.0
-offset_right = 63.0
-offset_bottom = 338.0
+offset_top = 232.0
+offset_right = 64.0
+offset_bottom = 296.0
 texture = ExtResource("10_utp4t")
 
-[node name="Label" type="Label" parent="Window_Gameplay/Upgrade2"]
+[node name="Label" type="Label" parent="Window_Gameplay/Upgrade1"]
 layout_mode = 0
 offset_left = 59.0
 offset_top = 36.0
@@ -192,16 +191,15 @@ offset_right = 99.0
 offset_bottom = 59.0
 text = "0"
 
-[node name="Upgrade3" type="TextureRect" parent="Window_Gameplay"]
+[node name="Upgrade2" type="TextureRect" parent="Window_Gameplay"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = -1.0
-offset_top = 314.0
-offset_right = 63.0
-offset_bottom = 378.0
+offset_top = 272.0
+offset_right = 64.0
+offset_bottom = 336.0
 texture = ExtResource("11_ws51h")
 
-[node name="Label" type="Label" parent="Window_Gameplay/Upgrade3"]
+[node name="Label" type="Label" parent="Window_Gameplay/Upgrade2"]
 layout_mode = 0
 offset_left = 59.0
 offset_top = 35.0
