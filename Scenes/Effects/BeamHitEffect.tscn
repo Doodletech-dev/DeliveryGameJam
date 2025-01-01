@@ -9,6 +9,7 @@ script = ExtResource("1_bxe2i")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 emitting = false
+amount = 24
 process_material = ExtResource("1_uelvm")
 texture = ExtResource("2_wh7co")
 lifetime = 0.35
