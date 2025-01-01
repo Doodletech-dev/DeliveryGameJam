@@ -1,10 +1,12 @@
 extends Turret
 
+class_name Laser_Turret
 signal turret_selected
 
 @export var ray_length:int = 5000
 @export var bullet: PackedScene
 @export var laser_hit_effect: PackedScene
+@export var damage = 1
 
 @onready var sprite: AnimatedSprite2D = $Sprite
 @onready var outline: AnimatedSprite2D = $Outline
@@ -16,6 +18,7 @@ var bullet_spawn_locations = [Vector2(24,25),Vector2(-24,25),Vector2(-20,1),Vect
 var current_spawn_location: Vector2
 var wants_shoot: bool = false
 var space_state
+var query
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -49,7 +52,6 @@ func _process(delta: float) -> void:
 		if(Input.is_action_pressed("Shoot") and can_shoot):
 			wants_shoot = true;
 		
-
 func _physics_process(delta):
 	space_state = get_world_2d().direct_space_state
 	if(wants_shoot):
@@ -60,12 +62,17 @@ func shoot():
 	var bullet_instance = bullet.instantiate()
 	var ray_start = current_spawn_location+global_position
 	var ray_end = (get_global_mouse_position() - ray_start) * ray_length
-	var query = PhysicsRayQueryParameters2D.create(ray_start, ray_end)
+	bullet_instance.ray_start = ray_start
+	bullet_instance.ray_end = ray_end
+	query = PhysicsRayQueryParameters2D.create(ray_start, ray_end)
 	query.hit_from_inside = true
 	query.collide_with_areas = true
 	var collision = get_world_2d().direct_space_state.intersect_ray(query)
 	if collision:
 		var distance = collision.position - ray_start
+		var object = collision.collider.get_parent()
+		if object is Enemy:
+			collision.collider.laser_hit_pew_pew(self)
 		bullet_instance.length = distance.length()
 	bullet_instance.global_position = global_position + current_spawn_location
 	bullet_instance.look_at(get_global_mouse_position())
@@ -73,6 +80,9 @@ func shoot():
 	can_shoot = false
 	await get_tree().create_timer(0.6).timeout
 	can_shoot = true
+
+func hit_detected():
+	pass
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if(event.is_action_pressed("Select")):

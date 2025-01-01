@@ -87,4 +87,3 @@ func _on_idle_time_timeout():
 func _death():
 	GameManager.update_scraps.emit(scraps_given)
 	GameManager.update_enemy_count.emit(-1)
-	

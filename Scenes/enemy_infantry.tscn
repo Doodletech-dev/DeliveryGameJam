@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bdyo18342wno4"]
+[gd_scene load_steps=16 format=3 uid="uid://bdyo18342wno4"]
 
 [ext_resource type="PackedScene" uid="uid://cvaajdbmn24id" path="res://Scenes/enemy.tscn" id="1_3t01f"]
 [ext_resource type="Texture2D" uid="uid://dbg0btl1y4u2p" path="res://Assets/Enemies/infantry/sprite_0.png" id="3_idyb1"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c171rqvsx4wld" path="res://Assets/Enemies/infantry/sprite_2.png" id="7_0i5cb"]
 [ext_resource type="Texture2D" uid="uid://nspobiijb0ot" path="res://Assets/Enemies/infantry/sprite_3.png" id="8_aqxns"]
 [ext_resource type="Texture2D" uid="uid://cy28n6lny80r1" path="res://Assets/Enemies/infantry/outline/sprite_0.png" id="9_td3ye"]
+[ext_resource type="PackedScene" uid="uid://de35cqxro3jwo" path="res://Scenes/UI/health_bar.tscn" id="10_6c5pt"]
 [ext_resource type="Texture2D" uid="uid://bro6yb85ped77" path="res://Assets/Enemies/infantry/outline/sprite_1.png" id="10_qq4sx"]
 [ext_resource type="Texture2D" uid="uid://dqx84acoso0ia" path="res://Assets/Enemies/infantry/outline/sprite_2.png" id="11_4imfc"]
 [ext_resource type="Texture2D" uid="uid://dd61fk3c02ocp" path="res://Assets/Enemies/infantry/outline/sprite_3.png" id="12_iiynb"]
@@ -87,3 +88,9 @@ shape = SubResource("CapsuleShape2D_c3txn")
 libraries = {
 "": SubResource("AnimationLibrary_sqtl7")
 }
+
+[node name="Healthbar" parent="." index="6" instance=ExtResource("10_6c5pt")]
+unique_name_in_owner = true
+visible = false
+position = Vector2(-13.6667, -14.3333)
+scale = Vector2(0.13, 0.13)

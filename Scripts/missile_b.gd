@@ -3,6 +3,7 @@ class_name Missile
 @onready var effect_location: Node2D = $Effect_Location
 @onready var timer: Timer = $Timer
 @onready var explosion_collision: CollisionShape2D = $Explosion_Collision
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
 @export var seconds_alive: float = 2
 @export var max_speed: float = 20
@@ -12,7 +13,7 @@ class_name Missile
 @export var turning_delay: float = 0.3
 
 
-@export var damage = 5
+@export var damage = 1
 @export var max_explosion_radius = 200
 @export var explotion_effect_size = 3
 @export var trail_effect: PackedScene
@@ -74,6 +75,7 @@ func seek():
 	
 func hit_detected():
 	if !exploded:
+		sprite_2d.visible = false
 		create_explosion()
 		exploded = true
 

@@ -1,7 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://blmnvpu8kayb8"]
+[gd_scene load_steps=19 format=3 uid="uid://blmnvpu8kayb8"]
 
 [ext_resource type="Script" path="res://Scenes/UI/game_overlay_ui.gd" id="1_y0ndp"]
-[ext_resource type="Texture2D" uid="uid://dnkosxwtpvt4o" path="res://Assets/UI/40_7.png" id="2_glsdp"]
+[ext_resource type="PackedScene" uid="uid://de35cqxro3jwo" path="res://Scenes/UI/health_bar.tscn" id="2_kflq1"]
 [ext_resource type="Texture2D" uid="uid://c74doanchijgq" path="res://Assets/UI/HealthIcon.png" id="3_vkba2"]
 [ext_resource type="Texture2D" uid="uid://c5olg6l5tdfci" path="res://Assets/UI/200_7.png" id="4_ot04r"]
 [ext_resource type="Texture2D" uid="uid://t7734swoic70" path="res://Assets/UI/20_5.png" id="5_jd2hu"]
@@ -16,11 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://b0uhchpvucp3c" path="res://Assets/UI/ShieldUpgradeIcon.png" id="14_pkhhw"]
 [ext_resource type="Texture2D" uid="uid://lndk4mexlk21" path="res://Assets/UI/RepairUpgradeIcon.png" id="15_4rupr"]
 [ext_resource type="Texture2D" uid="uid://cqwq3iy73c10b" path="res://Assets/UI/BombUpgradeIcon.png" id="16_j5a7o"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vfnyb"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f3t0a"]
-bg_color = Color(0.635613, 0.169289, 9.62615e-08, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u1klq"]
 
@@ -39,25 +34,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="TextureRect" type="TextureRect" parent="Window_Gameplay"]
-layout_mode = 1
-offset_left = 95.0
-offset_top = 45.0
-offset_right = 295.0
-offset_bottom = 80.0
-texture = ExtResource("2_glsdp")
-stretch_mode = 2
-
-[node name="HealthBar" type="ProgressBar" parent="Window_Gameplay/TextureRect"]
-show_behind_parent = true
-layout_mode = 1
-offset_right = 200.0
-offset_bottom = 35.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_styles/background = SubResource("StyleBoxEmpty_vfnyb")
-theme_override_styles/fill = SubResource("StyleBoxFlat_f3t0a")
-value = 50.0
-show_percentage = false
+[node name="Health_bar" parent="Window_Gameplay" instance=ExtResource("2_kflq1")]
 
 [node name="TextureRect2" type="TextureRect" parent="Window_Gameplay"]
 layout_mode = 1

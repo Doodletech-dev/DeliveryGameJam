@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://de35cqxro3jwo"]
+
+[ext_resource type="Texture2D" uid="uid://dnkosxwtpvt4o" path="res://Assets/UI/40_7.png" id="1_pueat"]
+[ext_resource type="Script" path="res://Scripts/health_bar.gd" id="2_juwy8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vfnyb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f3t0a"]
+bg_color = Color(0.635613, 0.169289, 9.62615e-08, 1)
+
+[node name="Healthbar" type="Node2D"]
+script = ExtResource("2_juwy8")
+
+[node name="Border" type="TextureRect" parent="."]
+offset_right = 200.0
+offset_bottom = 35.0
+texture = ExtResource("1_pueat")
+stretch_mode = 2
+
+[node name="HealthBar" type="ProgressBar" parent="Border"]
+show_behind_parent = true
+layout_mode = 1
+offset_right = 200.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/background = SubResource("StyleBoxEmpty_vfnyb")
+theme_override_styles/fill = SubResource("StyleBoxFlat_f3t0a")
+value = 50.0
+show_percentage = false

@@ -3,7 +3,7 @@ extends CanvasLayer
 # Declare variables for the windows
 @onready var window_upgrades = $Window_Upgrades
 @onready var window_menu = $Window_Menu
-@onready var health_bar: ProgressBar = $Window_Gameplay/TextureRect/HealthBar
+@onready var health_bar: Node2D = $Window_Gameplay/Health_bar
 
 func _ready():
 	# Connect button signals using the correct paths
@@ -11,7 +11,7 @@ func _ready():
 	$Window_Gameplay/HBoxContainer2/Button_Menu.connect("pressed", Callable(self, "_on_menu_button_pressed"))
 
 func _physics_process(delta: float) -> void:
-	health_bar.value = GameManager.current_health
+	health_bar.set_health(GameManager.current_health)
 
 # Button actions
 

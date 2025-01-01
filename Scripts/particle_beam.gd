@@ -29,10 +29,4 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	var run_time = Time.get_ticks_msec() - alive_timer
 	beam.mesh.size = Vector2(length,run_time/50)
-	#var query = PhysicsRayQueryParameters2D.create(ray_start, ray_end)
-	#query.hit_from_inside = true
-	#query.collide_with_areas = true
-	#var collision = get_world_2d().direct_space_state.intersect_ray(query)
-	#if collision:
-		#var distance = collision.position - ray_start
-		#length = distance.length()
+	
