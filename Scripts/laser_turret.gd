@@ -7,6 +7,7 @@ signal turret_selected
 @export var bullet: PackedScene
 @export var laser_hit_effect: PackedScene
 @export var damage = 1
+@export var damage_type := DamageTypes.type.laser
 
 @onready var sprite: AnimatedSprite2D = $Sprite
 @onready var outline: AnimatedSprite2D = $Outline

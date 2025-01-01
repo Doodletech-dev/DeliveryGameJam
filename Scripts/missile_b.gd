@@ -14,6 +14,7 @@ class_name Missile
 
 
 @export var damage = 1
+@export var damage_type := DamageTypes.type.missile
 @export var max_explosion_radius = 200
 @export var explotion_effect_size = 3
 @export var trail_effect: PackedScene

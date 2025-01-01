@@ -5,6 +5,9 @@ extends Area2D
 
 @export var death_effect: PackedScene
 @export var max_health : int
+@export var damage_type := DamageTypes.type.bullet
+@export var damage_weakness = 5
+
 var current_health
 
 func  _ready():
@@ -24,7 +27,10 @@ func create_effects():
 		
 func handle_hit(body):
 	if(body is Bullet or body is Missile or body is Laser_Turret):
-		current_health -= body.damage
+		var damage = body.damage
+		if(body.damage_type == damage_type):
+			damage *= damage_weakness
+		current_health -= damage
 		if(health_bar):
 			health_bar.visible = true
 			health_bar.set_health(current_health)

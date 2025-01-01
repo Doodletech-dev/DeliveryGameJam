@@ -3,6 +3,7 @@ class_name Bullet
 
 @export var speed = 1500.0
 @export var damage = 1
+@export var damage_type := DamageTypes.type.bullet
 @export var trail_effect: PackedScene
 
 var effect_instance

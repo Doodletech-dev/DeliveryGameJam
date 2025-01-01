@@ -8,6 +8,9 @@ signal update_scraps(amount)
 var current_scraps
 var current_level
 var current_health
+var turret_upgrades = 0
+var missile_upgrades = 0
+var laser_upgrades = 0
 
 var can_win_level
 

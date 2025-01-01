@@ -1,7 +1,7 @@
 extends Node2D
 @onready var health_bar: ProgressBar = $Border/HealthBar
 
-@export var max_health: float = 20
+var max_health: float = 100
 
 func _ready():
 	if(health_bar):

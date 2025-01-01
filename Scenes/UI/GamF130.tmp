@@ -151,6 +151,7 @@ offset_bottom = 187.5
 texture = ExtResource("8_80yje")
 
 [node name="Window_Upgrades" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -185,7 +186,6 @@ theme_override_constants/v_separation = 10
 columns = 4
 
 [node name="Upgrade1_Button" type="Button" parent="Window_Upgrades/GridContainer"]
-unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -250,13 +250,11 @@ offset_top = 15.0
 offset_right = -15.0
 offset_bottom = 40.0
 grow_horizontal = 0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "25"
 horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="Upgrade2_Button" type="Button" parent="Window_Upgrades/GridContainer"]
-unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -288,9 +286,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -110.0
-offset_top = -37.5
+offset_top = -35.0
 offset_right = 110.0
-offset_bottom = 37.5
+offset_bottom = 35.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Laser Turret
@@ -326,7 +324,6 @@ horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="Upgrade3_Button" type="Button" parent="Window_Upgrades/GridContainer"]
-unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -395,7 +392,6 @@ horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="Upgrade4_Button" type="Button" parent="Window_Upgrades/GridContainer"]
-unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -464,7 +460,6 @@ horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="Upgrade5_Button" type="Button" parent="Window_Upgrades/GridContainer"]
-unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -533,7 +528,6 @@ horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="Upgrade6_Button" type="Button" parent="Window_Upgrades/GridContainer"]
-unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -602,7 +596,6 @@ horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="Upgrade7_Button" type="Button" parent="Window_Upgrades/GridContainer"]
-unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -671,7 +664,6 @@ horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="Upgrade8_Button" type="Button" parent="Window_Upgrades/GridContainer"]
-unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -798,12 +790,3 @@ text = "Quit
 "
 icon = ExtResource("19_od2xs")
 icon_alignment = 1
-
-[connection signal="pressed" from="Window_Upgrades/GridContainer/Upgrade1_Button" to="." method="_on_upgrade_1_button_pressed"]
-[connection signal="pressed" from="Window_Upgrades/GridContainer/Upgrade2_Button" to="." method="_on_upgrade_2_button_pressed"]
-[connection signal="pressed" from="Window_Upgrades/GridContainer/Upgrade3_Button" to="." method="_on_upgrade_3_button_pressed"]
-[connection signal="pressed" from="Window_Upgrades/GridContainer/Upgrade4_Button" to="." method="_on_upgrade_4_button_pressed"]
-[connection signal="pressed" from="Window_Upgrades/GridContainer/Upgrade5_Button" to="." method="_on_upgrade_5_button_pressed"]
-[connection signal="pressed" from="Window_Upgrades/GridContainer/Upgrade6_Button" to="." method="_on_upgrade_6_button_pressed"]
-[connection signal="pressed" from="Window_Upgrades/GridContainer/Upgrade7_Button" to="." method="_on_upgrade_7_button_pressed"]
-[connection signal="pressed" from="Window_Upgrades/GridContainer/Upgrade8_Button" to="." method="_on_upgrade_8_button_pressed"]

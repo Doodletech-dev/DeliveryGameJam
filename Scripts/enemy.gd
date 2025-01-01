@@ -7,7 +7,7 @@ class_name Enemy
 
 @export var animation_player : AnimationPlayer
 @export var bullet_scene: PackedScene
-@export var damage_types := DamageTypes.type.bullet
+@export var damage_type := DamageTypes.type.bullet
 
 @onready var idle_timer = $IdleTime
 @onready var sprite = $Sprite2D
