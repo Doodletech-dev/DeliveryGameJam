@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bjt3ffrrgrm6e"]
+[gd_scene load_steps=15 format=3 uid="uid://bjt3ffrrgrm6e"]
 
 [ext_resource type="Script" path="res://Scripts/turret.gd" id="1_unrih"]
 [ext_resource type="PackedScene" uid="uid://fxy8wdu3ucyv" path="res://Scenes/Prefabs/bullet.tscn" id="2_ysxpq"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cvtpkjabrenqh" path="res://Assets/LaserTurret/Outline/sprite_0.png" id="7_bgdoo"]
 [ext_resource type="Texture2D" uid="uid://b18prl56qn8rd" path="res://Assets/LaserTurret/Outline/sprite_1.png" id="8_05k4i"]
 [ext_resource type="Texture2D" uid="uid://cryvmkjs0klwp" path="res://Assets/LaserTurret/Outline/sprite_2.png" id="9_hfjjc"]
+[ext_resource type="PackedScene" uid="uid://bck7mbvrkfjj7" path="res://Scenes/UI/recharge_bar.tscn" id="11_rfl68"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wwpad"]
 animations = [{
@@ -75,6 +76,14 @@ shape = SubResource("RectangleShape2D_ym0lk")
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(17, -15)
+
+[node name="RechargeBar" parent="." instance=ExtResource("11_rfl68")]
+position = Vector2(-14.2, -19.6)
+scale = Vector2(0.115, 0.115)
+color = Color(0.839216, 0.490196, 0, 1)
+
+[node name="CooldownTimer" type="Timer" parent="."]
+wait_time = 0.6
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

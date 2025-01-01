@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://s5mawxwdd6pm"]
+[gd_scene load_steps=23 format=3 uid="uid://s5mawxwdd6pm"]
 
 [ext_resource type="Script" path="res://Scripts/missile_launcher.gd" id="1_0yqax"]
 [ext_resource type="PackedScene" uid="uid://djflwyj7putlx" path="res://Scenes/Prefabs/missile_b.tscn" id="2_eifnv"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://bbjkv28i07k44" path="res://Assets/MissileLauncher/sprite_09.png" id="12_msqvl"]
 [ext_resource type="Texture2D" uid="uid://bwvptfll8lhmg" path="res://Assets/MissileLauncher/sprite_10.png" id="13_g1cnj"]
 [ext_resource type="Texture2D" uid="uid://c84pj64nomb8f" path="res://Assets/MissileLauncher/sprite_11.png" id="14_qn018"]
+[ext_resource type="PackedScene" uid="uid://bck7mbvrkfjj7" path="res://Scenes/UI/recharge_bar.tscn" id="19_1d8dd"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_oi6df"]
 animations = [{
@@ -114,6 +115,14 @@ frame_progress = 0.363466
 z_index = 1
 position = Vector2(6, 19.5)
 shape = SubResource("RectangleShape2D_odsxs")
+
+[node name="RechargeBar" parent="." instance=ExtResource("19_1d8dd")]
+position = Vector2(-53, 93)
+scale = Vector2(0.575, 0.575)
+color = Color(0.82961, 0.497723, 0, 1)
+
+[node name="CooldownTimer" type="Timer" parent="."]
+wait_time = 0.6
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

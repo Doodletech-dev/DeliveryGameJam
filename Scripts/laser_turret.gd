@@ -6,11 +6,15 @@ signal turret_selected
 @export var ray_length:int = 5000
 @export var bullet: PackedScene
 @export var laser_hit_effect: PackedScene
+@export var cooldown = 0.6
 @export var damage = 1
 @export var damage_type := DamageTypes.type.laser
 
 @onready var sprite: AnimatedSprite2D = $Sprite
 @onready var outline: AnimatedSprite2D = $Outline
+@onready var recharge_bar: Node2D = $RechargeBar
+@onready var cooldown_timer: Timer = $CooldownTimer
+
 
 
 var selected: bool = false
@@ -20,6 +24,7 @@ var current_spawn_location: Vector2
 var wants_shoot: bool = false
 var space_state
 var query
+var timer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -58,6 +63,7 @@ func _physics_process(delta):
 	if(wants_shoot):
 		wants_shoot = false
 		shoot()
+	recharge_bar.set_health(cooldown_timer.wait_time - cooldown_timer.time_left)
 		
 func shoot():
 	var bullet_instance = bullet.instantiate()
@@ -79,9 +85,16 @@ func shoot():
 	bullet_instance.look_at(get_global_mouse_position())
 	get_parent().add_child(bullet_instance)
 	can_shoot = false
-	await get_tree().create_timer(0.6).timeout
+	recharge_bar.set_max(cooldown_timer.wait_time)
+	recharge_bar.set_health(0)
+	recharge_bar.visible = true
+	cooldown_timer.start()
+	
+func _on_cooldown_timer_timeout() -> void:
 	can_shoot = true
-
+	recharge_bar.visible = false
+	cooldown_timer.stop()
+	
 func hit_detected():
 	pass
 
