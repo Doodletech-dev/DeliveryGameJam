@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://blmnvpu8kayb8"]
+[gd_scene load_steps=27 format=3 uid="uid://blmnvpu8kayb8"]
 
 [ext_resource type="Script" path="res://Scenes/UI/game_overlay_ui.gd" id="1_y0ndp"]
 [ext_resource type="PackedScene" uid="uid://de35cqxro3jwo" path="res://Scenes/UI/health_bar.tscn" id="2_vn7s4"]
@@ -10,10 +10,14 @@
 [ext_resource type="Texture2D" uid="uid://cw15f7xtcilxk" path="res://Assets/UI/ProgressIcon.png" id="7_p3x6q"]
 [ext_resource type="Texture2D" uid="uid://dx3mkbbdt2772" path="res://Assets/UI/ScrapIcon.png" id="8_80yje"]
 [ext_resource type="Texture2D" uid="uid://d0yyh3qj7v51q" path="res://Assets/UI/UpgradeIcon.png" id="8_eo6hj"]
+[ext_resource type="Texture2D" uid="uid://br1n4aup85qjh" path="res://Assets/Turret/sprite_2.png" id="9_7huvq"]
 [ext_resource type="Texture2D" uid="uid://bxjr7ocg10hy0" path="res://Assets/UI/50_20_no_grid.png" id="9_87xlk"]
 [ext_resource type="Texture2D" uid="uid://diagxhr1ulu3a" path="res://Assets/UI/MissileUpgradeIcon.png" id="10_laqrd"]
+[ext_resource type="Texture2D" uid="uid://ceha7wjpbx25x" path="res://Assets/MissileLauncher/sprite_05.png" id="10_utp4t"]
 [ext_resource type="Texture2D" uid="uid://dfwgnsxw7jk5b" path="res://Assets/UI/LaserUpgradeIcon.png" id="11_fxgi4"]
+[ext_resource type="Texture2D" uid="uid://b6o58wc7oxpao" path="res://Assets/LaserTurret/sprite_2.png" id="11_ws51h"]
 [ext_resource type="Texture2D" uid="uid://dvkrnspovwaiw" path="res://Assets/UI/TurretUpgradeIcon.png" id="12_wbmf1"]
+[ext_resource type="Texture2D" uid="uid://cqn636w3c7pv8" path="res://Assets/Base/cargo.png" id="12_ye64m"]
 [ext_resource type="Texture2D" uid="uid://3nybwgrtjcoc" path="res://Assets/UI/WalkerUpgradeIcon.png" id="13_6cugr"]
 [ext_resource type="Texture2D" uid="uid://b0uhchpvucp3c" path="res://Assets/UI/ShieldUpgradeIcon.png" id="14_pkhhw"]
 [ext_resource type="Texture2D" uid="uid://lndk4mexlk21" path="res://Assets/UI/RepairUpgradeIcon.png" id="15_4rupr"]
@@ -154,7 +158,75 @@ offset_right = 100.0
 offset_bottom = 187.5
 texture = ExtResource("8_80yje")
 
+[node name="Upgrade1" type="TextureRect" parent="Window_Gameplay"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 1.0
+offset_top = 255.0
+offset_right = 65.0
+offset_bottom = 319.0
+texture = ExtResource("9_7huvq")
+
+[node name="Label" type="Label" parent="Window_Gameplay/Upgrade1"]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 18.0
+offset_right = 97.0
+offset_bottom = 41.0
+text = "0"
+
+[node name="Upgrade2" type="TextureRect" parent="Window_Gameplay"]
+unique_name_in_owner = true
+offset_left = -1.0
+offset_top = 274.0
+offset_right = 63.0
+offset_bottom = 338.0
+texture = ExtResource("10_utp4t")
+
+[node name="Label" type="Label" parent="Window_Gameplay/Upgrade2"]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 36.0
+offset_right = 99.0
+offset_bottom = 59.0
+text = "0"
+
+[node name="Upgrade3" type="TextureRect" parent="Window_Gameplay"]
+unique_name_in_owner = true
+offset_left = -1.0
+offset_top = 314.0
+offset_right = 63.0
+offset_bottom = 378.0
+texture = ExtResource("11_ws51h")
+
+[node name="Label" type="Label" parent="Window_Gameplay/Upgrade3"]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 35.0
+offset_right = 99.0
+offset_bottom = 58.0
+text = "0"
+
+[node name="Upgrade4" type="TextureRect" parent="Window_Gameplay"]
+unique_name_in_owner = true
+offset_left = 10.0
+offset_top = 376.0
+offset_right = 78.0
+offset_bottom = 440.0
+scale = Vector2(0.694936, 0.694936)
+texture = ExtResource("12_ye64m")
+
+[node name="Label" type="Label" parent="Window_Gameplay/Upgrade4"]
+layout_mode = 0
+offset_left = 67.6322
+offset_top = 17.2678
+offset_right = 107.632
+offset_bottom = 40.2678
+scale = Vector2(1.51611, 1.51611)
+text = "0"
+
 [node name="Window_Upgrades" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
