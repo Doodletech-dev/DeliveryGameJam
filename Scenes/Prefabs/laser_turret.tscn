@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dohehyaqflnk8"]
+[gd_scene load_steps=17 format=3 uid="uid://dohehyaqflnk8"]
 
 [ext_resource type="Script" path="res://Scripts/laser_turret.gd" id="1_eslmb"]
 [ext_resource type="Texture2D" uid="uid://bhcvspdmb5h32" path="res://Assets/LaserTurret/Outline/sprite_3.png" id="3_aavsh"]
@@ -56,6 +56,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ym0lk"]
 size = Vector2(34, 31)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ovtwg"]
+bg_color = Color(1, 0.910167, 0.23, 1)
+
 [node name="LaserTurret" type="Area2D"]
 z_as_relative = false
 scale = Vector2(5, 5)
@@ -77,9 +80,10 @@ position = Vector2(0, 16.5)
 shape = SubResource("RectangleShape2D_ym0lk")
 
 [node name="RechargeBar" parent="." instance=ExtResource("12_nyau3")]
+visible = false
 position = Vector2(-11.6, 32.4)
 scale = Vector2(0.115, 0.115)
-color = Color(0.183333, 1, 0, 1)
+color = SubResource("StyleBoxFlat_ovtwg")
 
 [node name="CooldownTimer" type="Timer" parent="."]
 wait_time = 0.6

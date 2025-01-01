@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bjt3ffrrgrm6e"]
+[gd_scene load_steps=16 format=3 uid="uid://bjt3ffrrgrm6e"]
 
 [ext_resource type="Script" path="res://Scripts/turret.gd" id="1_unrih"]
 [ext_resource type="PackedScene" uid="uid://fxy8wdu3ucyv" path="res://Scenes/Prefabs/bullet.tscn" id="2_ysxpq"]
@@ -55,6 +55,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ym0lk"]
 size = Vector2(34, 31)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ryojv"]
+bg_color = Color(0.844756, 0.510998, 1.92523e-07, 1)
+
 [node name="Turret" type="Area2D"]
 scale = Vector2(5, 5)
 script = ExtResource("1_unrih")
@@ -78,9 +81,10 @@ shape = SubResource("RectangleShape2D_ym0lk")
 position = Vector2(17, -15)
 
 [node name="RechargeBar" parent="." instance=ExtResource("11_rfl68")]
-position = Vector2(-14.2, -19.6)
+visible = false
+position = Vector2(-17.4, -19.6)
 scale = Vector2(0.115, 0.115)
-color = Color(0.839216, 0.490196, 0, 1)
+color = SubResource("StyleBoxFlat_ryojv")
 
 [node name="CooldownTimer" type="Timer" parent="."]
 wait_time = 0.6
@@ -88,3 +92,4 @@ wait_time = 0.6
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]

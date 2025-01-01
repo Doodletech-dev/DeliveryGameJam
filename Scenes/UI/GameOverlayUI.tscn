@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://blmnvpu8kayb8"]
+[gd_scene load_steps=23 format=3 uid="uid://blmnvpu8kayb8"]
 
 [ext_resource type="Script" path="res://Scenes/UI/game_overlay_ui.gd" id="1_y0ndp"]
 [ext_resource type="PackedScene" uid="uid://de35cqxro3jwo" path="res://Scenes/UI/health_bar.tscn" id="2_vn7s4"]
@@ -20,6 +20,9 @@
 [ext_resource type="Texture2D" uid="uid://cqwq3iy73c10b" path="res://Assets/UI/BombUpgradeIcon.png" id="16_j5a7o"]
 [ext_resource type="Texture2D" uid="uid://c2apdqyaoqpv7" path="res://Assets/UI/36_7.png" id="19_od2xs"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aecqw"]
+bg_color = Color(0.66, 0.20812, 0.1386, 1)
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u1klq"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wsier"]
@@ -40,6 +43,7 @@ mouse_filter = 2
 [node name="HealthbarNew" parent="Window_Gameplay" instance=ExtResource("2_vn7s4")]
 unique_name_in_owner = true
 position = Vector2(95, 45)
+color = SubResource("StyleBoxFlat_aecqw")
 
 [node name="ProgressBar" type="TextureRect" parent="Window_Gameplay"]
 layout_mode = 1
