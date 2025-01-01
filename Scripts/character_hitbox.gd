@@ -16,8 +16,8 @@ func _on_body_entered(body):
 		if(current_health <= 0):	
 			if(owner is Enemy):
 				owner._death()
+				get_parent().queue_free()
 			create_effects()
-			get_parent().queue_free()
 			
 func create_effects():
 	var effect_instance = death_effect.instantiate()

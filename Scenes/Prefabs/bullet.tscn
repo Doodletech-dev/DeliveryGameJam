@@ -12,6 +12,7 @@ z_as_relative = false
 position = Vector2(222, 690)
 collision_layer = 513
 script = ExtResource("1_l3ygl")
+damage = 10
 trail_effect = ExtResource("2_ygo6g")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -1,14 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://bdyo18342wno4"]
+[gd_scene load_steps=11 format=3 uid="uid://bdyo18342wno4"]
 
 [ext_resource type="PackedScene" uid="uid://cvaajdbmn24id" path="res://Scenes/enemy.tscn" id="1_3t01f"]
 [ext_resource type="Texture2D" uid="uid://dbg0btl1y4u2p" path="res://Assets/Enemies/infantry/sprite_0.png" id="3_idyb1"]
 [ext_resource type="Texture2D" uid="uid://di125ww3yuiof" path="res://Assets/Enemies/infantry/sprite_1.png" id="6_l5ed7"]
-[ext_resource type="Texture2D" uid="uid://c171rqvsx4wld" path="res://Assets/Enemies/infantry/sprite_2.png" id="7_0i5cb"]
-[ext_resource type="Texture2D" uid="uid://nspobiijb0ot" path="res://Assets/Enemies/infantry/sprite_3.png" id="8_aqxns"]
 [ext_resource type="Texture2D" uid="uid://cy28n6lny80r1" path="res://Assets/Enemies/infantry/outline/sprite_0.png" id="9_td3ye"]
 [ext_resource type="Texture2D" uid="uid://bro6yb85ped77" path="res://Assets/Enemies/infantry/outline/sprite_1.png" id="10_qq4sx"]
-[ext_resource type="Texture2D" uid="uid://dqx84acoso0ia" path="res://Assets/Enemies/infantry/outline/sprite_2.png" id="11_4imfc"]
-[ext_resource type="Texture2D" uid="uid://dd61fk3c02ocp" path="res://Assets/Enemies/infantry/outline/sprite_3.png" id="12_iiynb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c3txn"]
 radius = 7.0
@@ -43,7 +39,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("3_idyb1"), ExtResource("6_l5ed7"), ExtResource("7_0i5cb"), ExtResource("8_aqxns")]
+"values": [ExtResource("3_idyb1"), ExtResource("6_l5ed7"), ExtResource("3_idyb1"), ExtResource("6_l5ed7")]
 }
 
 [sub_resource type="Animation" id="Animation_t45uq"]
@@ -60,7 +56,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("9_td3ye"), ExtResource("10_qq4sx"), ExtResource("11_4imfc"), ExtResource("12_iiynb")]
+"values": [ExtResource("9_td3ye"), ExtResource("10_qq4sx"), ExtResource("9_td3ye"), ExtResource("10_qq4sx")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sqtl7"]

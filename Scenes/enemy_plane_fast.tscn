@@ -33,6 +33,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_cobn1"]
 resource_name = "move"
 length = 0.500003
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -49,6 +50,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_w0o0r"]
 resource_name = "move_attack"
 length = 0.500003
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true

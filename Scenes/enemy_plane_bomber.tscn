@@ -1,16 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://s4juae0ia88j"]
+[gd_scene load_steps=13 format=3 uid="uid://s4juae0ia88j"]
 
 [ext_resource type="PackedScene" uid="uid://cvaajdbmn24id" path="res://Scenes/enemy.tscn" id="1_v5ve7"]
 [ext_resource type="PackedScene" uid="uid://crppycgwa5q8d" path="res://Scenes/missile_enemy.tscn" id="2_klfb1"]
 [ext_resource type="Texture2D" uid="uid://dwext0kb2i11p" path="res://Assets/Enemies/drone/sprite_0.png" id="3_ribye"]
-[ext_resource type="Texture2D" uid="uid://dyem1gurajfwc" path="res://Assets/Enemies/bomber/sprite_0.png" id="4_phwie"]
-[ext_resource type="Texture2D" uid="uid://dsil37flpdi3m" path="res://Assets/Enemies/bomber/sprite_1.png" id="5_lq5ym"]
 [ext_resource type="Texture2D" uid="uid://emqrsw1u0ans" path="res://Assets/Enemies/bomber/sprite_2.png" id="6_a4v5e"]
 [ext_resource type="Texture2D" uid="uid://bc8jmr5c7610u" path="res://Assets/Enemies/bomber/sprite_3.png" id="7_bjf6i"]
 [ext_resource type="Texture2D" uid="uid://dakjnsbawujsq" path="res://Assets/Enemies/bomber/outline/sprite_0.png" id="8_85ggp"]
 [ext_resource type="Texture2D" uid="uid://c16fcflke4axc" path="res://Assets/Enemies/bomber/outline/sprite_1.png" id="9_yv71w"]
-[ext_resource type="Texture2D" uid="uid://bsm0diuidsin1" path="res://Assets/Enemies/bomber/outline/sprite_2.png" id="10_3cr3s"]
-[ext_resource type="Texture2D" uid="uid://cofwetl0ciabe" path="res://Assets/Enemies/bomber/outline/sprite_3.png" id="11_xpm5g"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3rgc2"]
 radius = 14.0
@@ -34,6 +30,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_cobn1"]
 resource_name = "move"
 length = 0.500003
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -44,12 +41,13 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("4_phwie"), ExtResource("5_lq5ym"), ExtResource("6_a4v5e"), ExtResource("7_bjf6i")]
+"values": [ExtResource("6_a4v5e"), ExtResource("7_bjf6i"), ExtResource("6_a4v5e"), ExtResource("7_bjf6i")]
 }
 
 [sub_resource type="Animation" id="Animation_w0o0r"]
 resource_name = "move_attack"
 length = 0.500003
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -60,7 +58,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("8_85ggp"), ExtResource("9_yv71w"), ExtResource("10_3cr3s"), ExtResource("11_xpm5g")]
+"values": [ExtResource("8_85ggp"), ExtResource("9_yv71w"), ExtResource("8_85ggp"), ExtResource("9_yv71w")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_elbwn"]
