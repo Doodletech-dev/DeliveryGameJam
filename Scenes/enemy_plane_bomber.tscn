@@ -78,7 +78,6 @@ attack_distance = 100
 scraps_given = 5
 animation_player = NodePath("AnimationPlayer")
 bullet_scene = ExtResource("2_klfb1")
-damage_types = 1
 
 [node name="Sprite2D" parent="." index="0"]
 z_index = 1
@@ -90,7 +89,6 @@ shape = SubResource("CapsuleShape2D_3rgc2")
 
 [node name="CharacterHitbox" parent="." index="2"]
 max_health = 5
-damage_type = 1
 
 [node name="CollisionShape2D" parent="CharacterHitbox" index="0"]
 shape = SubResource("CapsuleShape2D_vtw8m")
@@ -99,11 +97,5 @@ shape = SubResource("CapsuleShape2D_vtw8m")
 libraries = {
 "": SubResource("AnimationLibrary_elbwn")
 }
-
-[node name="Healthbar" parent="." index="6" instance=ExtResource("7_fb8ht")]
-unique_name_in_owner = true
-visible = false
-position = Vector2(-13, -36.5)
-scale = Vector2(0.13, 0.13)
 
 [connection signal="area_entered" from="CharacterHitbox" to="CharacterHitbox" method="_on_area_entered"]

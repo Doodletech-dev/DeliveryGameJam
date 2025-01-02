@@ -79,7 +79,6 @@ attack_distance = 500
 scraps_given = 2
 animation_player = NodePath("AnimationPlayer")
 bullet_scene = ExtResource("2_b8txg")
-damage_types = 2
 
 [node name="Sprite2D" parent="." index="0"]
 z_index = 1

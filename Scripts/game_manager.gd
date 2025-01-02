@@ -78,8 +78,16 @@ func _on_save_game():
 	var data = {}
 	data["current_scrap_count"] = current_scraps
 	data["current_level_reached"] = current_level
+	data["turret_upgrades"] = turret_upgrades
+	data["missile_upgrades"] = missile_upgrades
+	data["laser_upgrades"] = laser_upgrades
+	data["walker_upgrades"] = walker_upgrades
 	saver_loder._save_game(data)
 
 func _on_load_game(data : Dictionary):
 	current_scraps = data["current_scrap_count"]
 	current_level = data["current_level_reached"]
+	turret_upgrades = data["turret_upgrades"]
+	missile_upgrades = data["missile_upgrades"] 
+	laser_upgrades = data["laser_upgrades"]
+	walker_upgrades = data["walker_upgrades"]

@@ -1,6 +1,5 @@
 [gd_scene load_steps=6 format=3 uid="uid://ctbxga7505yvm"]
 
-[ext_resource type="Script" path="res://Scripts/cargo_nuke.gd" id="1_eyse7"]
 [ext_resource type="Texture2D" uid="uid://cqn636w3c7pv8" path="res://Assets/Base/cargo.png" id="1_nuf84"]
 [ext_resource type="Script" path="res://Scripts/cargo.gd" id="1_p45xw"]
 [ext_resource type="PackedScene" uid="uid://d20d0fgvllb27" path="res://Scenes/Components/character_hitbox.tscn" id="2_vdjws"]

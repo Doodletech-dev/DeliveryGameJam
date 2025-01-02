@@ -18,6 +18,7 @@ func _ready():
 	# Connect button signals using the correct paths
 	$Window_Gameplay/HBoxContainer/Button_Upgrades.connect("pressed", Callable(self, "_on_upgrade_button_pressed"))
 	$Window_Gameplay/HBoxContainer2/Button_Menu.connect("pressed", Callable(self, "_on_menu_button_pressed"))
+	print(GameManager.current_health)
 	health_bar.set_max(GameManager.current_health)
 	scrap.text = str(GameManager.current_scraps)
 

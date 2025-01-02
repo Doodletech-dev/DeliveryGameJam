@@ -71,7 +71,6 @@ func _physics_process(delta):
 		
 func shoot():
 	cooldown_timer.wait_time = default_wait_time
-	var shooting = true
 	var bullet_instance = bullet.instantiate()
 	var ray_start = current_spawn_location+global_position
 	var ray_end = (get_global_mouse_position() - ray_start) * ray_length
@@ -99,8 +98,6 @@ func shoot():
 	cooldown_timer.start()
 	
 func _on_cooldown_timer_timeout() -> void:
-	await get_tree().create_timer(0.6).timeout
-	shooting = false
 	can_shoot = true
 	recharge_bar.visible = false
 	cooldown_timer.stop()
