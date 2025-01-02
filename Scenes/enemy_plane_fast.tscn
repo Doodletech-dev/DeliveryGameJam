@@ -102,5 +102,7 @@ libraries = {
 [node name="Healthbar" parent="." index="6" instance=ExtResource("7_pgc7l")]
 unique_name_in_owner = true
 visible = false
+z_index = 51
+z_as_relative = false
 position = Vector2(-13, -27.5)
 scale = Vector2(0.13, 0.13)
