@@ -216,7 +216,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/disabled = SubResource("StyleBoxTexture_ddc0t")
 theme_override_styles/normal = ExtResource("7_lcwi7")
-disabled = true
 icon = ExtResource("8_eo6hj")
 icon_alignment = 1
 vertical_icon_alignment = 0

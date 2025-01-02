@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://1dwgbixoleyf"]
+
+[ext_resource type="Texture2D" uid="uid://cgy0uealoauds" path="res://Assets/UI/IntroScenery.png" id="1_v0ao3"]
+
+[node name="IntroScenery" type="TextureRect"]
+scale = Vector2(5, 5)
+texture = ExtResource("1_v0ao3")

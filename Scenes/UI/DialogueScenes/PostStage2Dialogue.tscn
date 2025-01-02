@@ -1,0 +1,139 @@
+[gd_scene load_steps=9 format=3 uid="uid://d2yp4pqlmtkw7"]
+
+[ext_resource type="Texture2D" uid="uid://2djrlfg2ikuh" path="res://Assets/UI/DialogueBackground.png" id="1_t4m37"]
+[ext_resource type="Texture2D" uid="uid://j8jn0xf0cdcl" path="res://Assets/UI/boarders_160_60.png" id="2_hts7m"]
+[ext_resource type="Texture2D" uid="uid://bmb1tajkanr1l" path="res://Assets/UI/boarders_60_16.png" id="3_f3v5w"]
+[ext_resource type="Texture2D" uid="uid://c08b6ipxoyb1q" path="res://Assets/UI/talk4.png" id="4_ss1f1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5spuy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7idns"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6p5ml"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g1rjy"]
+
+[node name="DialogueScreen" type="TextureRect"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_t4m37")
+
+[node name="DialogueBox" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -1210.0
+offset_top = 60.0
+offset_right = -410.0
+offset_bottom = 360.0
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset = Vector2(400, 0)
+texture = ExtResource("2_hts7m")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueBox"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -380.0
+offset_top = -130.0
+offset_right = 380.0
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Commander Taryn:
+
+Hey, Rookie! Now, that is what I am talking about. Your two-thirds of the way there. Get it done soldier. You are the only thing standing between peace and a lot more blood. So, what do you say? One final ooh-rah for the team? "
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 400.0
+offset_top = 85.0
+offset_right = 700.0
+offset_bottom = 345.0
+grow_vertical = 2
+pivot_offset = Vector2(150, 0)
+alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5spuy")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7idns")
+icon = ExtResource("3_f3v5w")
+
+[node name="Response" type="Label" parent="VBoxContainer/Button"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -135.0
+offset_top = -25.0
+offset_right = 135.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Right, I’ll keep pushing through no matter the cost."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxEmpty_6p5ml")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_g1rjy")
+icon = ExtResource("3_f3v5w")
+
+[node name="Response" type="Label" parent="VBoxContainer/Button2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -135.0
+offset_top = -25.0
+offset_right = 135.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "I don’t know. Is all this bloodshed really necessary?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Talk2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.5
+offset_top = -290.0
+offset_right = 22.5
+offset_bottom = -221.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5, 5)
+pivot_offset = Vector2(22.5, 0)
+texture = ExtResource("4_ss1f1")
