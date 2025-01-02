@@ -1,12 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://cq2cxld76udn3"]
+[gd_scene load_steps=7 format=3 uid="uid://cq2cxld76udn3"]
 
 [ext_resource type="Texture2D" uid="uid://dcep3p268ccmc" path="res://Assets/UI/Nuke.png" id="1_trd7l"]
+[ext_resource type="Script" path="res://Scenes/UI/DialogueScenes/dialogue_screen_handler.gd" id="2_2wrut"]
+[ext_resource type="Texture2D" uid="uid://bmb1tajkanr1l" path="res://Assets/UI/boarders_60_16.png" id="3_ke1fp"]
+[ext_resource type="PackedScene" uid="uid://mx4b5qpelyai" path="res://Scenes/UI/GameStart/MainMenu.tscn" id="3_pqc28"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_my0wu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_owgl2"]
 
 [node name="Nuke" type="TextureRect"]
 offset_right = 384.0
 offset_bottom = 216.0
 scale = Vector2(5, 5)
 texture = ExtResource("1_trd7l")
+script = ExtResource("2_2wrut")
+transition_scene = ExtResource("3_pqc28")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -23,3 +32,35 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 14
 text = "Game over"
+
+[node name="ReturnToMainMenu" type="Button" parent="."]
+offset_left = 121.6
+offset_top = 167.0
+offset_right = 421.6
+offset_bottom = 247.0
+scale = Vector2(0.5, 0.5)
+theme_override_styles/hover = SubResource("StyleBoxEmpty_my0wu")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_owgl2")
+icon = ExtResource("3_ke1fp")
+
+[node name="Response" type="Label" parent="ReturnToMainMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -135.0
+offset_top = -25.0
+offset_right = 135.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/line_spacing = -30
+theme_override_font_sizes/font_size = 24
+text = "
+Return to Main Menu"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[connection signal="pressed" from="ReturnToMainMenu" to="." method="_on_return_to_main_menu_pressed"]

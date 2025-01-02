@@ -8,7 +8,7 @@ class_name SceneController
 @onready var level_1_container: VBoxContainer = $"LevelSelectScreen/MarginContainer/Level 1 Container"
 
 @export var enemy_spawners : Array[Node2D] = []
-@export var level_to_change : Array[PackedScene]
+@export var level_to_change : PackedScene
 var level_to_load :String
 var level_timer_time
 
@@ -21,13 +21,17 @@ func _ready():
 	GameManager._get_local_scene_controller(self)
 
 func set_level_timer():
-	level_timer.wait_time = (GameManager.current_level * 60)
+	level_timer.wait_time = (GameManager.current_level * 6)
 	level_timer.start()
 
 func _on_level_timer_timeout():
 	GameManager.stop_enemy_spawners.emit(enemy_spawners)
 	
 func _on_level_complete():
+	GameManager.save_game()
+	get_tree().change_scene_to_packed(level_to_change)
+
+func _on_post_dialogue():
 	level_select_screen.show()
 	if(GameManager.current_level == 1):
 		var buttons = level_1_container.get_children()

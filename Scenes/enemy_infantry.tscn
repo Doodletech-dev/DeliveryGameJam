@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bdyo18342wno4"]
+[gd_scene load_steps=13 format=3 uid="uid://bdyo18342wno4"]
 
 [ext_resource type="PackedScene" uid="uid://cvaajdbmn24id" path="res://Scenes/enemy.tscn" id="1_3t01f"]
 [ext_resource type="Texture2D" uid="uid://dbg0btl1y4u2p" path="res://Assets/Enemies/infantry/sprite_0.png" id="3_idyb1"]

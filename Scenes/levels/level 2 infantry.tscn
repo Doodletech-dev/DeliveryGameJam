@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dljq6av06xjb2"]
+[gd_scene load_steps=19 format=3 uid="uid://dljq6av06xjb2"]
 
 [ext_resource type="PackedScene" uid="uid://b50wc4c4ic3wf" path="res://Scenes/enemy_spawner.tscn" id="1_sncv4"]
 [ext_resource type="PackedScene" uid="uid://bdyo18342wno4" path="res://Scenes/enemy_infantry.tscn" id="2_yuyy4"]
@@ -13,6 +13,8 @@
 [ext_resource type="Script" path="res://Scripts/selection_manager.gd" id="11_0lqx1"]
 [ext_resource type="PackedScene" uid="uid://c5lbuhwk5nj4k" path="res://Scenes/Prefabs/background.tscn" id="12_3jbff"]
 [ext_resource type="PackedScene" uid="uid://iwdca27w1gbk" path="res://Scenes/Components/scene_controller.tscn" id="13_xqhua"]
+[ext_resource type="PackedScene" uid="uid://d2yp4pqlmtkw7" path="res://Scenes/UI/DialogueScenes/PostStage2Dialogue.tscn" id="14_23px3"]
+[ext_resource type="PackedScene" uid="uid://blmnvpu8kayb8" path="res://Scenes/UI/GameOverlayUI.tscn" id="15_tgduw"]
 
 [sub_resource type="Curve2D" id="Curve2D_1xir1"]
 _data = {
@@ -57,8 +59,8 @@ position = Vector2(1954, 512)
 enemy_to_spawn = Array[PackedScene]([ExtResource("2_yuyy4")])
 spawn_weight = Array[float]([100.0])
 target = NodePath("../../Walker/NukeReactor")
-min_spawn_time = 1
-max_spawn_time = 4
+min_spawn_time = 2
+max_spawn_time = 8
 ai_paths = [NodePath("../../AIPath/Path2D"), NodePath("../../AIPath/Path2D3")]
 
 [node name="EnemySpawner4" parent="EnemySpawners" node_paths=PackedStringArray("target", "ai_paths") instance=ExtResource("1_sncv4")]
@@ -75,8 +77,8 @@ position = Vector2(1792, -32)
 enemy_to_spawn = Array[PackedScene]([ExtResource("2_yuyy4")])
 spawn_weight = Array[float]([100.0])
 target = NodePath("../../Walker/NukeReactor")
-min_spawn_time = 2
-max_spawn_time = 4
+min_spawn_time = 4
+max_spawn_time = 8
 ai_paths = [NodePath("../../AIPath/Path2D3"), NodePath("../../AIPath/Path2D2")]
 
 [node name="EnemySpawner6" parent="EnemySpawners" node_paths=PackedStringArray("target", "ai_paths") instance=ExtResource("1_sncv4")]
@@ -84,8 +86,8 @@ position = Vector2(1536, -32)
 enemy_to_spawn = Array[PackedScene]([ExtResource("3_fan1j"), ExtResource("2_yuyy4")])
 spawn_weight = Array[float]([50.0, 50.0])
 target = NodePath("../../Walker/NukeReactor")
-min_spawn_time = 4
-max_spawn_time = 9
+min_spawn_time = 8
+max_spawn_time = 18
 ai_paths = [NodePath("../../AIPath/Path2D"), NodePath("../../AIPath/Path2D2")]
 
 [node name="Walker" parent="." instance=ExtResource("5_canhc")]
@@ -133,3 +135,6 @@ curve = SubResource("Curve2D_phcmu")
 
 [node name="SceneController" parent="." node_paths=PackedStringArray("enemy_spawners") instance=ExtResource("13_xqhua")]
 enemy_spawners = [NodePath("../EnemySpawners/EnemySpawner"), NodePath("../EnemySpawners/EnemySpawner2"), NodePath("../EnemySpawners/EnemySpawner3"), NodePath("../EnemySpawners/EnemySpawner4"), NodePath("../EnemySpawners/EnemySpawner5"), NodePath("../EnemySpawners/EnemySpawner6")]
+level_to_change = ExtResource("14_23px3")
+
+[node name="GameOverlayUi" parent="." instance=ExtResource("15_tgduw")]
