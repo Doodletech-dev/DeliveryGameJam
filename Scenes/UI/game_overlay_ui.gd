@@ -96,25 +96,45 @@ func _on_upgrade_4_button_pressed() -> void:
 		flash_text_red(%Upgrade4_Button.get_child(2))
 
 func _on_upgrade_5_button_pressed() -> void:
-	var button = %Upgrade5_Button
-	shield_queued = true
-	handle_cooldown_purchase(button)
+	var cost = int(%Upgrade5_Button.get_child(2).text)
+	if GameManager.current_scraps >= cost:
+		GameManager.current_scraps -= cost
+		var button = %Upgrade5_Button
+		shield_queued = true
+		handle_cooldown_purchase(button)
+	else:
+		flash_text_red(%Upgrade5_Button.get_child(2))
 
 func _on_upgrade_6_button_pressed() -> void:
-	var button = %Upgrade6_Button
-	GameManager.repair_purchased = true
-	handle_cooldown_purchase(button)
+	var cost = int(%Upgrade6_Button.get_child(2).text)
+	if GameManager.current_scraps >= cost:
+		GameManager.current_scraps -= cost
+		var button = %Upgrade6_Button
+		GameManager.repair_purchased = true
+		handle_cooldown_purchase(button)
+	else:
+		flash_text_red(%Upgrade6_Button.get_child(2))
 
 func _on_upgrade_7_button_pressed() -> void:
-	var button = %Upgrade7_Button
-	missile_queued = true
-	handle_cooldown_purchase(button)
+	var cost = int(%Upgrade7_Button.get_child(2).text)
+	if GameManager.current_scraps >= cost:
+		GameManager.current_scraps -= cost
+		var button = %Upgrade7_Button
+		missile_queued = true
+		handle_cooldown_purchase(button)
+	else:
+		flash_text_red(%Upgrade7_Button.get_child(2))
 
 
 func _on_upgrade_8_button_pressed() -> void:
-	var button = %Upgrade8_Button
-	wipe_queued = true
-	handle_cooldown_purchase(button)
+	var cost = int(%Upgrade8_Button.get_child(2).text)
+	if GameManager.current_scraps >= cost:
+		GameManager.current_scraps -= cost
+		var button = %Upgrade8_Button
+		wipe_queued = true
+		handle_cooldown_purchase(button)
+	else:
+		flash_text_red(%Upgrade8_Button.get_child(2))
 
 func apply_changes():
 	if(shield_queued):
