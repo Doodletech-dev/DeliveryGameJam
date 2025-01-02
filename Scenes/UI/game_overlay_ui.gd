@@ -139,3 +139,15 @@ func handle_cooldown_purchase(button):
 
 func update_progress_bar():
 	progress_bar.value = GameManager.progress_bar_amount
+
+
+func _on_button_menu_pressed() -> void:
+	get_tree().paused = true
+
+
+func _on_button_menu_resume_pressed() -> void:
+	get_tree().paused = false
+	toggle_window(window_menu)
+
+func _on_button_menu_quit_pressed() -> void:
+	get_tree().quit()

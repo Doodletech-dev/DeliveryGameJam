@@ -885,12 +885,14 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Button_Menu_Resume" type="Button" parent="Window_Menu/VBoxContainer"]
+process_mode = 3
 layout_mode = 2
 text = "Resume"
 icon = ExtResource("19_od2xs")
 icon_alignment = 1
 
 [node name="Button_Menu_Options" type="Button" parent="Window_Menu/VBoxContainer"]
+process_mode = 3
 layout_mode = 2
 text = "Options
 "
@@ -898,12 +900,14 @@ icon = ExtResource("19_od2xs")
 icon_alignment = 1
 
 [node name="Button_Menu_Quit" type="Button" parent="Window_Menu/VBoxContainer"]
+process_mode = 3
 layout_mode = 2
 text = "Quit
 "
 icon = ExtResource("19_od2xs")
 icon_alignment = 1
 
+[connection signal="pressed" from="Window_Gameplay/HBoxContainer2/Button_Menu" to="." method="_on_button_menu_pressed"]
 [connection signal="pressed" from="Window_Upgrades/GridContainer/Upgrade1_Button" to="." method="_on_upgrade_1_button_pressed"]
 [connection signal="pressed" from="Window_Upgrades/GridContainer/Upgrade2_Button" to="." method="_on_upgrade_2_button_pressed"]
 [connection signal="pressed" from="Window_Upgrades/GridContainer/Upgrade3_Button" to="." method="_on_upgrade_3_button_pressed"]
@@ -912,3 +916,5 @@ icon_alignment = 1
 [connection signal="pressed" from="Window_Upgrades/GridContainer/Upgrade6_Button" to="." method="_on_upgrade_6_button_pressed"]
 [connection signal="pressed" from="Window_Upgrades/GridContainer/Upgrade7_Button" to="." method="_on_upgrade_7_button_pressed"]
 [connection signal="pressed" from="Window_Upgrades/GridContainer/Upgrade8_Button" to="." method="_on_upgrade_8_button_pressed"]
+[connection signal="pressed" from="Window_Menu/VBoxContainer/Button_Menu_Resume" to="." method="_on_button_menu_resume_pressed"]
+[connection signal="pressed" from="Window_Menu/VBoxContainer/Button_Menu_Quit" to="." method="_on_button_menu_quit_pressed"]
