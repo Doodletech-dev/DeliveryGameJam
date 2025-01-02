@@ -81,7 +81,6 @@ func _load_saved_level():
 func _on_load_game(data : Dictionary):
 	level_to_load = data["current_level"]
 
-
-func _on_button_pressed() -> void:
+func _on_button_load_game_pressed() -> void:
 	if(GameManager.saver_loder._load_game()):
 		call_deferred("_load_saved_level")

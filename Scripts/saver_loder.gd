@@ -27,6 +27,12 @@ func _load_game():
 
 	file.close()
 	return true
+func _has_save_file():
+	var file = FileAccess.open("user://savegame.json", FileAccess.READ)
+	if(file == null): return false
+	else:
+		return	true
+	return false
 	
 func _delete_save_game():
 	DirAccess.remove_absolute("user://savegame.json")
