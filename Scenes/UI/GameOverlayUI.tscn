@@ -99,7 +99,6 @@ offset_right = 500.0
 offset_bottom = 35.0
 grow_horizontal = 2
 theme_override_styles/background = SubResource("StyleBoxEmpty_u1klq")
-value = 42.0
 
 [node name="HealthBarIcon" type="TextureRect" parent="Window_Gameplay"]
 layout_mode = 1

@@ -142,6 +142,7 @@ pivot_offset = Vector2(22.5, 0)
 texture = ExtResource("4_ss1f1")
 
 [node name="Label" type="Label" parent="."]
+layout_mode = 0
 offset_left = 928.0
 offset_top = 928.0
 offset_right = 1265.0

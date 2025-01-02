@@ -74,6 +74,7 @@ pivot_offset = Vector2(22.5, 0)
 texture = ExtResource("3_xdclf")
 
 [node name="Label" type="Label" parent="."]
+layout_mode = 0
 offset_left = 817.0
 offset_top = 928.0
 offset_right = 1154.0

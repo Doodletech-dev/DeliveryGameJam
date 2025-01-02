@@ -11,7 +11,10 @@ level_1 = ExtResource("2_lcpb8")
 [node name="SaverLoder" type="Node" parent="."]
 script = ExtResource("2_vcd54")
 
+[node name="ProgressBarCalculation" type="Timer" parent="."]
+
 [connection signal="game_over" from="." to="." method="_on_game_over"]
 [connection signal="stop_enemy_spawners" from="." to="." method="_on_stop_enemy_spawners"]
 [connection signal="update_enemy_count" from="." to="." method="_on_update_enemy_count"]
 [connection signal="update_scraps" from="." to="." method="_on_update_scraps"]
+[connection signal="timeout" from="ProgressBarCalculation" to="." method="_on_progress_bar_calculation_timeout"]

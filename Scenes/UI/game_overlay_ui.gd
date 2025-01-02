@@ -1,10 +1,12 @@
 extends CanvasLayer
+class_name GameUI
 
 # Declare variables for the windows
 @onready var window_upgrades = $Window_Upgrades
 @onready var window_menu = $Window_Menu
 @onready var health_bar: Node2D = %HealthbarNew
 @onready var scrap: Label = $Window_Gameplay/Scrap
+@onready var progress_bar: ProgressBar = $Window_Gameplay/ProgressBar/ProgressBar
 
 @export var screen_wipe: PackedScene
 
@@ -20,6 +22,9 @@ func _ready():
 	$Window_Gameplay/HBoxContainer2/Button_Menu.connect("pressed", Callable(self, "_on_menu_button_pressed"))
 	health_bar.set_max(GameManager.current_health)
 	scrap.text = str(GameManager.current_scraps)
+	
+	GameManager._get_game_overlay(self)
+	
 
 func _physics_process(delta: float) -> void:
 	health_bar.set_health(GameManager.current_health)
@@ -131,3 +136,6 @@ func handle_cooldown_purchase(button):
 		button.get_child(2).visible = false
 	else:
 		flash_text_red(button.get_child(2))
+
+func update_progress_bar():
+	progress_bar.value = GameManager.progress_bar_amount

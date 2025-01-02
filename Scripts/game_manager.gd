@@ -7,9 +7,15 @@ signal stop_enemy_spawners(spawners)
 signal update_enemy_count(amount)
 signal update_scraps(amount)
 
+var game_UI : GameUI
 var current_scraps
 var current_level
 var current_health
+
+var progress_bar_amount : float
+var max_time : float
+var current_time : float
+@onready var progress_bar_calculation: Timer = $ProgressBarCalculation
 
 ## For upgrade cards
 var turret_upgrades = 0
@@ -48,9 +54,12 @@ func _ready():
 func _on_game_over():
 	_reset_level()
 	saver_loder._delete_save_game()
-	get_tree().set_deferred("change_scene_to_file_packed", level_1)
-	get_tree().call_deferred("change_scene_to_file_packed", level_1)
+	print("call reset level")
+	call_deferred("level_reset")
+
+func level_reset():
 	get_tree().change_scene_to_packed(level_1)
+	print("reset level")
 
 func _on_update_scraps(amount):
 	current_scraps += amount
@@ -70,6 +79,9 @@ func _on_update_enemy_count(amount : int):
 		
 func _get_local_scene_controller(controller : SceneController):
 	scene_controller = controller
+	max_time = current_level * 60
+	current_time = 0
+	progress_bar_calculation.start()
 		
 func _reset_level():
 	total_enemy_count = 0
@@ -102,3 +114,15 @@ func _on_load_game(data : Dictionary):
 	laser_upgrades = data["laser_upgrades"]
 	walker_upgrades = data["walker_upgrades"]
 	can_get_good_ending = data["ending"]
+
+
+func _on_progress_bar_calculation_timeout() -> void:
+	current_time += 1
+	progress_bar_amount = (current_time / max_time) * 100
+	progress_bar_amount = ceilf(progress_bar_amount)
+	if(game_UI == null ): return
+	game_UI.update_progress_bar()
+	print("Level Progress is " + str(progress_bar_amount))
+	
+func _get_game_overlay(ui : GameUI):
+	game_UI = ui

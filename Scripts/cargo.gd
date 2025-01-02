@@ -53,7 +53,9 @@ func _on_load_game(data : Dictionary):
 	print("player health equals " + str(player_current_health))
 
 func _on_character_hitbox_body_entered(body: Node2D) -> void:
+	print("Player take damage HP")
 	if(player_current_health <= 0):
+		print("Player at zero HP")
 		#create_effects()
 		GameManager.game_over.emit()
 		get_tree().change_scene_to_file("res://Scenes/levels/level 1.tscn")
