@@ -1,9 +1,0 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://c55ejfljs23s"]
-
-[ext_resource type="Texture2D" uid="uid://cuwf6l00vl5d2" path="res://Assets/Enemies/Square.png" id="1_2twxg"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qrat6"]
-texture = ExtResource("1_2twxg")
-
-[resource]
-Button/styles/normal = SubResource("StyleBoxTexture_qrat6")

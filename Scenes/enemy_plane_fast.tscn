@@ -34,6 +34,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_cobn1"]
 resource_name = "move"
 length = 0.500003
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -50,6 +51,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_w0o0r"]
 resource_name = "move_attack"
 length = 0.500003
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -77,6 +79,7 @@ attack_distance = 500
 scraps_given = 2
 animation_player = NodePath("AnimationPlayer")
 bullet_scene = ExtResource("2_b8txg")
+damage_types = 2
 
 [node name="Sprite2D" parent="." index="0"]
 z_index = 1

@@ -5,6 +5,8 @@ class_name Missile
 @onready var explosion_collision: CollisionShape2D = $Explosion_Collision
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
+@export var damage_types := DamageTypes.type.missile
+
 @export var seconds_alive: float = 2
 @export var max_speed: float = 20
 @export var initial_speed: float = 5
@@ -20,12 +22,16 @@ class_name Missile
 @export var explotion_effect_size = 3
 @export var trail_effect: PackedScene
 @export var explosion_effect: PackedScene
+@export var enemy_missle = false
 
 var target: Vector2
 var trail_instance: Node2D
+var fire_direciton = Vector2.ZERO
 var current_speed: float = initial_speed
 var exploded = false
 var never_upgraded = true
+
+
 
 func _ready():
 	trail_instance = trail_effect.instantiate()
@@ -58,7 +64,6 @@ func _physics_process(delta: float) -> void:
 		current_speed += acceleration
 		if(current_speed > d_max_speed):
 			current_speed = d_max_speed
-			
 		var current_direction = Vector2(cos(rotation), sin(rotation))
 		var new_direction = current_direction
 		if(seconds_alive - timer.time_left > turning_delay):
@@ -71,6 +76,8 @@ func _physics_process(delta: float) -> void:
 		position += new_direction * current_speed
 		rotation = new_direction.angle()
 	
+func _set_fire_direction(direction : Vector2):
+	target = direction
 	
 func cartesian_to_isometric(cartesian):
 	return Vector2(cartesian.x - cartesian.y, (cartesian.x + cartesian.y) / 2)

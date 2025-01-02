@@ -1,9 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://yn6ir2hk0ghx"]
+[gd_scene load_steps=3 format=3 uid="uid://yn6ir2hk0ghx"]
 
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_d7uhx"]
+[ext_resource type="Script" path="res://Scripts/saver_loder.gd" id="2_vcd54"]
 
-[node name="GameManager" type="Node"]
+[node name="GameManager" type="Node" groups=["savable"]]
 script = ExtResource("1_d7uhx")
+
+[node name="SaverLoder" type="Node" parent="."]
+script = ExtResource("2_vcd54")
 
 [connection signal="game_over" from="." to="." method="_on_game_over"]
 [connection signal="stop_enemy_spawners" from="." to="." method="_on_stop_enemy_spawners"]
