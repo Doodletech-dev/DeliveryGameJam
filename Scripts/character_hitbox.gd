@@ -9,6 +9,7 @@ extends Area2D
 @export var damage_weakness = 5
 
 var current_health
+var shielded: bool = false
 
 func  _ready():
 	current_health = max_health 
@@ -26,10 +27,13 @@ func create_effects():
 		emitter.emitting = true
 		
 func handle_hit(body):
-	if(body is Bullet or body is Missile or body is Laser_Turret):
+	# This could've just be a base class but eh... it works
+	if(body is Bullet or body is Missile or body is Laser_Turret or body is Screen_Wipe):
 		var damage = body.damage
 		if(body.damage_type == damage_type):
 			damage *= damage_weakness
+		if(shielded):
+			damage = 0
 		current_health -= damage
 		if(health_bar):
 			health_bar.visible = true

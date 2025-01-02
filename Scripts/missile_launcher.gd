@@ -3,17 +3,19 @@ extends Turret
 signal turret_selected
 
 @export var missile: PackedScene
+@export var super_charged_interval: float = 0.2
+@export var super_charged_time: float = 5
 @onready var outline: AnimatedSprite2D = %Outline
 @onready var cooldown_timer: Timer = $CooldownTimer
 @onready var recharge_bar: Node2D = $RechargeBar
 
-
 var selected: bool = false
 var can_shoot: bool = true
-
+var never_upgraded = true
+var default_interval
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	default_interval = cooldown_timer.wait_time
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -23,6 +25,11 @@ func _process(delta: float) -> void:
 		shoot()
 func _physics_process(delta: float) -> void:
 	recharge_bar.set_health(cooldown_timer.wait_time - cooldown_timer.time_left)
+	if(GameManager.missile_power_purchased and never_upgraded):
+		never_upgraded = false
+		cooldown_timer.wait_time = super_charged_interval
+		await get_tree().create_timer(super_charged_time).timeout
+		cooldown_timer.wait_time = default_interval
 	
 func shoot():
 	if(Input.is_action_pressed("Shoot") and can_shoot):

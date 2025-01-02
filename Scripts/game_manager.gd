@@ -8,10 +8,19 @@ signal update_scraps(amount)
 var current_scraps
 var current_level
 var current_health
+
+## For upgrade cards
 var turret_upgrades = 0
 var missile_upgrades = 0
 var laser_upgrades = 0
 var walker_upgrades = 0
+
+## For calldown cards
+var shield_purchased
+var repair_purchased
+var missile_power_purchased
+var screen_wipe_purchased
+var repairing
 
 var can_win_level
 

@@ -25,6 +25,7 @@ var target: Vector2
 var trail_instance: Node2D
 var current_speed: float = initial_speed
 var exploded = false
+var never_upgraded = true
 
 func _ready():
 	trail_instance = trail_effect.instantiate()
@@ -41,6 +42,12 @@ func _process(delta: float) -> void:
 	trail_instance.global_transform = effect_location.global_transform
 	
 func _physics_process(delta: float) -> void:
+	var d_max_speed = max_speed
+	var d_steering_speed = steering_speed
+	if(GameManager.missile_power_purchased and never_upgraded):
+		never_upgraded = false
+		d_max_speed *= 2
+		d_steering_speed *= 2
 	if(exploded):
 		velocity = Vector2.ZERO
 		explosion_collision.shape.radius += 20
@@ -49,8 +56,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		# Update position and rotation
 		current_speed += acceleration
-		if(current_speed > max_speed):
-			current_speed = max_speed
+		if(current_speed > d_max_speed):
+			current_speed = d_max_speed
 			
 		var current_direction = Vector2(cos(rotation), sin(rotation))
 		var new_direction = current_direction
@@ -58,7 +65,7 @@ func _physics_process(delta: float) -> void:
 			
 			var desired_direction = (target - position).normalized()
 			var steering_force = desired_direction - current_direction
-			new_direction = (current_direction + steering_force * steering_speed * delta).normalized()
+			new_direction = (current_direction + steering_force * d_steering_speed * delta).normalized()
 			
 			
 		position += new_direction * current_speed

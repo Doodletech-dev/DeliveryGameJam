@@ -27,4 +27,8 @@ position = Vector2(-10.411, 23.3503)
 rotation = 0.536449
 shape = SubResource("RectangleShape2D_gs2nb")
 
+[node name="Shield_Timer" type="Timer" parent="."]
+wait_time = 10.0
+
 [connection signal="body_entered" from="CharacterHitbox" to="CharacterHitbox" method="_on_body_entered"]
+[connection signal="timeout" from="Shield_Timer" to="." method="_on_timer_timeout"]

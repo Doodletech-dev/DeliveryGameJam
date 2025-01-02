@@ -1,6 +1,7 @@
-[gd_scene load_steps=27 format=3 uid="uid://blmnvpu8kayb8"]
+[gd_scene load_steps=37 format=3 uid="uid://blmnvpu8kayb8"]
 
 [ext_resource type="Script" path="res://Scenes/UI/game_overlay_ui.gd" id="1_y0ndp"]
+[ext_resource type="PackedScene" uid="uid://cng6oa8lxepp4" path="res://Scenes/Prefabs/screen_wipe.tscn" id="2_f23up"]
 [ext_resource type="PackedScene" uid="uid://de35cqxro3jwo" path="res://Scenes/UI/health_bar.tscn" id="2_vn7s4"]
 [ext_resource type="Texture2D" uid="uid://c74doanchijgq" path="res://Assets/UI/HealthIcon.png" id="3_vkba2"]
 [ext_resource type="Texture2D" uid="uid://c5olg6l5tdfci" path="res://Assets/UI/200_7.png" id="4_ot04r"]
@@ -59,6 +60,7 @@ texture = ExtResource("9_hta8q")
 
 [node name="GameOverlayUi" type="CanvasLayer"]
 script = ExtResource("1_y0ndp")
+screen_wipe = ExtResource("2_f23up")
 
 [node name="Window_Gameplay" type="Control" parent="."]
 layout_mode = 3
@@ -292,7 +294,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/disabled = SubResource("StyleBoxTexture_ddc0t")
 theme_override_styles/normal = ExtResource("7_lcwi7")
-disabled = true
 icon = ExtResource("8_eo6hj")
 icon_alignment = 1
 vertical_icon_alignment = 0
@@ -748,7 +749,7 @@ offset_bottom = 35.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "One-Time Use
-Deploy bomber seeking missiles"
+Super Murder Missiles"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3

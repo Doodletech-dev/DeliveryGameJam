@@ -6,6 +6,14 @@ extends CanvasLayer
 @onready var health_bar: Node2D = %HealthbarNew
 @onready var scrap: Label = $Window_Gameplay/Scrap
 
+@export var screen_wipe: PackedScene
+
+var shield_queued = false
+var repair_queued = false
+var missile_queued = false
+var wipe_queued = false
+var wipe_complete = false
+
 func _ready():
 	# Connect button signals using the correct paths
 	$Window_Gameplay/HBoxContainer/Button_Upgrades.connect("pressed", Callable(self, "_on_upgrade_button_pressed"))
@@ -16,6 +24,11 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	health_bar.set_health(GameManager.current_health)
 	scrap.text = str(GameManager.current_scraps)
+	if(GameManager.repairing):
+		health_bar.set_color(Color(0,1,0,1))
+	else:
+		# Red!
+		health_bar.set_color(Color(0.66,0.208,0.139,1))
 
 # Button actions
 
@@ -29,6 +42,8 @@ func _on_menu_button_pressed():
 func toggle_window(window: Control):
 	# Toggle visibility for the clicked window
 	window.visible = not window.visible
+	if(!window.visible):
+		apply_changes()
 
 func flash_text_red(text):
 	var original_color = Color(1.0,1.0,1.0,1.0)
@@ -82,28 +97,44 @@ func _on_upgrade_4_button_pressed() -> void:
 
 func _on_upgrade_5_button_pressed() -> void:
 	var button = %Upgrade5_Button
+	shield_queued = true
 	handle_cooldown_purchase(button)
 
 func _on_upgrade_6_button_pressed() -> void:
 	var button = %Upgrade6_Button
+	repair_queued = true
 	handle_cooldown_purchase(button)
 
 func _on_upgrade_7_button_pressed() -> void:
 	var button = %Upgrade7_Button
+	missile_queued = true
 	handle_cooldown_purchase(button)
 
 
 func _on_upgrade_8_button_pressed() -> void:
 	var button = %Upgrade8_Button
+	wipe_queued = true
 	handle_cooldown_purchase(button)
+
+func apply_changes():
+	if(shield_queued):
+		GameManager.shield_purchased = true
+	if(repair_queued):
+		GameManager.repair_purchased = true
+	if(missile_queued):
+		GameManager.missile_power_purchased = true
+	if(wipe_queued and !wipe_complete):
+		GameManager.screen_wipe_purchased = true
+		get_parent().add_child(screen_wipe.instantiate())
+		wipe_complete = true
 
 func handle_cooldown_purchase(button):
 	var cost = int(button.get_child(2).text)
-	if(button.get_child(0).get_child(0).text == "SOLD OUT"):
+	if(button.disabled):
 		return
+	button.set("disabled",true)
 	if GameManager.current_scraps >= cost:
 		GameManager.current_scraps -= cost
-		button.get_child(0).get_child(0).text = "SOLD OUT"
 		button.get_child(2).visible = false
 	else:
 		flash_text_red(button.get_child(2))
