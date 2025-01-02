@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cpg6ekwfe3uu4" path="res://Assets/Turret/Bullet/bullet.png" id="3_2yr2i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wo1k4"]
+size = Vector2(12, 13)
 
 [node name="Bullet" type="CharacterBody2D"]
 z_index = 20

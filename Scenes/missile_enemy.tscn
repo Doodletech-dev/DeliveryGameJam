@@ -1,10 +1,31 @@
-[gd_scene load_steps=2 format=3 uid="uid://crppycgwa5q8d"]
+[gd_scene load_steps=5 format=3 uid="uid://crppycgwa5q8d"]
 
 [ext_resource type="PackedScene" uid="uid://coltcnpgcv86x" path="res://Scenes/bullet_enemy.tscn" id="1_b3xw5"]
+[ext_resource type="Texture2D" uid="uid://c8c2ojlqtqv5s" path="res://Assets/MissileLauncher/Missile/missile_b.png" id="2_7hvkp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gcdnq"]
+size = Vector2(28, 14)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_km7jf"]
+resource_local_to_scene = true
+radius = 0.1
 
 [node name="MissileEnemy" instance=ExtResource("1_b3xw5")]
-speed = 100.0
-damage = 10
+damage = 5
 
 [node name="Sprite2D" parent="." index="0"]
-modulate = Color(0, 1, 0.328125, 1)
+rotation = 4.71239
+scale = Vector2(1, 1)
+texture = ExtResource("2_7hvkp")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 0)
+shape = SubResource("RectangleShape2D_gcdnq")
+
+[node name="Effect_Location" type="Node2D" parent="." index="2"]
+position = Vector2(-32, 0)
+
+[node name="Timer" type="Timer" parent="." index="3"]
+
+[node name="Explosion_Collision" type="CollisionShape2D" parent="." index="4"]
+shape = SubResource("CircleShape2D_km7jf")

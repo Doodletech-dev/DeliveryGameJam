@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://s5mawxwdd6pm"]
+[gd_scene load_steps=24 format=3 uid="uid://s5mawxwdd6pm"]
 
 [ext_resource type="Script" path="res://Scripts/missile_launcher.gd" id="1_0yqax"]
 [ext_resource type="PackedScene" uid="uid://djflwyj7putlx" path="res://Scenes/Prefabs/missile_b.tscn" id="2_eifnv"]
@@ -87,6 +87,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_odsxs"]
 size = Vector2(170, 145)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mm2yi"]
+bg_color = Color(1, 0.909804, 0.231373, 1)
+
 [node name="MissileLauncher" type="Area2D"]
 z_index = 5
 z_as_relative = false
@@ -117,13 +120,14 @@ position = Vector2(6, 19.5)
 shape = SubResource("RectangleShape2D_odsxs")
 
 [node name="RechargeBar" parent="." instance=ExtResource("19_1d8dd")]
+visible = false
 position = Vector2(-53, 93)
 scale = Vector2(0.575, 0.575)
-color = Color(0.82961, 0.497723, 0, 1)
+color = SubResource("StyleBoxFlat_mm2yi")
 
 [node name="CooldownTimer" type="Timer" parent="."]
-wait_time = 0.6
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]

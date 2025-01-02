@@ -4,8 +4,11 @@ signal turret_selected
 
 @export var bullet: PackedScene
 
+
 @onready var sprite: AnimatedSprite2D = $Sprite
 @onready var outline: AnimatedSprite2D = $Outline
+@onready var recharge_bar: Node2D = $RechargeBar
+@onready var cooldown_timer: Timer = $CooldownTimer
 
 
 var selected: bool = false
@@ -43,7 +46,8 @@ func _physics_process(delta: float) -> void:
 			sprite.frame = 3
 			outline.frame = 3
 		shoot()
-
+	recharge_bar.set_health(cooldown_timer.wait_time - cooldown_timer.time_left)	
+	
 		
 func shoot():
 	if(Input.is_action_pressed("Shoot") and can_shoot):
@@ -52,9 +56,15 @@ func shoot():
 		bullet_instance.look_at(get_global_mouse_position())
 		get_parent().add_child(bullet_instance)
 		can_shoot = false
-		await get_tree().create_timer(0.2).timeout
-		can_shoot = true
-
+		recharge_bar.set_max(cooldown_timer.wait_time)
+		recharge_bar.set_health(0)
+		recharge_bar.visible = true
+		cooldown_timer.start()
+		
+func _on_cooldown_timer_timeout() -> void:
+	can_shoot = true
+	recharge_bar.visible = false
+	cooldown_timer.stop()
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if(event.is_action_pressed("Select")):

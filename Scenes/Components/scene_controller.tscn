@@ -2,9 +2,68 @@
 
 [ext_resource type="Script" path="res://Scripts/scene_controller.gd" id="1_6hwjr"]
 
-[node name="SceneController" type="Node"]
+[node name="SceneController" type="Node" groups=["savable"]]
 script = ExtResource("1_6hwjr")
 
 [node name="LevelTimer" type="Timer" parent="."]
 
+[node name="LevelSelectScreen" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="LevelSelectScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="LevelSelectScreen/MarginContainer"]
+layout_mode = 2
+
+[node name="Level 3 Container" type="VBoxContainer" parent="LevelSelectScreen/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Final Level Selection" type="Button" parent="LevelSelectScreen/MarginContainer/Level 3 Container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Final Level"
+
+[node name="Level 2 Container" type="HBoxContainer" parent="LevelSelectScreen/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 64
+
+[node name="Level 2 (Heavy Infantry) Selection" type="Button" parent="LevelSelectScreen/MarginContainer/Level 2 Container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Level 2 Heavy Infantry"
+
+[node name="Level 2 (Heavy Drones) Selection" type="Button" parent="LevelSelectScreen/MarginContainer/Level 2 Container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Level 2 Heavy Drones"
+
+[node name="Level 1 Container" type="VBoxContainer" parent="LevelSelectScreen/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="Level 1 Icon" type="Button" parent="LevelSelectScreen/MarginContainer/Level 1 Container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Level 1"
+
 [connection signal="timeout" from="LevelTimer" to="." method="_on_level_timer_timeout"]
+[connection signal="pressed" from="LevelSelectScreen/MarginContainer/Level 3 Container/Final Level Selection" to="." method="_on_final_level_selection_pressed"]
+[connection signal="pressed" from="LevelSelectScreen/MarginContainer/Level 2 Container/Level 2 (Heavy Infantry) Selection" to="." method="_on_level_2_heavy_infantry_selection_pressed"]
+[connection signal="pressed" from="LevelSelectScreen/MarginContainer/Level 2 Container/Level 2 (Heavy Drones) Selection" to="." method="_on_level_2_heavy_drones_selection_pressed"]
+[connection signal="pressed" from="LevelSelectScreen/MarginContainer/Level 1 Container/Level 1 Icon" to="." method="_on_level_1_icon_pressed"]

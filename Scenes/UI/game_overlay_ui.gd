@@ -6,6 +6,14 @@ extends CanvasLayer
 @onready var health_bar: Node2D = %HealthbarNew
 @onready var scrap: Label = $Window_Gameplay/Scrap
 
+@export var screen_wipe: PackedScene
+
+var shield_queued = false
+var repair_queued = false
+var missile_queued = false
+var wipe_queued = false
+var wipe_complete = false
+
 func _ready():
 	# Connect button signals using the correct paths
 	$Window_Gameplay/HBoxContainer/Button_Upgrades.connect("pressed", Callable(self, "_on_upgrade_button_pressed"))
@@ -29,6 +37,8 @@ func _on_menu_button_pressed():
 func toggle_window(window: Control):
 	# Toggle visibility for the clicked window
 	window.visible = not window.visible
+	if(!window.visible):
+		apply_changes()
 
 func flash_text_red(text):
 	var original_color = Color(1.0,1.0,1.0,1.0)
@@ -46,6 +56,7 @@ func _on_upgrade_1_button_pressed() -> void:
 	if GameManager.current_scraps >= cost:
 		GameManager.current_scraps -= cost
 		GameManager.missile_upgrades += 1
+		%Upgrade1.get_child(0).text = str(GameManager.missile_upgrades)
 	else:
 		flash_text_red(%Upgrade1_Button.get_child(2))
 
@@ -55,6 +66,7 @@ func _on_upgrade_2_button_pressed() -> void:
 	if GameManager.current_scraps >= cost:
 		GameManager.current_scraps -= cost
 		GameManager.laser_upgrades += 1
+		%Upgrade2.get_child(0).text = str(GameManager.laser_upgrades)
 	else:
 		flash_text_red(%Upgrade2_Button.get_child(2))
 
@@ -64,6 +76,7 @@ func _on_upgrade_3_button_pressed() -> void:
 	if GameManager.current_scraps >= cost:
 		GameManager.current_scraps -= cost
 		GameManager.turret_upgrades += 1
+		%Upgrade3.get_child(0).text = str(GameManager.turret_upgrades)
 	else:
 		flash_text_red(%Upgrade3_Button.get_child(2))
 
@@ -73,36 +86,48 @@ func _on_upgrade_4_button_pressed() -> void:
 	if GameManager.current_scraps >= cost:
 		GameManager.current_scraps -= cost
 		GameManager.walker_upgrades += 1
+		%Upgrade4.get_child(0).text = str(GameManager.walker_upgrades)
 	else:
 		flash_text_red(%Upgrade4_Button.get_child(2))
 
 func _on_upgrade_5_button_pressed() -> void:
-	var cost = int(%Upgrade5_Button.get_child(2).text)
-	if GameManager.current_scraps >= cost:
-		GameManager.current_scraps -= cost
-	else:
-		flash_text_red(%Upgrade5_Button.get_child(2))
-
+	var button = %Upgrade5_Button
+	shield_queued = true
+	handle_cooldown_purchase(button)
 
 func _on_upgrade_6_button_pressed() -> void:
-	var cost = int(%Upgrade6_Button.get_child(2).text)
-	if GameManager.current_scraps >= cost:
-		GameManager.current_scraps -= cost
-	else:
-		flash_text_red(%Upgrade6_Button.get_child(2))
-
+	var button = %Upgrade6_Button
+	GameManager.repair_purchased = true
+	handle_cooldown_purchase(button)
 
 func _on_upgrade_7_button_pressed() -> void:
-	var cost = int(%Upgrade7_Button.get_child(2).text)
-	if GameManager.current_scraps >= cost:
-		GameManager.current_scraps -= cost
-	else:
-		flash_text_red(%Upgrade7_Button.get_child(2))
+	var button = %Upgrade7_Button
+	missile_queued = true
+	handle_cooldown_purchase(button)
 
 
 func _on_upgrade_8_button_pressed() -> void:
-	var cost = int(%Upgrade8_Button.get_child(2).text)
+	var button = %Upgrade8_Button
+	wipe_queued = true
+	handle_cooldown_purchase(button)
+
+func apply_changes():
+	if(shield_queued):
+		GameManager.shield_purchased = true
+	if(missile_queued):
+		GameManager.missile_power_purchased = true
+	if(wipe_queued and !wipe_complete):
+		GameManager.screen_wipe_purchased = true
+		get_parent().add_child(screen_wipe.instantiate())
+		wipe_complete = true
+
+func handle_cooldown_purchase(button):
+	var cost = int(button.get_child(2).text)
+	if(button.disabled):
+		return
+	button.set("disabled",true)
 	if GameManager.current_scraps >= cost:
 		GameManager.current_scraps -= cost
+		button.get_child(2).visible = false
 	else:
-		flash_text_red(%Upgrade8_Button.get_child(2))
+		flash_text_red(button.get_child(2))

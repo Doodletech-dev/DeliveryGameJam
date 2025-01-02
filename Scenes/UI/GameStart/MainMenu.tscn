@@ -1,6 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://mx4b5qpelyai"]
+[gd_scene load_steps=21 format=3 uid="uid://mx4b5qpelyai"]
 
 [ext_resource type="Texture2D" uid="uid://1vgh1tc1yksc" path="res://Assets/UI/l0_sprite_1.png" id="1_0hc5l"]
+[ext_resource type="Script" path="res://Scenes/UI/GameStart/main_menu.gd" id="1_3lbb3"]
+[ext_resource type="PackedScene" uid="uid://1dwgbixoleyf" path="res://Scenes/UI/GameStart/IntroSlide2.tscn" id="2_05t5t"]
 [ext_resource type="Texture2D" uid="uid://cksvfprk483af" path="res://Assets/UI/NewGameHover.png" id="2_utli8"]
 [ext_resource type="Texture2D" uid="uid://b7ubke62urtrf" path="res://Assets/UI/NewGame.png" id="3_ph3rk"]
 [ext_resource type="Texture2D" uid="uid://c3mc0kddo6ddf" path="res://Assets/UI/LoadGameHover.png" id="4_ft5tj"]
@@ -9,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://0tx13n4hrx5e" path="res://Assets/UI/Audio.png" id="7_cdg61"]
 [ext_resource type="Texture2D" uid="uid://c3yvpstig8a67" path="res://Assets/UI/ExitHover.png" id="8_5o1ku"]
 [ext_resource type="Texture2D" uid="uid://crwobi86xg88e" path="res://Assets/UI/Exit.png" id="9_tnhi0"]
+[ext_resource type="PackedScene" uid="uid://iwdca27w1gbk" path="res://Scenes/Components/scene_controller.tscn" id="11_maywc"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mye53"]
 texture = ExtResource("2_utli8")
@@ -31,6 +34,8 @@ texture = ExtResource("8_5o1ku")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hfoxx"]
 
 [node name="MainMenu" type="Node2D"]
+script = ExtResource("1_3lbb3")
+intro_scene = ExtResource("2_05t5t")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 384.0
@@ -69,3 +74,9 @@ layout_mode = 2
 theme_override_styles/hover = SubResource("StyleBoxTexture_m4qer")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_hfoxx")
 icon = ExtResource("9_tnhi0")
+
+[node name="SceneController" parent="." instance=ExtResource("11_maywc")]
+
+[connection signal="pressed" from="TextureRect/HBoxContainer/Button_NewGame" to="." method="_on_button_new_game_pressed"]
+[connection signal="pressed" from="TextureRect/HBoxContainer/Button_LoadGame" to="SceneController" method="_on_button_load_game_pressed"]
+[connection signal="pressed" from="TextureRect/HBoxContainer/Button_Exit" to="." method="_on_button_exit_pressed"]

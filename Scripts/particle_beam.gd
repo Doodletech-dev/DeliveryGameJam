@@ -22,11 +22,11 @@ func _ready() -> void:
 	beam.position = Vector2(length/2 + 10,0)
 	beam_hit_effect.position = Vector2(length + 10,0)
 	target_rotation = rotation
-	await get_tree().create_timer(0.3).timeout
+	await get_tree().create_timer(0.2).timeout
 	beam_hit_effect.queue_free()
 	queue_free()
 	
 func _physics_process(delta: float) -> void:
 	var run_time = Time.get_ticks_msec() - alive_timer
-	beam.mesh.size = Vector2(length,run_time/50)
+	beam.mesh.size = Vector2(length,run_time/20)
 	

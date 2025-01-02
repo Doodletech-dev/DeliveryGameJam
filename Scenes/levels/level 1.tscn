@@ -1,0 +1,123 @@
+[gd_scene load_steps=19 format=3 uid="uid://blu5vwi1ly2y4"]
+
+[ext_resource type="PackedScene" uid="uid://blmnvpu8kayb8" path="res://Scenes/UI/GameOverlayUI.tscn" id="1_ibt3r"]
+[ext_resource type="PackedScene" uid="uid://b50wc4c4ic3wf" path="res://Scenes/enemy_spawner.tscn" id="1_leuw8"]
+[ext_resource type="PackedScene" uid="uid://bdyo18342wno4" path="res://Scenes/enemy_infantry.tscn" id="2_bgylk"]
+[ext_resource type="PackedScene" uid="uid://s4juae0ia88j" path="res://Scenes/enemy_plane_bomber.tscn" id="3_lottu"]
+[ext_resource type="PackedScene" uid="uid://b4i3ju0meaac1" path="res://Scenes/enemy_plane_fast.tscn" id="4_uamhb"]
+[ext_resource type="PackedScene" uid="uid://d01xdcl83e80i" path="res://Scenes/Prefabs/walker.tscn" id="5_bgk7u"]
+[ext_resource type="PackedScene" uid="uid://bjt3ffrrgrm6e" path="res://Scenes/Prefabs/turret.tscn" id="6_05d08"]
+[ext_resource type="PackedScene" uid="uid://ctbxga7505yvm" path="res://Assets/Base/cargo_nuke.tscn" id="7_me4kj"]
+[ext_resource type="PackedScene" uid="uid://s5mawxwdd6pm" path="res://Scenes/Prefabs/missile_launcher.tscn" id="8_53q62"]
+[ext_resource type="PackedScene" uid="uid://dohehyaqflnk8" path="res://Scenes/Prefabs/laser_turret.tscn" id="9_51anu"]
+[ext_resource type="PackedScene" uid="uid://bb0yc0gstyj4j" path="res://Scenes/Effects/BeamHitEffect.tscn" id="10_5uwfo"]
+[ext_resource type="Script" path="res://Scripts/selection_manager.gd" id="11_fdkvk"]
+[ext_resource type="PackedScene" uid="uid://c5lbuhwk5nj4k" path="res://Scenes/Prefabs/background.tscn" id="12_ygvqm"]
+[ext_resource type="PackedScene" uid="uid://iwdca27w1gbk" path="res://Scenes/Components/scene_controller.tscn" id="13_08ksi"]
+[ext_resource type="PackedScene" uid="uid://bexe8va3fjjhc" path="res://Scenes/UI/DialogueScenes/PostStage1Dialogue.tscn" id="14_m6ov6"]
+
+[sub_resource type="Curve2D" id="Curve2D_1xir1"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 262, 411, 0, 0, 0, 0, 828, 432, 0, 0, 0, 0, 1293, 766, 0, 0, 0, 0, 942, 979, 0, 0, 0, 0, 573, 668, 0, 0, 0, 0, 1321, 300)
+}
+point_count = 6
+
+[sub_resource type="Curve2D" id="Curve2D_icj03"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 192, 288, 0, 0, 0, 0, 1120, 96, 0, 0, 0, 0, 1376, 480, 0, 0, 0, 0, 1792, 960, 0, 0, 0, 0, 1728, 448, 0, 0, 0, 0, 1344, 32)
+}
+point_count = 6
+
+[sub_resource type="Curve2D" id="Curve2D_phcmu"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 147, 99, 0, 0, 0, 0, 958, 217, 0, 0, 0, 0, 253, 924, 0, 0, 0, 0, 942, 979, 0, 0, 0, 0, 1333, 1056, 0, 0, 0, 0, 1806, 506)
+}
+point_count = 6
+
+[node name="Node2D" type="Node2D"]
+
+[node name="GameOverlayUi" parent="." instance=ExtResource("1_ibt3r")]
+
+[node name="EnemySpawners" type="Node" parent="."]
+
+[node name="EnemySpawner" parent="EnemySpawners" node_paths=PackedStringArray("target", "ai_paths") instance=ExtResource("1_leuw8")]
+position = Vector2(1954, 2)
+enemy_to_spawn = Array[PackedScene]([ExtResource("2_bgylk"), ExtResource("3_lottu"), ExtResource("4_uamhb")])
+spawn_weight = Array[float]([50.0, 20.0, 30.0])
+target = NodePath("../../Walker/CargoNuke")
+min_spawn_time = 4
+max_spawn_time = 8
+ai_paths = [NodePath("../../AIPath/Path2D"), NodePath("../../AIPath/Path2D2"), NodePath("../../AIPath/Path2D3")]
+
+[node name="EnemySpawner2" parent="EnemySpawners" node_paths=PackedStringArray("target", "ai_paths") instance=ExtResource("1_leuw8")]
+position = Vector2(1954, 256)
+enemy_to_spawn = Array[PackedScene]([ExtResource("2_bgylk"), ExtResource("3_lottu"), ExtResource("4_uamhb")])
+spawn_weight = Array[float]([40.0, 10.0, 50.0])
+target = NodePath("../../Walker/CargoNuke")
+min_spawn_time = 6
+max_spawn_time = 12
+ai_paths = [NodePath("../../AIPath/Path2D"), NodePath("../../AIPath/Path2D2")]
+
+[node name="EnemySpawner3" parent="EnemySpawners" node_paths=PackedStringArray("target", "ai_paths") instance=ExtResource("1_leuw8")]
+position = Vector2(1954, 512)
+enemy_to_spawn = Array[PackedScene]([ExtResource("2_bgylk"), ExtResource("3_lottu")])
+spawn_weight = Array[float]([70.0, 30.0])
+target = NodePath("../../Walker/CargoNuke")
+min_spawn_time = 2
+max_spawn_time = 7
+ai_paths = [NodePath("../../AIPath/Path2D"), NodePath("../../AIPath/Path2D3")]
+
+[node name="EnemySpawner4" parent="EnemySpawners" node_paths=PackedStringArray("target", "ai_paths") instance=ExtResource("1_leuw8")]
+position = Vector2(1954, 768)
+enemy_to_spawn = Array[PackedScene]([ExtResource("2_bgylk"), ExtResource("4_uamhb")])
+spawn_weight = Array[float]([50.0, 50.0])
+target = NodePath("../../Walker/CargoNuke")
+min_spawn_time = 8
+max_spawn_time = 18
+ai_paths = [NodePath("../../AIPath/Path2D"), NodePath("../../AIPath/Path2D2")]
+
+[node name="Walker" parent="." instance=ExtResource("5_bgk7u")]
+
+[node name="Turret" parent="Walker" instance=ExtResource("6_05d08")]
+position = Vector2(100, 881)
+
+[node name="CargoNuke" parent="Walker" instance=ExtResource("7_me4kj")]
+position = Vector2(203, 926)
+
+[node name="Turret2" parent="Walker" instance=ExtResource("6_05d08")]
+position = Vector2(340, 1000)
+
+[node name="MissileLauncher" parent="Walker" instance=ExtResource("8_53q62")]
+position = Vector2(399, 708)
+
+[node name="MissileLauncher2" parent="Walker" instance=ExtResource("8_53q62")]
+position = Vector2(639, 828)
+
+[node name="LaserTurret" parent="Walker" instance=ExtResource("9_51anu")]
+position = Vector2(725, 480)
+laser_hit_effect = ExtResource("10_5uwfo")
+
+[node name="LaserTurret2" parent="Walker" instance=ExtResource("9_51anu")]
+position = Vector2(965, 600)
+laser_hit_effect = ExtResource("10_5uwfo")
+
+[node name="SelectionManager" type="Node2D" parent="." node_paths=PackedStringArray("turrets")]
+script = ExtResource("11_fdkvk")
+turrets = NodePath("../Walker")
+
+[node name="Background" parent="." instance=ExtResource("12_ygvqm")]
+
+[node name="AIPath" type="Node" parent="."]
+
+[node name="Path2D" type="Path2D" parent="AIPath"]
+curve = SubResource("Curve2D_1xir1")
+
+[node name="Path2D3" type="Path2D" parent="AIPath"]
+curve = SubResource("Curve2D_icj03")
+
+[node name="Path2D2" type="Path2D" parent="AIPath"]
+curve = SubResource("Curve2D_phcmu")
+
+[node name="SceneController" parent="." node_paths=PackedStringArray("enemy_spawners") instance=ExtResource("13_08ksi")]
+enemy_spawners = [NodePath("../EnemySpawners/EnemySpawner"), NodePath("../EnemySpawners/EnemySpawner2"), NodePath("../EnemySpawners/EnemySpawner3"), NodePath("../EnemySpawners/EnemySpawner4")]
+level_to_change = ExtResource("14_m6ov6")
