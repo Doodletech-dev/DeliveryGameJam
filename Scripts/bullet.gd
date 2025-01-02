@@ -1,15 +1,21 @@
 extends CharacterBody2D
 class_name Bullet
 
+@onready var sfx: AudioStreamPlayer2D = $SFX
+
 @export var speed = 1500.0
 @export var damage = 1
 @export var damage_mod = 0.25
 @export var damage_type := DamageTypes.type.bullet
 @export var trail_effect: PackedScene
 
+@export var fire_sfx : AudioStream
+
 var effect_instance
 var fire_direciton = Vector2.ZERO
 func _ready():
+	sfx.stream = fire_sfx
+	sfx.play()
 	effect_instance = trail_effect.instantiate()
 	get_tree().get_root().add_child(effect_instance)
 	damage += damage * damage_mod * GameManager.turret_upgrades

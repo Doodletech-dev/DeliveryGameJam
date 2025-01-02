@@ -4,6 +4,7 @@ class_name Missile
 @onready var timer: Timer = $Timer
 @onready var explosion_collision: CollisionShape2D = $Explosion_Collision
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var sfx: AudioStreamPlayer2D = $SFX
 
 @export var damage_types := DamageTypes.type.missile
 
@@ -34,6 +35,7 @@ var never_upgraded = true
 
 
 func _ready():
+	sfx.play()
 	timer.wait_time = seconds_alive
 	timer.start()
 	damage += damage * damage_mod * GameManager.missile_upgrades

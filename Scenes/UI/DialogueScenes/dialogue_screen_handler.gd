@@ -17,6 +17,7 @@ func _ready() -> void:
 
 
 func _on_button_pressed() -> void:
+	GameManager._swap_music()
 	get_tree().change_scene_to_packed(transition_scene)
 	
 func _unhandled_input(event: InputEvent) -> void:

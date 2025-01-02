@@ -34,7 +34,7 @@ _data = {
 }
 point_count = 6
 
-[node name="Node2D" type="Node2D"]
+[node name="level_1" type="Node2D"]
 
 [node name="GameOverlayUi" parent="." instance=ExtResource("1_ibt3r")]
 

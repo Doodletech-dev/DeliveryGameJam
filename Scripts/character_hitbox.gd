@@ -1,11 +1,15 @@
 extends Area2D
 
 @onready var health_bar: Node2D = %Healthbar
+@onready var sfx: AudioStreamPlayer2D = $"../SFX"
 
 @export var death_effect: PackedScene
 @export var max_health : int
 @export var damage_type := DamageTypes.type.bullet
 @export var damage_weakness = 5
+
+@export var hit_sound : AudioStream
+@export var death_sound : Array [AudioStream]
 
 var current_health
 var shielded: bool = false
@@ -34,6 +38,8 @@ func handle_hit(body):
 	# This could've just be a base class but eh... it works
 	if(body is Bullet or body is Missile or body is Laser_Turret or body is Screen_Wipe):
 		var damage = body.damage
+		sfx.stream = hit_sound
+		sfx.play()
 		if(body.damage_type == damage_type):
 			damage *= damage_weakness
 		if(shielded):
@@ -43,7 +49,10 @@ func handle_hit(body):
 			health_bar.visible = true
 			health_bar.set_health(current_health)
 		body.hit_detected()
-		if(current_health <= 0):	
+		if(current_health <= 0):
+			var random_sfx = randi_range(0, 1)
+			sfx.stream = death_sound[random_sfx]
+			sfx.play()	
 			if(owner is Enemy):
 				owner._death()
 			if(get_parent().name == "NukeReactor" || get_parent().name == "CargoNuke" ):

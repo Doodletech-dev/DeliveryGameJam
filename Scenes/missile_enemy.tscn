@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://crppycgwa5q8d"]
+[gd_scene load_steps=6 format=3 uid="uid://crppycgwa5q8d"]
 
 [ext_resource type="PackedScene" uid="uid://coltcnpgcv86x" path="res://Scenes/bullet_enemy.tscn" id="1_b3xw5"]
 [ext_resource type="Texture2D" uid="uid://c8c2ojlqtqv5s" path="res://Assets/MissileLauncher/Missile/missile_b.png" id="2_7hvkp"]
+[ext_resource type="AudioStream" uid="uid://bahysi1qtng2q" path="res://sound/missile-firing.mp3" id="2_xh41g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gcdnq"]
 size = Vector2(28, 14)
@@ -12,6 +13,7 @@ radius = 0.1
 
 [node name="MissileEnemy" instance=ExtResource("1_b3xw5")]
 damage = 5
+fire_sfx = ExtResource("2_xh41g")
 
 [node name="Sprite2D" parent="." index="0"]
 rotation = 4.71239

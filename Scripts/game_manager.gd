@@ -1,6 +1,7 @@
 extends Node
 
 @export var level_1 : PackedScene
+@onready var audio_controller: AudioController = $AudioController
 
 signal game_over
 signal stop_enemy_spawners(spawners)
@@ -50,6 +51,10 @@ func _ready():
 	can_get_good_ending = false
  
 	print("Current Scrap Count is " + str(current_scraps))
+
+func _swap_music():
+	audio_controller.play_main_loop_music()
+	
 
 func _on_game_over():
 	_reset_level()

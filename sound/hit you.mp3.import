@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bgl3sh8trrcrn"
+path="res://.godot/imported/hit you.mp3-c1d32657f1052873952b208ba1597118.mp3str"
+
+[deps]
+
+source_file="res://sound/hit you.mp3"
+dest_files=["res://.godot/imported/hit you.mp3-c1d32657f1052873952b208ba1597118.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

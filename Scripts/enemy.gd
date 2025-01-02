@@ -14,6 +14,7 @@ class_name Enemy
 @onready var idle_timer : Timer = $IdleTime
 @onready var sprite = $Sprite2D
 
+
 var target_location
 var move_direction
 var reactor_position
