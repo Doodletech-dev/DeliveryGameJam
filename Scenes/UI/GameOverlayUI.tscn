@@ -851,7 +851,6 @@ horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="Window_Menu" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 3
 anchor_left = 1.0
@@ -887,12 +886,6 @@ grow_vertical = 2
 [node name="Button_Menu_Resume" type="Button" parent="Window_Menu/VBoxContainer"]
 layout_mode = 2
 text = "Resume"
-icon = ExtResource("19_od2xs")
-icon_alignment = 1
-
-[node name="Button" type="Button" parent="Window_Menu/VBoxContainer"]
-layout_mode = 2
-text = "Save"
 icon = ExtResource("19_od2xs")
 icon_alignment = 1
 
