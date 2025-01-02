@@ -76,16 +76,18 @@ func shoot():
 	var ray_end = (get_global_mouse_position() - ray_start) * ray_length
 	bullet_instance.ray_start = ray_start
 	bullet_instance.ray_end = ray_end
-	query = PhysicsRayQueryParameters2D.create(ray_start, ray_end)
+	query = PhysicsRayQueryParameters2D.create(ray_start, ray_end, 1023)
 	query.hit_from_inside = true
 	query.collide_with_areas = true
 	var collision = get_world_2d().direct_space_state.intersect_ray(query)
 	if collision:
-		var distance = collision.position - ray_start
 		var object = collision.collider.get_parent()
 		if object is Enemy:
+			var distance = collision.position - ray_start
 			collision.collider.laser_hit_pew_pew(self)
-		bullet_instance.length = distance.length()
+			bullet_instance.length = distance.length()
+		else:
+			bullet_instance.length = 2000
 	bullet_instance.global_position = global_position + current_spawn_location
 	bullet_instance.look_at(get_global_mouse_position())
 	get_parent().add_child(bullet_instance)

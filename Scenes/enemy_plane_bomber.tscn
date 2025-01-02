@@ -73,6 +73,8 @@ _data = {
 }
 
 [node name="EnemyPlaneBomber" node_paths=PackedStringArray("animation_player") instance=ExtResource("1_v5ve7")]
+z_index = 51
+z_as_relative = false
 scale = Vector2(2, 2)
 move_speed = 250
 attack_distance = 100

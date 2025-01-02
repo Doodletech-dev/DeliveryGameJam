@@ -34,18 +34,17 @@ var never_upgraded = true
 
 
 func _ready():
-	trail_instance = trail_effect.instantiate()
-	get_tree().get_root().add_child(trail_instance)
 	timer.wait_time = seconds_alive
 	timer.start()
 	damage += damage * damage_mod * GameManager.missile_upgrades
 	# Match the rotation of the launcher
 	rotation = deg_to_rad(-26.5)
 	explosion_collision.shape.radius = 0.1
-	
+	z_index = 0
 
 func _process(delta: float) -> void:
-	trail_instance.global_transform = effect_location.global_transform
+	if(trail_instance):
+		trail_instance.global_transform = effect_location.global_transform
 	
 func _physics_process(delta: float) -> void:
 	var d_max_speed = max_speed
@@ -67,7 +66,11 @@ func _physics_process(delta: float) -> void:
 		var current_direction = Vector2(cos(rotation), sin(rotation))
 		var new_direction = current_direction
 		if(seconds_alive - timer.time_left > turning_delay):
-			
+			if(!trail_instance):
+				trail_instance = trail_effect.instantiate()
+				get_tree().get_root().add_child(trail_instance)
+			z_index = 50
+			trail_instance.z_index = 49
 			var desired_direction = (target - position).normalized()
 			var steering_force = desired_direction - current_direction
 			new_direction = (current_direction + steering_force * d_steering_speed * delta).normalized()

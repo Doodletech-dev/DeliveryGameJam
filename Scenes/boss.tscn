@@ -108,6 +108,8 @@ _data = {
 }
 
 [node name="Boss" node_paths=PackedStringArray("animation_player") instance=ExtResource("1_gvk25")]
+z_index = 51
+z_as_relative = false
 scale = Vector2(3, 3)
 move_speed = 500
 attack_distance = 400
