@@ -25,9 +25,10 @@ func _on_body_entered(body):
 func create_effects():
 	var effect_instance = death_effect.instantiate()
 	effect_instance.global_transform = global_transform
-	get_tree().get_root().add_child(effect_instance)
-	for emitter in effect_instance.get_children():
-		emitter.emitting = true
+	if(get_tree()):
+		get_tree().get_root().add_child(effect_instance)
+		for emitter in effect_instance.get_children():
+			emitter.emitting = true
 		
 func handle_hit(body):
 	# This could've just be a base class but eh... it works
