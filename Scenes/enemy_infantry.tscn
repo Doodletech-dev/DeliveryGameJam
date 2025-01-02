@@ -1,10 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://bdyo18342wno4"]
+[gd_scene load_steps=12 format=3 uid="uid://bdyo18342wno4"]
 
 [ext_resource type="PackedScene" uid="uid://cvaajdbmn24id" path="res://Scenes/enemy.tscn" id="1_3t01f"]
 [ext_resource type="Texture2D" uid="uid://dbg0btl1y4u2p" path="res://Assets/Enemies/infantry/sprite_0.png" id="3_idyb1"]
 [ext_resource type="Texture2D" uid="uid://di125ww3yuiof" path="res://Assets/Enemies/infantry/sprite_1.png" id="6_l5ed7"]
 [ext_resource type="Texture2D" uid="uid://cy28n6lny80r1" path="res://Assets/Enemies/infantry/outline/sprite_0.png" id="9_td3ye"]
 [ext_resource type="Texture2D" uid="uid://bro6yb85ped77" path="res://Assets/Enemies/infantry/outline/sprite_1.png" id="10_qq4sx"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cq3ec"]
+radius = 7.0
+height = 14.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c3txn"]
 radius = 7.0
@@ -75,6 +79,9 @@ animation_player = NodePath("AnimationPlayer")
 [node name="Sprite2D" parent="." index="0"]
 z_index = 1
 texture = ExtResource("3_idyb1")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CapsuleShape2D_cq3ec")
 
 [node name="CollisionShape2D" parent="CharacterHitbox" index="0"]
 shape = SubResource("CapsuleShape2D_c3txn")

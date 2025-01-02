@@ -48,14 +48,14 @@ ai_paths = [NodePath("../../AIPath/Path2D"), NodePath("../../AIPath/Path2D2"), N
 [node name="EnemySpawner2" parent="EnemySpawners" node_paths=PackedStringArray("target", "ai_paths") instance=ExtResource("1_ql0tb")]
 position = Vector2(1954, 256)
 enemy_to_spawn = Array[PackedScene]([ExtResource("2_p8saf"), ExtResource("3_8nmx5"), ExtResource("4_vnpo8")])
-spawn_weight = Array[float]([40.0, 10.0, 50.0])
+spawn_weight = Array[float]([20.0, 10.0, 70.0])
 target = NodePath("../../Walker/NukeReactor")
 ai_paths = [NodePath("../../AIPath/Path2D"), NodePath("../../AIPath/Path2D2")]
 
 [node name="EnemySpawner3" parent="EnemySpawners" node_paths=PackedStringArray("target", "ai_paths") instance=ExtResource("1_ql0tb")]
 position = Vector2(1954, 512)
-enemy_to_spawn = Array[PackedScene]([ExtResource("2_p8saf"), ExtResource("4_vnpo8")])
-spawn_weight = Array[float]([30.0, 70.0])
+enemy_to_spawn = Array[PackedScene]([ExtResource("4_vnpo8"), ExtResource("4_vnpo8")])
+spawn_weight = Array[float]([70.0, 30.0])
 target = NodePath("../../Walker/NukeReactor")
 min_spawn_time = 2
 max_spawn_time = 7
@@ -72,7 +72,7 @@ ai_paths = [NodePath("../../AIPath/Path2D"), NodePath("../../AIPath/Path2D2")]
 
 [node name="EnemySpawner5" parent="EnemySpawners" node_paths=PackedStringArray("target", "ai_paths") instance=ExtResource("1_ql0tb")]
 position = Vector2(1792, -32)
-enemy_to_spawn = Array[PackedScene]([ExtResource("4_vnpo8"), ExtResource("3_8nmx5")])
+enemy_to_spawn = Array[PackedScene]([ExtResource("4_vnpo8"), ExtResource("4_vnpo8")])
 spawn_weight = Array[float]([50.0, 50.0])
 target = NodePath("../../Walker/NukeReactor")
 min_spawn_time = 4

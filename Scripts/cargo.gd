@@ -2,6 +2,7 @@ extends Node2D
 class_name Cargo
 
 @onready var character_hitbox: Area2D = $CharacterHitbox
+@export var death_effect: PackedScene
 
 var player_current_health
 var player_max_health = 100
@@ -28,5 +29,13 @@ func _on_character_hitbox_body_entered(body: Node2D) -> void:
 		player_current_health -= body.damage
 		body.queue_free()
 		if(player_current_health <= 0):
+			create_effects()
 			GameManager.game_over.emit()
 			get_tree().change_scene_to_file("res://Scenes/levels/level 1.tscn")
+
+func create_effects():
+	var effect_instance = death_effect.instantiate()
+	effect_instance.global_transform = global_transform
+	get_tree().get_root().add_child(effect_instance)
+	for emitter in effect_instance.get_children():
+		emitter.emitting = true

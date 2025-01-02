@@ -10,6 +10,7 @@ size = Vector2(210.261, 119)
 
 [node name="CargoNuke" type="Node2D" groups=["savable"]]
 script = ExtResource("1_p45xw")
+death_effect = ExtResource("3_c73xl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(4, 4)

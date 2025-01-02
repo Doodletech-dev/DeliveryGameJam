@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://bh8vrctu56cx7"]
+[gd_scene load_steps=19 format=3 uid="uid://bh8vrctu56cx7"]
 
 [ext_resource type="PackedScene" uid="uid://b50wc4c4ic3wf" path="res://Scenes/enemy_spawner.tscn" id="1_2kuxm"]
 [ext_resource type="PackedScene" uid="uid://bdyo18342wno4" path="res://Scenes/enemy_infantry.tscn" id="2_6bpdt"]
 [ext_resource type="PackedScene" uid="uid://s4juae0ia88j" path="res://Scenes/enemy_plane_bomber.tscn" id="3_q2q1g"]
 [ext_resource type="PackedScene" uid="uid://b4i3ju0meaac1" path="res://Scenes/enemy_plane_fast.tscn" id="4_d7t0a"]
+[ext_resource type="PackedScene" uid="uid://iclynx1m5cl8" path="res://Scenes/boss.tscn" id="5_ftohn"]
 [ext_resource type="PackedScene" uid="uid://d01xdcl83e80i" path="res://Scenes/Prefabs/walker.tscn" id="5_gjtpd"]
 [ext_resource type="PackedScene" uid="uid://bjt3ffrrgrm6e" path="res://Scenes/Prefabs/turret.tscn" id="6_pf1n0"]
 [ext_resource type="PackedScene" uid="uid://ctbxga7505yvm" path="res://Assets/Base/cargo_nuke.tscn" id="7_a1sjq"]
@@ -31,6 +32,12 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 147, 99, 0, 0, 0, 0, 958, 217, 0, 0, 0, 0, 253, 924, 0, 0, 0, 0, 942, 979, 0, 0, 0, 0, 1333, 1056, 0, 0, 0, 0, 1806, 506)
 }
 point_count = 6
+
+[sub_resource type="Curve2D" id="Curve2D_pl4dc"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 256, 512, 0, 0, 0, 0, 1440, 288, 0, 0, 0, 0, 1312, 992)
+}
+point_count = 3
 
 [node name="Node2D" type="Node2D"]
 
@@ -106,6 +113,16 @@ min_spawn_time = 4
 max_spawn_time = 9
 ai_paths = [NodePath("../../AIPath/Path2D"), NodePath("../../AIPath/Path2D2")]
 
+[node name="EnemySpawner9" parent="EnemySpawners" node_paths=PackedStringArray("target", "ai_paths") instance=ExtResource("1_2kuxm")]
+position = Vector2(2112, -192)
+enemy_to_spawn = Array[PackedScene]([ExtResource("5_ftohn")])
+spawn_weight = Array[float]([100.0])
+can_spawn_only_once = true
+target = NodePath("../../Walker/NukeReactor")
+min_spawn_time = 60
+max_spawn_time = 120
+ai_paths = [NodePath("../../AIPath/Boss_PAth")]
+
 [node name="Walker" parent="." instance=ExtResource("5_gjtpd")]
 
 [node name="Turret" parent="Walker" instance=ExtResource("6_pf1n0")]
@@ -148,5 +165,8 @@ curve = SubResource("Curve2D_icj03")
 
 [node name="Path2D2" type="Path2D" parent="AIPath"]
 curve = SubResource("Curve2D_phcmu")
+
+[node name="Boss_PAth" type="Path2D" parent="AIPath"]
+curve = SubResource("Curve2D_pl4dc")
 
 [node name="SceneController" parent="." instance=ExtResource("13_wf36y")]

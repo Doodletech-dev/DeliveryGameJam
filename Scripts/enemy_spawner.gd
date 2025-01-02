@@ -3,6 +3,7 @@ class_name Enemy_Spawner
 
 @export var enemy_to_spawn : Array[PackedScene] = []
 @export var spawn_weight : Array[float] = []
+@export var can_spawn_only_once = false
 
 @export var target : Node2D
 
@@ -48,6 +49,8 @@ func _on_spawn_timer_timeout():
 			add_child(enemy_spawned)
 			_begin_spawn_timer()
 			spawn_weightf = 0
+			if(can_spawn_only_once):
+				_end_spawn()
 			return
 		rang -= spawn_weightf
 	spawn_weightf = 0

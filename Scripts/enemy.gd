@@ -4,12 +4,14 @@ class_name Enemy
 @export var move_speed = 700
 @export var attack_distance = 500
 @export var scraps_given = 1
+@export var min_wait_time = 1.0
+@export var max_wait_time = 1.4
 
 @export var animation_player : AnimationPlayer
 @export var bullet_scene: PackedScene
 @export var damage_types := DamageTypes.type.bullet
 
-@onready var idle_timer = $IdleTime
+@onready var idle_timer : Timer = $IdleTime
 @onready var sprite = $Sprite2D
 
 var target_location
@@ -36,11 +38,15 @@ func _physics_process(delta):
 		if(global_position.distance_to(reactor_position) <= attack_distance && target_location == reactor_position && can_fire):
 			can_fire = false
 			move_direction = Vector2.ZERO
+			var random_wait_time = randf_range(min_wait_time, max_wait_time)
+			idle_timer.wait_time = random_wait_time
 			idle_timer.start()
 			_fire()
 		else: if(global_position.distance_to(target_location) <= 10):
 			#look_at(target_location)
 			move_direction = Vector2.ZERO
+			var random_wait_time = randf_range(min_wait_time, max_wait_time)
+			idle_timer.wait_time = random_wait_time
 			idle_timer.start()
 			can_move = false
 			
