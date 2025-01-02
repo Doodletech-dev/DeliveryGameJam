@@ -89,6 +89,7 @@ shape = SubResource("CapsuleShape2D_3rgc2")
 
 [node name="CharacterHitbox" parent="." index="2"]
 max_health = 5
+damage_type = 1
 
 [node name="CollisionShape2D" parent="CharacterHitbox" index="0"]
 shape = SubResource("CapsuleShape2D_vtw8m")
