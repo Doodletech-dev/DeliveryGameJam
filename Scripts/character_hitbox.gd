@@ -1,7 +1,6 @@
 extends Area2D
 
-@onready var missile_explosion: Node2D = $"../MissileExplosion"
-@onready var health_bar: Node2D = %"Healthbar"
+@onready var health_bar: Node2D = %Healthbar
 
 @export var death_effect: PackedScene
 @export var max_health : int
@@ -39,7 +38,7 @@ func handle_hit(body):
 		if(shielded):
 			damage = 0
 		current_health -= damage
-		if(health_bar):
+		if(health_bar and !get_parent() is Cargo):
 			health_bar.visible = true
 			health_bar.set_health(current_health)
 		body.hit_detected()

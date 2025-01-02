@@ -18,18 +18,12 @@ func _ready():
 	# Connect button signals using the correct paths
 	$Window_Gameplay/HBoxContainer/Button_Upgrades.connect("pressed", Callable(self, "_on_upgrade_button_pressed"))
 	$Window_Gameplay/HBoxContainer2/Button_Menu.connect("pressed", Callable(self, "_on_menu_button_pressed"))
-	print(GameManager.current_health)
 	health_bar.set_max(GameManager.current_health)
 	scrap.text = str(GameManager.current_scraps)
 
 func _physics_process(delta: float) -> void:
 	health_bar.set_health(GameManager.current_health)
 	scrap.text = str(GameManager.current_scraps)
-	if(GameManager.repairing):
-		health_bar.set_color(Color(0,1,0,1))
-	else:
-		# Red!
-		health_bar.set_color(Color(0.66,0.208,0.139,1))
 
 # Button actions
 
@@ -103,7 +97,7 @@ func _on_upgrade_5_button_pressed() -> void:
 
 func _on_upgrade_6_button_pressed() -> void:
 	var button = %Upgrade6_Button
-	repair_queued = true
+	GameManager.repair_purchased = true
 	handle_cooldown_purchase(button)
 
 func _on_upgrade_7_button_pressed() -> void:
@@ -120,8 +114,6 @@ func _on_upgrade_8_button_pressed() -> void:
 func apply_changes():
 	if(shield_queued):
 		GameManager.shield_purchased = true
-	if(repair_queued):
-		GameManager.repair_purchased = true
 	if(missile_queued):
 		GameManager.missile_power_purchased = true
 	if(wipe_queued and !wipe_complete):

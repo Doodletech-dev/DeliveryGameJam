@@ -21,7 +21,7 @@ func _ready():
 	GameManager._get_local_scene_controller(self)
 
 func set_level_timer():
-	level_timer.wait_time = (GameManager.current_level * 6)
+	level_timer.wait_time = (GameManager.current_level * 60)
 	level_timer.start()
 
 func _on_level_timer_timeout():

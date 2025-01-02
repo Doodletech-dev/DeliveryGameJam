@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ctbxga7505yvm"]
+[gd_scene load_steps=7 format=3 uid="uid://ctbxga7505yvm"]
 
 [ext_resource type="Texture2D" uid="uid://cqn636w3c7pv8" path="res://Assets/Base/cargo.png" id="1_nuf84"]
 [ext_resource type="Script" path="res://Scripts/cargo.gd" id="1_p45xw"]
 [ext_resource type="PackedScene" uid="uid://d20d0fgvllb27" path="res://Scenes/Components/character_hitbox.tscn" id="2_vdjws"]
 [ext_resource type="PackedScene" uid="uid://hl2i4fr237v2" path="res://Scenes/Effects/MissileExplosion.tscn" id="3_c73xl"]
+[ext_resource type="PackedScene" uid="uid://de35cqxro3jwo" path="res://Scenes/UI/health_bar.tscn" id="5_rddk6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gs2nb"]
 size = Vector2(210.261, 119)
@@ -30,6 +31,12 @@ shape = SubResource("RectangleShape2D_gs2nb")
 
 [node name="Shield_Timer" type="Timer" parent="."]
 wait_time = 10.0
+
+[node name="Healthbar" parent="." instance=ExtResource("5_rddk6")]
+unique_name_in_owner = true
+visible = false
+position = Vector2(-13, -27.5)
+scale = Vector2(0.13, 0.13)
 
 [connection signal="body_entered" from="CharacterHitbox" to="." method="_on_character_hitbox_body_entered"]
 [connection signal="body_entered" from="CharacterHitbox" to="CharacterHitbox" method="_on_body_entered"]

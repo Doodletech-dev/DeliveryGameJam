@@ -22,7 +22,7 @@ var shield_purchased
 var repair_purchased
 var missile_power_purchased
 var screen_wipe_purchased
-var repairing
+var repairing: bool = false
 
 var scene_controller : SceneController
 @onready var saver_loder: SaverLoader = $SaverLoder
