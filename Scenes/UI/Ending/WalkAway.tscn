@@ -1,21 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://cq2cxld76udn3"]
+[gd_scene load_steps=7 format=3 uid="uid://na6jo5727frq"]
 
-[ext_resource type="Texture2D" uid="uid://dcep3p268ccmc" path="res://Assets/UI/Nuke.png" id="1_trd7l"]
-[ext_resource type="Script" path="res://Scenes/UI/DialogueScenes/dialogue_screen_handler.gd" id="2_2wrut"]
-[ext_resource type="Texture2D" uid="uid://bmb1tajkanr1l" path="res://Assets/UI/boarders_60_16.png" id="3_ke1fp"]
-[ext_resource type="PackedScene" uid="uid://mx4b5qpelyai" path="res://Scenes/UI/GameStart/MainMenu.tscn" id="3_pqc28"]
+[ext_resource type="Texture2D" uid="uid://bqgiisgn5b314" path="res://Assets/UI/walker_away.png" id="1_jul0l"]
+[ext_resource type="Script" path="res://Scenes/UI/DialogueScenes/dialogue_screen_handler.gd" id="2_7g77p"]
+[ext_resource type="PackedScene" uid="uid://mx4b5qpelyai" path="res://Scenes/UI/GameStart/MainMenu.tscn" id="3_ngac2"]
+[ext_resource type="Texture2D" uid="uid://bmb1tajkanr1l" path="res://Assets/UI/boarders_60_16.png" id="4_40nmr"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_my0wu"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_owgl2"]
 
-[node name="Nuke" type="TextureRect"]
+[node name="WalkAway" type="TextureRect"]
 offset_right = 384.0
 offset_bottom = 216.0
 scale = Vector2(5, 5)
-texture = ExtResource("1_trd7l")
-script = ExtResource("2_2wrut")
-transition_scene = ExtResource("3_pqc28")
+texture = ExtResource("1_jul0l")
+script = ExtResource("2_7g77p")
+transition_scene = ExtResource("3_ngac2")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -31,7 +31,7 @@ offset_bottom = -41.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 14
-text = "Game over - Bad Ending"
+text = "Game over - Good Ending"
 
 [node name="ReturnToMainMenu" type="Button" parent="."]
 layout_mode = 0
@@ -42,7 +42,7 @@ offset_bottom = 247.0
 scale = Vector2(0.5, 0.5)
 theme_override_styles/hover = SubResource("StyleBoxEmpty_my0wu")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_owgl2")
-icon = ExtResource("3_ke1fp")
+icon = ExtResource("4_40nmr")
 
 [node name="Response" type="Label" parent="ReturnToMainMenu"]
 layout_mode = 1

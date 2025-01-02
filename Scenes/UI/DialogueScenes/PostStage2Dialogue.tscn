@@ -141,6 +141,14 @@ scale = Vector2(5, 5)
 pivot_offset = Vector2(22.5, 0)
 texture = ExtResource("4_ss1f1")
 
+[node name="Label" type="Label" parent="."]
+offset_left = 928.0
+offset_top = 928.0
+offset_right = 1265.0
+offset_bottom = 962.0
+theme_override_font_sizes/font_size = 24
+text = "Press A Button To Continue..."
+
 [node name="SceneController" parent="." instance=ExtResource("6_7cu7e")]
 
 [connection signal="pressed" from="VBoxContainer/BadEndingButton" to="." method="_on_bad_ending_button_pressed"]

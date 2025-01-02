@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://dlh5udgwnl6cb"]
+[gd_scene load_steps=12 format=3 uid="uid://dlh5udgwnl6cb"]
 
 [ext_resource type="Texture2D" uid="uid://2djrlfg2ikuh" path="res://Assets/UI/DialogueBackground.png" id="1_p1wr4"]
 [ext_resource type="Script" path="res://Scenes/UI/DialogueScenes/dialogue_screen_handler.gd" id="2_c0kh5"]
 [ext_resource type="Texture2D" uid="uid://j8jn0xf0cdcl" path="res://Assets/UI/boarders_160_60.png" id="2_r1bke"]
 [ext_resource type="Texture2D" uid="uid://bmb1tajkanr1l" path="res://Assets/UI/boarders_60_16.png" id="3_4fa0k"]
+[ext_resource type="PackedScene" uid="uid://na6jo5727frq" path="res://Scenes/UI/Ending/WalkAway.tscn" id="3_knnm5"]
 [ext_resource type="PackedScene" uid="uid://cq2cxld76udn3" path="res://Scenes/UI/Ending/Nuke.tscn" id="3_sdij5"]
 [ext_resource type="Texture2D" uid="uid://c08b6ipxoyb1q" path="res://Assets/UI/talk4.png" id="4_h7ed0"]
 
@@ -29,7 +30,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_p1wr4")
 script = ExtResource("2_c0kh5")
-good_ending = ExtResource("3_sdij5")
+good_ending = ExtResource("3_knnm5")
 bad_ending = ExtResource("3_sdij5")
 
 [node name="DialogueBox" type="TextureRect" parent="."]
@@ -144,6 +145,15 @@ grow_vertical = 2
 scale = Vector2(5, 5)
 pivot_offset = Vector2(22.5, 0)
 texture = ExtResource("4_h7ed0")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 928.0
+offset_top = 928.0
+offset_right = 1265.0
+offset_bottom = 962.0
+theme_override_font_sizes/font_size = 24
+text = "Press A Button To Continue..."
 
 [connection signal="pressed" from="VBoxContainer/CompleteBadEnding" to="." method="_on_complete_bad_ending_pressed"]
 [connection signal="pressed" from="VBoxContainer/CompleteGoodEnding" to="." method="_on_complete_good_ending_pressed"]
