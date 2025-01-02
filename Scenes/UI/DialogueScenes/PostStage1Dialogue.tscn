@@ -1,0 +1,71 @@
+[gd_scene load_steps=4 format=3 uid="uid://bexe8va3fjjhc"]
+
+[ext_resource type="Texture2D" uid="uid://2djrlfg2ikuh" path="res://Assets/UI/DialogueBackground.png" id="1_bj425"]
+[ext_resource type="Texture2D" uid="uid://j8jn0xf0cdcl" path="res://Assets/UI/boarders_160_60.png" id="2_44eyr"]
+[ext_resource type="Texture2D" uid="uid://c08b6ipxoyb1q" path="res://Assets/UI/talk4.png" id="3_xdclf"]
+
+[node name="DialogueScreen" type="TextureRect"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_bj425")
+
+[node name="DialogueBox" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = 60.0
+offset_right = 400.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(400, 0)
+texture = ExtResource("2_44eyr")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueBox"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -380.0
+offset_top = -130.0
+offset_right = 380.0
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Commander Taryn: 
+
+Yeehaw! Good work clearing out the resistance, Rookie. It looks like the road splits up ahead. Our scouts report large amounts of infantry to the left or an increased number of laser drones to the right. Pick the one that suites you best. Keep up the good work soldier. 
+
+Commander Taryn out!"
+
+[node name="Talk2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.5
+offset_top = -290.0
+offset_right = 22.5
+offset_bottom = -221.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5, 5)
+pivot_offset = Vector2(22.5, 0)
+texture = ExtResource("3_xdclf")
