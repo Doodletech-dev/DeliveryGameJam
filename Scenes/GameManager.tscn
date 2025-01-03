@@ -24,8 +24,13 @@ loopableMusic = ExtResource("5_8clip")
 stream = ExtResource("4_bhhtn")
 autoplay = true
 
+[node name="EndLevelTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="game_over" from="." to="." method="_on_game_over"]
 [connection signal="stop_enemy_spawners" from="." to="." method="_on_stop_enemy_spawners"]
 [connection signal="update_enemy_count" from="." to="." method="_on_update_enemy_count"]
 [connection signal="update_scraps" from="." to="." method="_on_update_scraps"]
 [connection signal="timeout" from="ProgressBarCalculation" to="." method="_on_progress_bar_calculation_timeout"]
+[connection signal="timeout" from="EndLevelTimer" to="." method="_on_end_level_timer_timeout"]

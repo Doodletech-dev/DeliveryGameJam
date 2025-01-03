@@ -19,6 +19,7 @@ var progress_bar_amount : float
 var max_time : float
 var current_time : float
 @onready var progress_bar_calculation: Timer = $ProgressBarCalculation
+@onready var end_level_timer: Timer = $EndLevelTimer
 
 ## For upgrade cards
 var turret_upgrades = 0
@@ -65,8 +66,7 @@ func _on_game_over():
 	reset_game_state()
 	
 	saver_loder._delete_save_game()
-	print("call reset level")
-	call_deferred("level_reset")
+	end_level_timer.start()
 
 func level_reset():
 	get_tree().change_scene_to_packed(level_1)
@@ -98,7 +98,7 @@ func _on_update_enemy_count(amount : int):
 	total_enemy_count += amount
 	print("Current Enemy Count is " + str(total_enemy_count))
 	if(total_enemy_count <= 0 && can_win_level):
-		scene_controller._on_level_complete()
+		end_level_timer.start()
 		
 func _get_local_scene_controller(controller : SceneController):
 	scene_controller = controller
@@ -107,6 +107,7 @@ func _get_local_scene_controller(controller : SceneController):
 	progress_bar_calculation.start()
 		
 func _reset_level():
+	can_win_level = false
 	total_enemy_count = 0
 
 func save_game():
@@ -149,3 +150,12 @@ func _on_progress_bar_calculation_timeout() -> void:
 	
 func _get_game_overlay(ui : GameUI):
 	game_UI = ui
+
+
+func _on_end_level_timer_timeout() -> void:
+	if(can_win_level):
+		can_win_level = false
+		scene_controller._on_level_complete()
+	else:
+		call_deferred("level_reset")
+		
