@@ -61,11 +61,26 @@ func _swap_music():
 
 func _on_game_over():
 	_reset_level()
+	reset_game_state()
+	
 	saver_loder._delete_save_game()
 	end_level_timer.start()
 
 func level_reset():
 	get_tree().change_scene_to_packed(level_1)
+	print("reset level")
+	
+func reset_game_state():
+	turret_upgrades = 0
+	laser_upgrades = 0
+	missile_upgrades = 0
+	walker_upgrades = 0
+	current_scraps = 0
+	current_level = 1
+	max_health = 100
+	current_health = 100
+	can_win_level = false
+	can_get_good_ending = false
 
 func _on_update_scraps(amount):
 	current_scraps += amount

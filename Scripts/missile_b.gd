@@ -118,5 +118,5 @@ func create_explosion():
 	explosion_instance.trigger()
 
 func _on_timer_timeout() -> void:
-	create_explosion()
+	hit_detected()
 	queue_free()

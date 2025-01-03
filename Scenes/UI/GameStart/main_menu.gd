@@ -12,6 +12,7 @@ func _ready() -> void:
 
 func _on_button_new_game_pressed() -> void:
 	GameManager.saver_loder._delete_save_game()
+	GameManager.reset_game_state()
 	call_deferred("_scene_change")
 
 func _scene_change():
