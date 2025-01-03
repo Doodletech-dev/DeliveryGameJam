@@ -4,6 +4,9 @@ extends Node
 @export var starting_scraps = 25
 @onready var audio_controller: AudioController = $AudioController
 
+var explosion_effect = preload("res://Scenes/Effects/MissileExplosion.tscn")
+var trail_effect = preload("res://Scenes/Effects/MissileTail.tscn")
+
 signal game_over
 signal stop_enemy_spawners(spawners)
 signal update_enemy_count(amount)

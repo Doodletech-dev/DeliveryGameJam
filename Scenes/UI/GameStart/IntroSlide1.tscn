@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://c6nfhe613qtin"]
+[gd_scene load_steps=12 format=3 uid="uid://c6nfhe613qtin"]
 
 [ext_resource type="Texture2D" uid="uid://dttbsjadmhw61" path="res://Assets/UI/Team.png" id="1_kb55k"]
 [ext_resource type="Script" path="res://Scenes/UI/GameStart/splash_screen.gd" id="1_rdul1"]
 [ext_resource type="Texture2D" uid="uid://cuwf6l00vl5d2" path="res://Assets/Enemies/Square.png" id="2_2ni0y"]
 [ext_resource type="PackedScene" uid="uid://mx4b5qpelyai" path="res://Scenes/UI/GameStart/MainMenu.tscn" id="2_imdxp"]
+[ext_resource type="Script" path="res://Scripts/missile_b.gd" id="5_npet0"]
+[ext_resource type="Texture2D" uid="uid://c8c2ojlqtqv5s" path="res://Assets/MissileLauncher/Missile/missile_b.png" id="6_18os1"]
 
 [sub_resource type="Animation" id="Animation_yqe6n"]
 length = 0.001
@@ -102,6 +104,13 @@ _data = {
 "splash_screen 1": SubResource("Animation_hq4di")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wo1k4"]
+size = Vector2(108, 42)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k0ib3"]
+resource_local_to_scene = true
+radius = 0.1
+
 [node name="Splash Screen" type="MarginContainer"]
 anchors_preset = 15
 anchor_right = 1.0
@@ -148,4 +157,29 @@ libraries = {
 wait_time = 5.0
 one_shot = true
 
+[node name="Missile_B" type="CharacterBody2D" parent="."]
+z_index = 1
+z_as_relative = false
+position = Vector2(-1349, 1091)
+collision_layer = 513
+script = ExtResource("5_npet0")
+muted = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Missile_B"]
+rotation = -1.5708
+scale = Vector2(4, 4)
+texture = ExtResource("6_18os1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Missile_B"]
+shape = SubResource("RectangleShape2D_wo1k4")
+
+[node name="Effect_Location" type="Node2D" parent="Missile_B"]
+position = Vector2(-32, 0)
+
+[node name="Timer" type="Timer" parent="Missile_B"]
+
+[node name="Explosion_Collision" type="CollisionShape2D" parent="Missile_B"]
+shape = SubResource("CircleShape2D_k0ib3")
+
 [connection signal="timeout" from="MainMenuTime" to="." method="_on_main_menu_time_timeout"]
+[connection signal="timeout" from="Missile_B/Timer" to="Missile_B" method="_on_timer_timeout"]

@@ -12,6 +12,7 @@ class_name Missile
 @export var acceleration: float = 0.3
 @export var steering_speed: float = 5
 @export var turning_delay: float = 0.3
+@export var muted = false
 
 
 @export var damage = 1
@@ -19,8 +20,6 @@ class_name Missile
 @export var damage_type := DamageTypes.type.missile
 @export var max_explosion_radius = 200
 @export var explotion_effect_size = 3
-@export var trail_effect: PackedScene
-@export var explosion_effect: PackedScene
 @export var enemy_missle = false
 
 var target: Vector2
@@ -30,10 +29,12 @@ var current_speed: float = initial_speed
 var exploded = false
 var never_upgraded = true
 
-
+var explosion_effect = GameManager.explosion_effect
+var trail_effect = GameManager.trail_effect
 
 func _ready():
-	sfx.play()
+	if(sfx):
+		sfx.play()
 	timer.wait_time = seconds_alive
 	timer.start()
 	damage += damage * damage_mod * GameManager.missile_upgrades
@@ -115,6 +116,7 @@ func create_explosion():
 	get_tree().get_root().add_child(explosion_instance)
 	explosion_instance.global_transform = global_transform
 	explosion_instance.scale = Vector2(explotion_effect_size,explotion_effect_size)
+	explosion_instance.muted = muted
 	explosion_instance.trigger()
 
 func _on_timer_timeout() -> void:

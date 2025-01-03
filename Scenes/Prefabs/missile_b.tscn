@@ -1,8 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://djflwyj7putlx"]
+[gd_scene load_steps=7 format=3 uid="uid://djflwyj7putlx"]
 
 [ext_resource type="Script" path="res://Scripts/missile_b.gd" id="1_bg1xj"]
-[ext_resource type="PackedScene" uid="uid://cwh4ho7ri8ino" path="res://Scenes/Effects/MissileTail.tscn" id="2_hb1cy"]
-[ext_resource type="PackedScene" uid="uid://hl2i4fr237v2" path="res://Scenes/Effects/MissileExplosion.tscn" id="3_4rolc"]
 [ext_resource type="Texture2D" uid="uid://c8c2ojlqtqv5s" path="res://Assets/MissileLauncher/Missile/missile_b.png" id="3_iaqjk"]
 [ext_resource type="AudioStream" uid="uid://bahysi1qtng2q" path="res://sound/missile-firing.mp3" id="5_ax2fw"]
 [ext_resource type="Script" path="res://Scripts/sfx.gd" id="6_c6dwl"]
@@ -20,8 +18,6 @@ z_as_relative = false
 position = Vector2(223, 686)
 collision_layer = 513
 script = ExtResource("1_bg1xj")
-trail_effect = ExtResource("2_hb1cy")
-explosion_effect = ExtResource("3_4rolc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = -1.5708
