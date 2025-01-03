@@ -5,7 +5,7 @@ class_name Screen_Wipe
 
 @export var damage = 500
 @export var damage_type := DamageTypes.type.bullet
-@export var spread_speed = 20
+@export var spread_speed = 50
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.

@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://du6ramcdeow6q"]
+[gd_scene load_steps=3 format=3 uid="uid://blbxeiuydkxdx"]
 
+[ext_resource type="Script" path="res://Scripts/scren_wipe_effect.gd" id="1_dp2ht"]
 [ext_resource type="PackedScene" uid="uid://hl2i4fr237v2" path="res://Scenes/Effects/MissileExplosion.tscn" id="1_rfv15"]
 
-[node name="ScrenWipe" type="Node2D"]
+[node name="ScreenWipe" type="Node2D"]
+script = ExtResource("1_dp2ht")
 
 [node name="MissileExplosion" parent="." instance=ExtResource("1_rfv15")]
 position = Vector2(1275, 592)
@@ -20,7 +22,7 @@ position = Vector2(1061, 188)
 position = Vector2(566, 105)
 
 [node name="MissileExplosion6" parent="." instance=ExtResource("1_rfv15")]
-position = Vector2(1123, 373)
+position = Vector2(1169, 879)
 
 [node name="MissileExplosion7" parent="." instance=ExtResource("1_rfv15")]
 position = Vector2(771, 385)
@@ -29,10 +31,10 @@ position = Vector2(771, 385)
 position = Vector2(823, 176)
 
 [node name="MissileExplosion9" parent="." instance=ExtResource("1_rfv15")]
-position = Vector2(300, 183)
+position = Vector2(163, 650)
 
 [node name="MissileExplosion10" parent="." instance=ExtResource("1_rfv15")]
-position = Vector2(485, 288)
+position = Vector2(310, 494)
 
 [node name="MissileExplosion11" parent="." instance=ExtResource("1_rfv15")]
 position = Vector2(1753, 207)
@@ -63,3 +65,45 @@ position = Vector2(958, 804)
 
 [node name="MissileExplosion18" parent="." instance=ExtResource("1_rfv15")]
 position = Vector2(1501, 454)
+
+[node name="MissileExplosion21" parent="." instance=ExtResource("1_rfv15")]
+position = Vector2(687, 950)
+
+[node name="MissileExplosion22" parent="." instance=ExtResource("1_rfv15")]
+position = Vector2(972, 389)
+
+[node name="MissileExplosion23" parent="." instance=ExtResource("1_rfv15")]
+position = Vector2(788, 586)
+
+[node name="MissileExplosion24" parent="." instance=ExtResource("1_rfv15")]
+position = Vector2(668, 241)
+
+[node name="MissileExplosion25" parent="." instance=ExtResource("1_rfv15")]
+position = Vector2(350, 139)
+
+[node name="MissileExplosion26" parent="." instance=ExtResource("1_rfv15")]
+position = Vector2(423, 920)
+
+[node name="MissileExplosion27" parent="." instance=ExtResource("1_rfv15")]
+position = Vector2(507, 541)
+
+[node name="MissileExplosion28" parent="." instance=ExtResource("1_rfv15")]
+position = Vector2(492, 327)
+
+[node name="MissileExplosion29" parent="." instance=ExtResource("1_rfv15")]
+position = Vector2(84, 217)
+
+[node name="MissileExplosion30" parent="." instance=ExtResource("1_rfv15")]
+position = Vector2(269, 770)
+
+[node name="MissileExplosion31" parent="." instance=ExtResource("1_rfv15")]
+position = Vector2(423, 920)
+
+[node name="MissileExplosion32" parent="." instance=ExtResource("1_rfv15")]
+position = Vector2(617, 740)
+
+[node name="MissileExplosion33" parent="." instance=ExtResource("1_rfv15")]
+position = Vector2(1178, 407)
+
+[node name="MissileExplosion34" parent="." instance=ExtResource("1_rfv15")]
+position = Vector2(1571, 103)
