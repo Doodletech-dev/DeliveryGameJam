@@ -28,6 +28,7 @@ func _ready():
 
 func _physics_process(delta: float) -> void:
 	health_bar.set_health(GameManager.current_health)
+	health_bar.set_max(GameManager.max_health)
 	scrap.text = str(GameManager.current_scraps)
 	%Upgrade1.get_child(0).text = str(GameManager.missile_upgrades)
 	%Upgrade2.get_child(0).text = str(GameManager.laser_upgrades)
@@ -92,8 +93,10 @@ func _on_upgrade_4_button_pressed() -> void:
 	if GameManager.current_scraps >= cost:
 		GameManager.current_scraps -= cost
 		GameManager.walker_upgrades += 1
+		GameManager.health_upgrade_pending = true
 	else:
 		flash_text_red(%Upgrade4_Button.get_child(2))
+	print(GameManager.current_health)
 
 func _on_upgrade_5_button_pressed() -> void:
 	var cost = int(%Upgrade5_Button.get_child(2).text)

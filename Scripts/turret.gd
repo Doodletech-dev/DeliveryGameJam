@@ -3,7 +3,7 @@ extends Turret
 signal turret_selected
 
 @export var bullet: PackedScene
-
+@export var speed_mod = 0.5
 
 @onready var sprite: AnimatedSprite2D = $Sprite
 @onready var outline: AnimatedSprite2D = $Outline
@@ -15,6 +15,7 @@ var selected: bool = false
 var can_shoot: bool = true
 var bullet_spawn_locations = [Vector2(100,38),Vector2(-130,38),Vector2(-123,-78),Vector2(123,-78)]
 var current_spawn_location: Vector2
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -56,6 +57,8 @@ func shoot():
 		bullet_instance.look_at(get_global_mouse_position())
 		get_parent().add_child(bullet_instance)
 		can_shoot = false
+		if(GameManager.turret_upgrades > 0):
+			cooldown_timer.wait_time = cooldown_timer.wait_time * (speed_mod / GameManager.turret_upgrades)
 		recharge_bar.set_max(cooldown_timer.wait_time)
 		recharge_bar.set_health(0)
 		recharge_bar.visible = true

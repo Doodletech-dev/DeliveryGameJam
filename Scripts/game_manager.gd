@@ -12,6 +12,7 @@ var game_UI : GameUI
 var current_scraps
 var current_level
 var current_health
+var max_health
 
 var progress_bar_amount : float
 var max_time : float
@@ -23,6 +24,7 @@ var turret_upgrades = 0
 var missile_upgrades = 0
 var laser_upgrades = 0
 var walker_upgrades = 0
+var health_upgrade_pending: bool  = false
 
 ## For calldown cards
 var shield_purchased
@@ -46,7 +48,7 @@ func _ready():
 		current_health = 100
 		current_level = 1
 	can_win_level = false
-	current_scraps = 0
+	current_scraps = 500
 	current_level = 1
 	can_get_good_ending = false
  

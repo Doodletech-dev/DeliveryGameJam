@@ -399,7 +399,7 @@ offset_bottom = 37.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Laser Turret
-Increase recharge rate by 50%"
+Increase recharge rate by 10%"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
@@ -539,7 +539,7 @@ offset_bottom = 35.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Walker
-Increase HP by 15%"
+Increase HP by 25%"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
