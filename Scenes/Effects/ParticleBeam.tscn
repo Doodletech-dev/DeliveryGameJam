@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://be8wfp13knxgo"]
+[gd_scene load_steps=9 format=3 uid="uid://be8wfp13knxgo"]
 
 [ext_resource type="Script" path="res://Scripts/particle_beam.gd" id="1_a47x5"]
 [ext_resource type="Material" uid="uid://bha8foio0qykq" path="res://Effects/ProcessMaterials/ParticleBeam_Collector.tres" id="1_ox3kh"]
 [ext_resource type="PackedScene" uid="uid://bb0yc0gstyj4j" path="res://Scenes/Effects/BeamHitEffect.tscn" id="3_30jpr"]
-[ext_resource type="AudioStream" uid="uid://bvg21hhxhfxwa" path="res://sound/lazer firing.wav" id="4_6kgal"]
+[ext_resource type="AudioStream" uid="uid://bwwu2ca1r1dwk" path="res://sound/laser_sound.wav" id="4_tkodw"]
+[ext_resource type="Script" path="res://Scripts/sfx.gd" id="5_eqabp"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_s2hkd"]
 size = Vector2(0, 5)
@@ -39,7 +40,8 @@ texture = SubResource("GradientTexture1D_fomm8")
 [node name="BeamHitEffect" parent="." instance=ExtResource("3_30jpr")]
 
 [node name="SFX" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_6kgal")
+stream = ExtResource("4_tkodw")
 autoplay = true
+script = ExtResource("5_eqabp")
 
 [connection signal="finished" from="Collector" to="." method="_on_collector_finished"]

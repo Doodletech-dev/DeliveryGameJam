@@ -1,12 +1,9 @@
-extends Node2D
-var offset_counter = 0
+extends AudioStreamPlayer
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	for child in get_children():
-		var random_delay = randf() * 0.05
-		await get_tree().create_timer(random_delay).timeout
-		child.trigger()
+	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

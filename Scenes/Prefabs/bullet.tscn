@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://fxy8wdu3ucyv"]
+[gd_scene load_steps=7 format=3 uid="uid://fxy8wdu3ucyv"]
 
 [ext_resource type="Script" path="res://Scripts/bullet.gd" id="1_l3ygl"]
 [ext_resource type="PackedScene" uid="uid://hl2i4fr237v2" path="res://Scenes/Effects/MissileExplosion.tscn" id="2_ygo6g"]
 [ext_resource type="Texture2D" uid="uid://cpg6ekwfe3uu4" path="res://Assets/Turret/Bullet/bullet.png" id="3_2yr2i"]
 [ext_resource type="AudioStream" uid="uid://bovev1kylsxrq" path="res://sound/turret_fire.wav" id="3_j737k"]
+[ext_resource type="Script" path="res://Scripts/sfx.gd" id="5_8grur"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wo1k4"]
 size = Vector2(12, 13)
@@ -26,3 +27,4 @@ shape = SubResource("RectangleShape2D_wo1k4")
 
 [node name="SFX" type="AudioStreamPlayer2D" parent="."]
 volume_db = 15.0
+script = ExtResource("5_8grur")

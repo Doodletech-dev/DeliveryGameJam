@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bcx685qc5h8nx"]
+[gd_scene load_steps=5 format=3 uid="uid://bcx685qc5h8nx"]
 
+[ext_resource type="Script" path="res://Scripts/shield.gd" id="1_ct4nf"]
 [ext_resource type="AudioStream" uid="uid://b00wkb3iemrxb" path="res://sound/lazer buzzing.wav" id="1_qg1il"]
+[ext_resource type="Script" path="res://Scripts/sfx.gd" id="2_3annd"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3w4qq"]
 particle_flag_disable_z = true
@@ -15,6 +17,7 @@ scale_max = 4.0
 color = Color(6.54578e-06, 0.926316, 0.963108, 1)
 
 [node name="Shield" type="Node2D"]
+script = ExtResource("1_ct4nf")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 amount = 300
@@ -22,4 +25,4 @@ process_material = SubResource("ParticleProcessMaterial_3w4qq")
 
 [node name="Sfx" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("1_qg1il")
-autoplay = true
+script = ExtResource("2_3annd")

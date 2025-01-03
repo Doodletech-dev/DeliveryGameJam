@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ctbxga7505yvm"]
+[gd_scene load_steps=12 format=3 uid="uid://ctbxga7505yvm"]
 
 [ext_resource type="Texture2D" uid="uid://cqn636w3c7pv8" path="res://Assets/Base/cargo.png" id="1_nuf84"]
 [ext_resource type="Script" path="res://Scripts/cargo.gd" id="1_p45xw"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://de35cqxro3jwo" path="res://Scenes/UI/health_bar.tscn" id="5_rddk6"]
 [ext_resource type="AudioStream" uid="uid://g72vgxwcfch8" path="res://sound/explosion #2.mp3" id="6_rocxm"]
 [ext_resource type="AudioStream" uid="uid://0a022judx4gi" path="res://sound/explosion#3.mp3" id="7_6r362"]
+[ext_resource type="Script" path="res://Scripts/sfx.gd" id="10_0pb6o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gs2nb"]
 size = Vector2(210.261, 119)
@@ -48,6 +49,7 @@ position = Vector2(-13, -27.5)
 scale = Vector2(0.13, 0.13)
 
 [node name="SFX" type="AudioStreamPlayer2D" parent="."]
+script = ExtResource("10_0pb6o")
 
 [connection signal="body_entered" from="CharacterHitbox" to="." method="_on_character_hitbox_body_entered"]
 [connection signal="body_entered" from="CharacterHitbox" to="CharacterHitbox" method="_on_body_entered"]

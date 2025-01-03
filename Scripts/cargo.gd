@@ -48,6 +48,7 @@ func _physics_process(delta: float) -> void:
 		never_shielded = false
 		shield_timer.start()
 		shield.visible = true
+		shield.play()
 		hitbox.shielded = true
 	if(GameManager.repair_purchased and never_repaired):
 		never_repaired = false
@@ -86,3 +87,4 @@ func create_effects():
 func _on_timer_timeout() -> void:
 	hitbox.shielded = false
 	shield.visible = false
+	shield.stop()

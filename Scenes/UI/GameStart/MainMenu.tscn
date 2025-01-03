@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://mx4b5qpelyai"]
+[gd_scene load_steps=25 format=3 uid="uid://mx4b5qpelyai"]
 
 [ext_resource type="Texture2D" uid="uid://1vgh1tc1yksc" path="res://Assets/UI/l0_sprite_1.png" id="1_0hc5l"]
 [ext_resource type="Script" path="res://Scenes/UI/GameStart/main_menu.gd" id="1_3lbb3"]
@@ -12,6 +12,10 @@
 [ext_resource type="Texture2D" uid="uid://c3yvpstig8a67" path="res://Assets/UI/ExitHover.png" id="8_5o1ku"]
 [ext_resource type="Texture2D" uid="uid://crwobi86xg88e" path="res://Assets/UI/Exit.png" id="9_tnhi0"]
 [ext_resource type="PackedScene" uid="uid://iwdca27w1gbk" path="res://Scenes/Components/scene_controller.tscn" id="11_maywc"]
+[ext_resource type="Script" path="res://Scripts/pause_control.gd" id="13_6p7f2"]
+[ext_resource type="Texture2D" uid="uid://2djrlfg2ikuh" path="res://Assets/UI/DialogueBackground.png" id="14_4n7wb"]
+[ext_resource type="Texture2D" uid="uid://c2apdqyaoqpv7" path="res://Assets/UI/36_7.png" id="15_bxq75"]
+[ext_resource type="Texture2D" uid="uid://dph3kfwifmwss" path="res://Assets/UI/20_15.png" id="16_g5wsa"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mye53"]
 texture = ExtResource("2_utli8")
@@ -77,6 +81,211 @@ icon = ExtResource("9_tnhi0")
 
 [node name="SceneController" parent="." instance=ExtResource("11_maywc")]
 
+[node name="Options_Screen" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("13_6p7f2")
+
+[node name="Container" type="Control" parent="Options_Screen"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Background" type="Sprite2D" parent="Options_Screen/Container"]
+position = Vector2(960, 540)
+scale = Vector2(5, 5)
+texture = ExtResource("14_4n7wb")
+
+[node name="Title" type="RichTextLabel" parent="Options_Screen/Container"]
+layout_mode = 0
+offset_left = 586.0
+offset_top = 109.0
+offset_right = 1386.0
+offset_bottom = 259.0
+theme_override_font_sizes/normal_font_size = 100
+text = "Sound Settings"
+
+[node name="Music" type="Control" parent="Options_Screen/Container"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 863.0
+offset_top = 557.0
+offset_right = 823.0
+offset_bottom = 517.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.90337, 2.90337)
+
+[node name="TextureRect" type="TextureRect" parent="Options_Screen/Container/Music"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("15_bxq75")
+
+[node name="Music_Slider" type="HSlider" parent="Options_Screen/Container/Music/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -12.5
+offset_right = 80.0
+offset_bottom = 12.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Music Label" type="RichTextLabel" parent="Options_Screen/Container"]
+layout_mode = 0
+offset_left = 458.0
+offset_top = 566.0
+offset_right = 858.0
+offset_bottom = 666.0
+theme_override_font_sizes/normal_font_size = 70
+text = "Music"
+
+[node name="Effects" type="Control" parent="Options_Screen/Container"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 863.0
+offset_top = 723.0
+offset_right = 823.0
+offset_bottom = 683.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.90337, 2.90337)
+
+[node name="TextureRect" type="TextureRect" parent="Options_Screen/Container/Effects"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("15_bxq75")
+
+[node name="Effects_Slider" type="HSlider" parent="Options_Screen/Container/Effects/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -12.5
+offset_right = 80.0
+offset_bottom = 12.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Effects Label" type="RichTextLabel" parent="Options_Screen/Container"]
+layout_mode = 0
+offset_left = 458.0
+offset_top = 732.0
+offset_right = 858.0
+offset_bottom = 832.0
+theme_override_font_sizes/normal_font_size = 70
+text = "Effects"
+
+[node name="Master" type="Control" parent="Options_Screen/Container"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 863.0
+offset_top = 388.0
+offset_right = 823.0
+offset_bottom = 348.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.90337, 2.90337)
+
+[node name="TextureRect" type="TextureRect" parent="Options_Screen/Container/Master"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("15_bxq75")
+
+[node name="Master_Slider" type="HSlider" parent="Options_Screen/Container/Master/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -12.5
+offset_right = 80.0
+offset_bottom = 12.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Master Label" type="RichTextLabel" parent="Options_Screen/Container"]
+layout_mode = 0
+offset_left = 458.0
+offset_top = 397.0
+offset_right = 858.0
+offset_bottom = 497.0
+theme_override_font_sizes/normal_font_size = 70
+text = "Master
+"
+
+[node name="Back Button" type="HBoxContainer" parent="Options_Screen/Container"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1717.0
+offset_top = 927.0
+offset_right = 1825.0
+offset_bottom = 1010.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Button_Menu" type="Button" parent="Options_Screen/Container/Back Button"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Back"
+icon = ExtResource("16_g5wsa")
+icon_alignment = 1
+
+[node name="Apply Button" type="HBoxContainer" parent="Options_Screen/Container"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1597.0
+offset_top = 927.0
+offset_right = 1705.0
+offset_bottom = 1010.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Button_Menu" type="Button" parent="Options_Screen/Container/Apply Button"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Apply
+"
+icon = ExtResource("16_g5wsa")
+icon_alignment = 1
+
 [connection signal="pressed" from="TextureRect/HBoxContainer/Button_NewGame" to="." method="_on_button_new_game_pressed"]
 [connection signal="pressed" from="TextureRect/HBoxContainer/Button_LoadGame" to="SceneController" method="_on_button_load_game_pressed"]
+[connection signal="pressed" from="TextureRect/HBoxContainer/Button_Audio" to="." method="_on_button_audio_pressed"]
 [connection signal="pressed" from="TextureRect/HBoxContainer/Button_Exit" to="." method="_on_button_exit_pressed"]
+[connection signal="value_changed" from="Options_Screen/Container/Music/TextureRect/Music_Slider" to="Options_Screen" method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="Options_Screen/Container/Effects/TextureRect/Effects_Slider" to="Options_Screen" method="_on_effects_slider_value_changed"]
+[connection signal="value_changed" from="Options_Screen/Container/Master/TextureRect/Master_Slider" to="Options_Screen" method="_on_master_slider_value_changed"]
+[connection signal="pressed" from="Options_Screen/Container/Back Button/Button_Menu" to="Options_Screen" method="_on_back_button_pressed"]
+[connection signal="pressed" from="Options_Screen/Container/Apply Button/Button_Menu" to="Options_Screen" method="_on_apply_button_pressed"]

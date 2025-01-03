@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dt7qixvlcpmfw"]
+[gd_scene load_steps=5 format=3 uid="uid://dt7qixvlcpmfw"]
 
 [ext_resource type="Script" path="res://Scripts/laser_beam.gd" id="1_4h364"]
-[ext_resource type="AudioStream" uid="uid://bvg21hhxhfxwa" path="res://sound/lazer firing.wav" id="2_3u1fv"]
+[ext_resource type="AudioStream" uid="uid://bwwu2ca1r1dwk" path="res://sound/laser_sound.wav" id="2_qmpmm"]
+[ext_resource type="Script" path="res://Scripts/sfx.gd" id="3_s53w7"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_11af3"]
 size = Vector2(20, 20)
@@ -15,5 +16,5 @@ scale = Vector2(109.5, 1)
 mesh = SubResource("QuadMesh_11af3")
 
 [node name="SFX" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_3u1fv")
-volume_db = 5.0
+stream = ExtResource("2_qmpmm")
+script = ExtResource("3_s53w7")

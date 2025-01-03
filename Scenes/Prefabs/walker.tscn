@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d01xdcl83e80i"]
+[gd_scene load_steps=9 format=3 uid="uid://d01xdcl83e80i"]
 
 [ext_resource type="Texture2D" uid="uid://lli4yh3fpxpa" path="res://Assets/Walker/Outlined/sprite_0.png" id="1_pyksv"]
 [ext_resource type="Texture2D" uid="uid://ca2uo0j75a226" path="res://Assets/Walker/Outlined/sprite_1.png" id="2_2h1pk"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dsaxjpmqjetaq" path="res://Assets/Walker/Outlined/sprite_3.png" id="4_cu6jy"]
 [ext_resource type="Script" path="res://Scripts/walker.gd" id="5_y7suq"]
 [ext_resource type="AudioStream" uid="uid://c7n4w4m2gme6i" path="res://sound/walker step.wav" id="6_d303x"]
+[ext_resource type="Script" path="res://Scripts/sfx.gd" id="7_538eq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_l50wp"]
 animations = [{
@@ -39,5 +40,6 @@ script = ExtResource("5_y7suq")
 
 [node name="SFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_d303x")
+script = ExtResource("7_538eq")
 
 [connection signal="frame_changed" from="AnimatedSprite" to="AnimatedSprite" method="_on_frame_changed"]

@@ -31,8 +31,11 @@ func create_effects():
 	effect_instance.global_transform = global_transform
 	if(get_tree()):
 		get_tree().get_root().add_child(effect_instance)
-		for emitter in effect_instance.get_children():
-			emitter.emitting = true
+		effect_instance.trigger()
+		#for emitter in effect_instance.get_children():
+			#if(emitter is not SFX):
+				#effect_instance.trigger()
+				#emitter.emitting = true
 		
 func handle_hit(body):
 	# This could've just be a base class but eh... it works
@@ -50,9 +53,6 @@ func handle_hit(body):
 			health_bar.set_health(current_health)
 		body.hit_detected()
 		if(current_health <= 0):
-			var random_sfx = randi_range(0, 1)
-			sfx.stream = death_sound[random_sfx]
-			sfx.play()	
 			if(owner is Enemy):
 				owner._death()
 			if(get_parent().name == "NukeReactor" || get_parent().name == "CargoNuke" ):

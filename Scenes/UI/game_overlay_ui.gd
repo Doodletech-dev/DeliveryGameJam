@@ -7,6 +7,7 @@ class_name GameUI
 @onready var health_bar: Node2D = %HealthbarNew
 @onready var scrap: Label = $Window_Gameplay/Scrap
 @onready var progress_bar: ProgressBar = $Window_Gameplay/ProgressBar/ProgressBar
+@onready var options_screen: Control = $Options_Screen
 
 @export var screen_wipe: PackedScene
 @export var upgrade_cost:float = 25
@@ -168,10 +169,8 @@ func handle_cooldown_purchase(button):
 func update_progress_bar():
 	progress_bar.value = GameManager.progress_bar_amount
 
-
 func _on_button_menu_pressed() -> void:
 	get_tree().paused = true
-
 
 func _on_button_menu_resume_pressed() -> void:
 	get_tree().paused = false
@@ -179,3 +178,6 @@ func _on_button_menu_resume_pressed() -> void:
 
 func _on_button_menu_quit_pressed() -> void:
 	get_tree().quit()
+
+func _on_button_menu_options_pressed() -> void:
+	options_screen.open()

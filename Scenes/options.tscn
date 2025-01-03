@@ -1,0 +1,129 @@
+[gd_scene load_steps=5 format=3 uid="uid://3fhqq8ppxsw8"]
+
+[ext_resource type="Script" path="res://Scripts/pause_control.gd" id="1_pymjs"]
+[ext_resource type="PackedScene" uid="uid://cwepr170lqu6o" path="res://Scenes/UI/AudioSlider.tscn" id="2_1ruda"]
+[ext_resource type="Texture2D" uid="uid://2djrlfg2ikuh" path="res://Assets/UI/DialogueBackground.png" id="2_ckmvr"]
+[ext_resource type="Texture2D" uid="uid://dph3kfwifmwss" path="res://Assets/UI/20_15.png" id="3_ydxfj"]
+
+[node name="Options Screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pymjs")
+
+[node name="Container" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Background" type="Sprite2D" parent="Container"]
+position = Vector2(960, 540)
+scale = Vector2(5, 5)
+texture = ExtResource("2_ckmvr")
+
+[node name="Title" type="RichTextLabel" parent="Container"]
+layout_mode = 0
+offset_left = 605.0
+offset_top = 111.0
+offset_right = 1405.0
+offset_bottom = 261.0
+theme_override_font_sizes/normal_font_size = 100
+text = "Sound Settings"
+
+[node name="Music Slider" parent="Container" instance=ExtResource("2_1ruda")]
+layout_mode = 1
+offset_left = 863.0
+offset_top = 557.0
+offset_right = 823.0
+offset_bottom = 517.0
+scale = Vector2(2.90337, 2.90337)
+
+[node name="Music Label" type="RichTextLabel" parent="Container"]
+layout_mode = 0
+offset_left = 458.0
+offset_top = 566.0
+offset_right = 858.0
+offset_bottom = 666.0
+theme_override_font_sizes/normal_font_size = 70
+text = "Music"
+
+[node name="Effects Slider" parent="Container" instance=ExtResource("2_1ruda")]
+layout_mode = 1
+offset_left = 863.0
+offset_top = 723.0
+offset_right = 823.0
+offset_bottom = 683.0
+scale = Vector2(2.90337, 2.90337)
+
+[node name="Effects Label" type="RichTextLabel" parent="Container"]
+layout_mode = 0
+offset_left = 458.0
+offset_top = 732.0
+offset_right = 858.0
+offset_bottom = 832.0
+theme_override_font_sizes/normal_font_size = 70
+text = "Effects"
+
+[node name="Master Slider" parent="Container" instance=ExtResource("2_1ruda")]
+layout_mode = 1
+offset_left = 863.0
+offset_top = 388.0
+offset_right = 823.0
+offset_bottom = 348.0
+scale = Vector2(2.90337, 2.90337)
+
+[node name="Master Label" type="RichTextLabel" parent="Container"]
+layout_mode = 0
+offset_left = 458.0
+offset_top = 397.0
+offset_right = 858.0
+offset_bottom = 497.0
+theme_override_font_sizes/normal_font_size = 70
+text = "Master
+"
+
+[node name="Back Button" type="HBoxContainer" parent="Container"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1717.0
+offset_top = 927.0
+offset_right = 1825.0
+offset_bottom = 1010.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Button_Menu" type="Button" parent="Container/Back Button"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Back"
+icon = ExtResource("3_ydxfj")
+icon_alignment = 1
+
+[node name="Apply Button" type="HBoxContainer" parent="Container"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1597.0
+offset_top = 927.0
+offset_right = 1705.0
+offset_bottom = 1010.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Button_Menu" type="Button" parent="Container/Apply Button"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Apply
+"
+icon = ExtResource("3_ydxfj")
+icon_alignment = 1

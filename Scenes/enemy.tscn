@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cvaajdbmn24id"]
+[gd_scene load_steps=12 format=3 uid="uid://cvaajdbmn24id"]
 
 [ext_resource type="PackedScene" uid="uid://d20d0fgvllb27" path="res://Scenes/Components/character_hitbox.tscn" id="1_6mvn5"]
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_jynr0"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://hl2i4fr237v2" path="res://Scenes/Effects/MissileExplosion.tscn" id="6_gouhx"]
 [ext_resource type="AudioStream" uid="uid://g72vgxwcfch8" path="res://sound/explosion #2.mp3" id="7_luvji"]
 [ext_resource type="AudioStream" uid="uid://0a022judx4gi" path="res://sound/explosion#3.mp3" id="8_mwh0f"]
+[ext_resource type="Script" path="res://Scripts/sfx.gd" id="9_qfqnt"]
 [ext_resource type="Texture2D" uid="uid://cy28n6lny80r1" path="res://Assets/Enemies/infantry/outline/sprite_0.png" id="9_td3ye"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_chhw2"]
@@ -47,9 +48,8 @@ debug_color = Color(0.354937, 0.963542, 0.0577121, 0.42)
 wait_time = 1.2
 one_shot = true
 
-[node name="MissileExplosion" parent="." instance=ExtResource("6_gouhx")]
-
 [node name="SFX" type="AudioStreamPlayer2D" parent="."]
+script = ExtResource("9_qfqnt")
 
 [connection signal="body_entered" from="CharacterHitbox" to="CharacterHitbox" method="_on_body_entered"]
 [connection signal="timeout" from="IdleTime" to="." method="_on_idle_time_timeout"]

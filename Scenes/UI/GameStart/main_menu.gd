@@ -1,5 +1,6 @@
 extends Node2D
 @onready var button_load_game: Button = $TextureRect/HBoxContainer/Button_LoadGame
+@onready var options_screen: Options = $Options_Screen
 
 @export var intro_scene : PackedScene
 
@@ -20,3 +21,7 @@ func _scene_change():
 
 func _on_button_exit_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_button_audio_pressed() -> void:
+	options_screen.open()
