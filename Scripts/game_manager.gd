@@ -1,7 +1,7 @@
 extends Node
 
 @export var level_1 : PackedScene
-@export var starting_scraps = 50
+@export var starting_scraps = 500
 @onready var audio_controller: AudioController = $AudioController
 
 signal game_over
