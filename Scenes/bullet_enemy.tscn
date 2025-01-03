@@ -16,3 +16,6 @@ position = Vector2(0, -0.5)
 
 [node name="SFX2" type="AudioStreamPlayer2D" parent="." index="2"]
 script = ExtResource("2_aeote")
+
+[node name="SFX" parent="." index="3"]
+volume_db = 0.0

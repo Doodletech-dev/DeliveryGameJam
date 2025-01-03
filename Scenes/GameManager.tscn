@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_d7uhx"]
 [ext_resource type="PackedScene" uid="uid://blu5vwi1ly2y4" path="res://Scenes/levels/level 1.tscn" id="2_lcpb8"]
 [ext_resource type="Script" path="res://Scripts/saver_loder.gd" id="2_vcd54"]
-[ext_resource type="AudioStream" uid="uid://dmf5dp8x1p12d" path="res://sound/Sand walker theme .wav" id="4_bhhtn"]
 [ext_resource type="Script" path="res://Scripts/audio_controller.gd" id="4_nvacb"]
-[ext_resource type="AudioStream" uid="uid://cdbb37xnavgl1" path="res://sound/sand walker loop.wav" id="5_8clip"]
+[ext_resource type="AudioStream" uid="uid://6qaf8q56lvxl" path="res://sound/sand walker loop - less loud.wav" id="5_3w6c2"]
+[ext_resource type="AudioStream" uid="uid://dyt1416b5m2ws" path="res://sound/Sand walker theme - less loud.wav" id="6_b3gyo"]
 
 [node name="GameManager" type="Node" groups=["savable"]]
 script = ExtResource("1_d7uhx")
@@ -18,10 +18,10 @@ script = ExtResource("2_vcd54")
 
 [node name="AudioController" type="Node" parent="."]
 script = ExtResource("4_nvacb")
-loopableMusic = ExtResource("5_8clip")
+loopableMusic = ExtResource("5_3w6c2")
 
 [node name="Music" type="AudioStreamPlayer" parent="AudioController"]
-stream = ExtResource("4_bhhtn")
+stream = ExtResource("6_b3gyo")
 autoplay = true
 
 [node name="EndLevelTimer" type="Timer" parent="."]

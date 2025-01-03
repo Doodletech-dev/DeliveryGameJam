@@ -14,7 +14,7 @@ var current_scraps
 var current_level
 var current_health
 var max_health
-var music_level: float = 0
+var music_level: float = 100
 var effects_level: float = 100
 var master_level: float = 80
 

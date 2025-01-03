@@ -143,6 +143,6 @@ libraries = {
 "": SubResource("AnimationLibrary_q2kau")
 }
 
-[node name="Healthbar" parent="." index="8" instance=ExtResource("7_0s2p3")]
+[node name="Healthbar" parent="." index="7" instance=ExtResource("7_0s2p3")]
 position = Vector2(-33.3333, -80)
 scale = Vector2(0.409322, 0.409322)

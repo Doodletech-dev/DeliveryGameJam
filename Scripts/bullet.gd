@@ -15,6 +15,7 @@ var effect_instance
 var fire_direciton = Vector2.ZERO
 func _ready():
 	sfx.stream = fire_sfx
+	sfx.pitch_scale = randf_range(0.9,1.1)
 	sfx.play()
 	effect_instance = trail_effect.instantiate()
 	get_tree().get_root().add_child(effect_instance)

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://6qaf8q56lvxl"
+path="res://.godot/imported/sand walker loop - less loud.wav-b05625b957255ba77767cc42924517f4.sample"
+
+[deps]
+
+source_file="res://sound/sand walker loop - less loud.wav"
+dest_files=["res://.godot/imported/sand walker loop - less loud.wav-b05625b957255ba77767cc42924517f4.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
