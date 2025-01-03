@@ -52,6 +52,7 @@ func _on_post_dialogue():
 func _on_level_2_heavy_infantry_selection_pressed() -> void:
 	GameManager.current_level = 2
 	level_to_load = "res://Scenes/levels/level 2 infantry.tscn"
+	GameManager._swap_music()
 	GameManager.save_game()
 	get_tree().change_scene_to_file(level_to_load)
 
@@ -59,6 +60,7 @@ func _on_level_2_heavy_infantry_selection_pressed() -> void:
 func _on_level_2_heavy_drones_selection_pressed() -> void:
 	GameManager.current_level = 2
 	level_to_load = "res://Scenes/levels/level 2 drone.tscn"
+	GameManager._swap_music()
 	GameManager.save_game()
 	get_tree().change_scene_to_file(level_to_load)
 
@@ -70,6 +72,7 @@ func _on_level_1_icon_pressed() -> void:
 
 func _on_final_level_selection_pressed() -> void:
 	GameManager.current_level = 3
+	GameManager._swap_music()
 	level_to_load = "res://Scenes/levels/level 3 boss.tscn"
 	GameManager.save_game()
 	get_tree().change_scene_to_file(level_to_load)

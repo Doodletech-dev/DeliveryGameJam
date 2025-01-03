@@ -50,7 +50,7 @@ func _ready():
 	if(saver_loder._load_game()):
 		print("Current level is " + str(current_level))
 	else:
-		current_scraps = 0
+		current_scraps = starting_scraps
 		current_health = 100
 		current_level = 1
 	can_win_level = false
@@ -65,14 +65,14 @@ func _swap_music():
 	
 
 func _on_game_over():
-	_reset_level()
-	reset_game_state()
-	
 	saver_loder._delete_save_game()
+	reset_game_state()
+	_reset_level()
 	end_level_timer.start()
 
 func level_reset():
 	get_tree().change_scene_to_packed(level_1)
+	audio_controller.play_main_loop_music()
 	print("reset level")
 	
 func reset_game_state():
@@ -84,6 +84,10 @@ func reset_game_state():
 	current_level = 1
 	max_health = 100
 	current_health = 100
+	shield_purchased = false
+	repair_purchased = false
+	missile_power_purchased = false
+	screen_wipe_purchased = false
 	can_win_level = false
 	can_get_good_ending = false
 
@@ -158,7 +162,12 @@ func _get_game_overlay(ui : GameUI):
 func _on_end_level_timer_timeout() -> void:
 	if(can_win_level):
 		can_win_level = false
+		shield_purchased = false
+		repair_purchased = false
+		missile_power_purchased = false
+		screen_wipe_purchased = false
 		scene_controller._on_level_complete()
 	else:
 		call_deferred("level_reset")
+		level_reset()
 		

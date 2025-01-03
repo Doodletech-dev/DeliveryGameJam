@@ -3,7 +3,7 @@ extends Turret
 signal turret_selected
 
 @export var bullet: PackedScene
-@export var speed_mod = 0.90
+@export var speed_mod = 0.95
 
 @onready var sprite: AnimatedSprite2D = $Sprite
 @onready var outline: AnimatedSprite2D = $Outline

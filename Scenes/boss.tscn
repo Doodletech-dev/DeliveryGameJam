@@ -127,12 +127,11 @@ scale = Vector2(3, 3)
 texture = ExtResource("2_d6ajk")
 
 [node name="CollisionShape2D" parent="." index="2"]
-visible = false
 shape = SubResource("CapsuleShape2D_fi2di")
 
 [node name="CharacterHitbox" parent="." index="3"]
-visible = false
 max_health = 50
+damage_type = 1
 
 [node name="CollisionShape2D" parent="CharacterHitbox" index="0"]
 shape = SubResource("CapsuleShape2D_0fukv")
