@@ -1,0 +1,65 @@
+[gd_scene load_steps=2 format=3 uid="uid://du6ramcdeow6q"]
+
+[ext_resource type="PackedScene" uid="uid://hl2i4fr237v2" path="res://Scenes/Effects/MissileExplosion.tscn" id="1_rfv15"]
+
+[node name="ScrenWipe" type="Node2D"]
+
+[node name="MissileExplosion" parent="." instance=ExtResource("1_rfv15")]
+position = Vector2(1275, 592)
+
+[node name="MissileExplosion2" parent="." instance=ExtResource("1_rfv15")]
+position = Vector2(1344, 295)
+
+[node name="MissileExplosion3" parent="." instance=ExtResource("1_rfv15")]
+position = Vector2(1004, 552)
+
+[node name="MissileExplosion4" parent="." instance=ExtResource("1_rfv15")]
+position = Vector2(1061, 188)
+
+[node name="MissileExplosion5" parent="." instance=ExtResource("1_rfv15")]
+position = Vector2(566, 105)
+
+[node name="MissileExplosion6" parent="." instance=ExtResource("1_rfv15")]
+position = Vector2(1123, 373)
+
+[node name="MissileExplosion7" parent="." instance=ExtResource("1_rfv15")]
+position = Vector2(771, 385)
+
+[node name="MissileExplosion8" parent="." instance=ExtResource("1_rfv15")]
+position = Vector2(823, 176)
+
+[node name="MissileExplosion9" parent="." instance=ExtResource("1_rfv15")]
+position = Vector2(300, 183)
+
+[node name="MissileExplosion10" parent="." instance=ExtResource("1_rfv15")]
+position = Vector2(485, 288)
+
+[node name="MissileExplosion11" parent="." instance=ExtResource("1_rfv15")]
+position = Vector2(1753, 207)
+
+[node name="MissileExplosion19" parent="." instance=ExtResource("1_rfv15")]
+position = Vector2(1677, 431)
+
+[node name="MissileExplosion20" parent="." instance=ExtResource("1_rfv15")]
+position = Vector2(1675, 882)
+
+[node name="MissileExplosion12" parent="." instance=ExtResource("1_rfv15")]
+position = Vector2(1746, 542)
+
+[node name="MissileExplosion13" parent="." instance=ExtResource("1_rfv15")]
+position = Vector2(1313, 797)
+
+[node name="MissileExplosion14" parent="." instance=ExtResource("1_rfv15")]
+position = Vector2(1536, 673)
+
+[node name="MissileExplosion15" parent="." instance=ExtResource("1_rfv15")]
+position = Vector2(1562, 240)
+
+[node name="MissileExplosion16" parent="." instance=ExtResource("1_rfv15")]
+position = Vector2(1287, 105)
+
+[node name="MissileExplosion17" parent="." instance=ExtResource("1_rfv15")]
+position = Vector2(958, 804)
+
+[node name="MissileExplosion18" parent="." instance=ExtResource("1_rfv15")]
+position = Vector2(1501, 454)
