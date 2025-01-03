@@ -4,6 +4,7 @@ class_name Cargo
 @onready var character_hitbox: Area2D = $CharacterHitbox
 @onready var hitbox: Area2D = $CharacterHitbox
 @onready var shield_timer: Timer = $Shield_Timer
+@onready var shield: Node2D = $Shield
 
 @export var death_effect: PackedScene
 @export var max_repair = 50
@@ -46,6 +47,7 @@ func _physics_process(delta: float) -> void:
 	if(GameManager.shield_purchased and never_shielded):
 		never_shielded = false
 		shield_timer.start()
+		shield.visible = true
 		hitbox.shielded = true
 	if(GameManager.repair_purchased and never_repaired):
 		never_repaired = false
@@ -83,3 +85,4 @@ func create_effects():
 		
 func _on_timer_timeout() -> void:
 	hitbox.shielded = false
+	shield.visible = false

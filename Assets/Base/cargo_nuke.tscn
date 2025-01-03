@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://ctbxga7505yvm"]
+[gd_scene load_steps=11 format=3 uid="uid://ctbxga7505yvm"]
 
 [ext_resource type="Texture2D" uid="uid://cqn636w3c7pv8" path="res://Assets/Base/cargo.png" id="1_nuf84"]
 [ext_resource type="Script" path="res://Scripts/cargo.gd" id="1_p45xw"]
 [ext_resource type="PackedScene" uid="uid://d20d0fgvllb27" path="res://Scenes/Components/character_hitbox.tscn" id="2_vdjws"]
+[ext_resource type="PackedScene" uid="uid://bcx685qc5h8nx" path="res://Scenes/Effects/Shield.tscn" id="3_5lsiy"]
 [ext_resource type="PackedScene" uid="uid://hl2i4fr237v2" path="res://Scenes/Effects/MissileExplosion.tscn" id="3_c73xl"]
 [ext_resource type="AudioStream" uid="uid://bgl3sh8trrcrn" path="res://sound/hit you.mp3" id="5_dshu1"]
 [ext_resource type="PackedScene" uid="uid://de35cqxro3jwo" path="res://Scenes/UI/health_bar.tscn" id="5_rddk6"]
@@ -15,6 +16,9 @@ size = Vector2(210.261, 119)
 [node name="CargoNuke" type="Node2D" groups=["savable"]]
 script = ExtResource("1_p45xw")
 death_effect = ExtResource("3_c73xl")
+
+[node name="Shield" parent="." instance=ExtResource("3_5lsiy")]
+visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(4, 4)

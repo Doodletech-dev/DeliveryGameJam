@@ -12,7 +12,7 @@ emission_ring_inner_radius = 125.0
 gravity = Vector3(0, 0, 0)
 scale_min = 4.0
 scale_max = 4.0
-color = Color(0, 0.329412, 1, 1)
+color = Color(6.54578e-06, 0.926316, 0.963108, 1)
 
 [node name="Shield" type="Node2D"]
 

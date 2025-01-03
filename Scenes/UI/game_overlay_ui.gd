@@ -107,7 +107,7 @@ func _on_upgrade_5_button_pressed() -> void:
 	if GameManager.current_scraps >= cost:
 		GameManager.current_scraps -= cost
 		var button = %Upgrade5_Button
-		shield_queued = true
+		GameManager.shield_purchased = true
 		handle_cooldown_purchase(button)
 	else:
 		flash_text_red(%Upgrade5_Button.get_child(2))
@@ -143,9 +143,7 @@ func _on_upgrade_8_button_pressed() -> void:
 	else:
 		flash_text_red(%Upgrade8_Button.get_child(2))
 
-func apply_changes():
-	if(shield_queued):
-		GameManager.shield_purchased = true
+func apply_changes():		
 	if(missile_queued):
 		GameManager.missile_power_purchased = true
 	if(wipe_queued and !wipe_complete):
