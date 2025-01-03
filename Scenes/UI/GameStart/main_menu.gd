@@ -12,8 +12,10 @@ func _ready() -> void:
 
 func _on_button_new_game_pressed() -> void:
 	GameManager.saver_loder._delete_save_game()
-	get_tree().change_scene_to_packed(intro_scene)
+	call_deferred("_scene_change")
 
+func _scene_change():
+	get_tree().change_scene_to_packed(intro_scene)
 
 func _on_button_exit_pressed() -> void:
 	get_tree().quit()
