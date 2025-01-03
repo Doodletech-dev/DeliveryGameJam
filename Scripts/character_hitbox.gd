@@ -42,6 +42,7 @@ func handle_hit(body):
 	if(body is Bullet or body is Missile or body is Laser_Turret or body is Screen_Wipe):
 		var damage = body.damage
 		sfx.stream = hit_sound
+		sfx.pitch_scale = randf_range(0.8,1.2)
 		sfx.play()
 		if(body.damage_type == damage_type):
 			damage *= damage_weakness
