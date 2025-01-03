@@ -8,7 +8,7 @@ signal turret_selected
 @export var laser_hit_effect: PackedScene
 @export var cooldown = 0.6
 @export var damage = 1
-@export var speed_mod = 0.9
+@export var speed_mod = 0.90
 @export var damage_type := DamageTypes.type.laser
 
 @onready var sprite: AnimatedSprite2D = $Sprite

@@ -89,7 +89,7 @@ scale = Vector2(0.115, 0.115)
 color = SubResource("StyleBoxFlat_ryojv")
 
 [node name="CooldownTimer" type="Timer" parent="."]
-wait_time = 0.6
+wait_time = 0.7
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

@@ -66,6 +66,7 @@ func _on_upgrade_1_button_pressed() -> void:
 	if GameManager.current_scraps >= cost:
 		GameManager.current_scraps -= cost
 		GameManager.missile_upgrades += 1
+		%Upgrade1_Button.get_child(2).text = str(round(cost * 1.5))
 	else:
 		flash_text_red(%Upgrade1_Button.get_child(2))
 
@@ -75,6 +76,7 @@ func _on_upgrade_2_button_pressed() -> void:
 	if GameManager.current_scraps >= cost:
 		GameManager.current_scraps -= cost
 		GameManager.laser_upgrades += 1
+		%Upgrade2_Button.get_child(2).text = str(round(cost * 1.5))
 	else:
 		flash_text_red(%Upgrade2_Button.get_child(2))
 
@@ -84,6 +86,7 @@ func _on_upgrade_3_button_pressed() -> void:
 	if GameManager.current_scraps >= cost:
 		GameManager.current_scraps -= cost
 		GameManager.turret_upgrades += 1
+		%Upgrade3_Button.get_child(2).text = str(round(cost * 1.5))
 	else:
 		flash_text_red(%Upgrade3_Button.get_child(2))
 
@@ -94,6 +97,7 @@ func _on_upgrade_4_button_pressed() -> void:
 		GameManager.current_scraps -= cost
 		GameManager.walker_upgrades += 1
 		GameManager.health_upgrade_pending = true
+		%Upgrade4_Button.get_child(2).text = str(round(cost * 1.5))
 	else:
 		flash_text_red(%Upgrade4_Button.get_child(2))
 	print(GameManager.current_health)

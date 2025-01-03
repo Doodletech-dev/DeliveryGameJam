@@ -399,7 +399,7 @@ offset_bottom = 37.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Laser Turret
-Increase recharge rate by 10%"
+Increase fire rate by 10%"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
@@ -469,7 +469,7 @@ offset_bottom = 35.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Gun Turret
-Increase fire rate by 50%"
+Increase fire rate by 15%"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
@@ -678,7 +678,7 @@ offset_right = 110.0
 offset_bottom = 35.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "One-Time Use
+text = "Once Per Level
 Repair Walker"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -748,7 +748,7 @@ offset_right = 110.0
 offset_bottom = 35.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "One-Time Use
+text = "Once Per Level
 Super Murder Missiles"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -818,7 +818,7 @@ offset_right = 110.0
 offset_bottom = 35.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "One-Time Use
+text = "Once Per Level
 Deploy high precision bombs"
 horizontal_alignment = 1
 vertical_alignment = 1

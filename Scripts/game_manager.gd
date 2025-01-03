@@ -48,7 +48,7 @@ func _ready():
 		current_health = 100
 		current_level = 1
 	can_win_level = false
-	current_scraps = 500
+	current_scraps = 0
 	current_level = 1
 	can_get_good_ending = false
  

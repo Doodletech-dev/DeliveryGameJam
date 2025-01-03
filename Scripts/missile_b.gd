@@ -6,8 +6,6 @@ class_name Missile
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var sfx: AudioStreamPlayer2D = $SFX
 
-@export var damage_types := DamageTypes.type.missile
-
 @export var seconds_alive: float = 2
 @export var max_speed: float = 20
 @export var initial_speed: float = 5
