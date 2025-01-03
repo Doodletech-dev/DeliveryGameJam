@@ -1,6 +1,7 @@
 extends Node
 
 @export var level_1 : PackedScene
+@export var starting_scraps = 50
 @onready var audio_controller: AudioController = $AudioController
 
 signal game_over
@@ -33,6 +34,7 @@ var missile_power_purchased
 var screen_wipe_purchased
 var repairing: bool = false
 
+
 var scene_controller : SceneController
 @onready var saver_loder: SaverLoader = $SaverLoder
 var can_win_level
@@ -48,7 +50,7 @@ func _ready():
 		current_health = 100
 		current_level = 1
 	can_win_level = false
-	current_scraps = 0
+	current_scraps = starting_scraps
 	current_level = 1
 	can_get_good_ending = false
  
@@ -75,7 +77,7 @@ func reset_game_state():
 	laser_upgrades = 0
 	missile_upgrades = 0
 	walker_upgrades = 0
-	current_scraps = 0
+	current_scraps = starting_scraps
 	current_level = 1
 	max_health = 100
 	current_health = 100
