@@ -158,11 +158,6 @@ func handle_cooldown_purchase(button):
 	if(button.disabled):
 		return
 	button.set("disabled",true)
-	if GameManager.current_scraps >= cost:
-		GameManager.current_scraps -= cost
-		button.get_child(2).visible = false
-	else:
-		flash_text_red(button.get_child(2))
 
 func update_progress_bar():
 	progress_bar.value = GameManager.progress_bar_amount
