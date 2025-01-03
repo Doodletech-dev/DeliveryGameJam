@@ -72,6 +72,8 @@ _data = {
 }
 
 [node name="EnemyInfantry" node_paths=PackedStringArray("animation_player") instance=ExtResource("1_3t01f")]
+z_index = 51
+z_as_relative = false
 position = Vector2(2, 2)
 scale = Vector2(3, 3)
 attack_distance = 300
@@ -95,5 +97,7 @@ libraries = {
 [node name="Healthbar" parent="." index="6" instance=ExtResource("10_6c5pt")]
 unique_name_in_owner = true
 visible = false
+z_index = 51
+z_as_relative = false
 position = Vector2(-13.6667, -14.3333)
 scale = Vector2(0.13, 0.13)

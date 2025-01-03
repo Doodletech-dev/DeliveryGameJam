@@ -66,6 +66,7 @@ turbulence_noise_strength = 0.1
 turbulence_noise_scale = 0.1
 
 [node name="MissileTail" type="Node2D"]
+z_as_relative = false
 rotation = -0.462512
 script = ExtResource("1_40obo")
 

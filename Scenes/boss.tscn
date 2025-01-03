@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://iclynx1m5cl8"]
+[gd_scene load_steps=14 format=3 uid="uid://iclynx1m5cl8"]
 
 [ext_resource type="PackedScene" uid="uid://cvaajdbmn24id" path="res://Scenes/enemy.tscn" id="1_gvk25"]
 [ext_resource type="Texture2D" uid="uid://dwext0kb2i11p" path="res://Assets/Enemies/drone/sprite_0.png" id="2_d6ajk"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c6euw68q1nieb" path="res://Assets/Enemies/drone/outline/sprite_0.png" id="3_h5q4o"]
 [ext_resource type="Texture2D" uid="uid://d2q6dlc8twyup" path="res://Assets/Enemies/drone/sprite_1.png" id="4_smuta"]
 [ext_resource type="Texture2D" uid="uid://cog6opytdvne0" path="res://Assets/Enemies/drone/outline/sprite_1.png" id="6_3x75u"]
+[ext_resource type="PackedScene" uid="uid://de35cqxro3jwo" path="res://Scenes/UI/health_bar.tscn" id="7_0s2p3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fi2di"]
 radius = 31.0
@@ -108,6 +109,8 @@ _data = {
 }
 
 [node name="Boss" node_paths=PackedStringArray("animation_player") instance=ExtResource("1_gvk25")]
+z_index = 51
+z_as_relative = false
 scale = Vector2(3, 3)
 move_speed = 500
 attack_distance = 400
@@ -139,3 +142,7 @@ root_node = NodePath("../Sprite2D")
 libraries = {
 "": SubResource("AnimationLibrary_q2kau")
 }
+
+[node name="Healthbar" parent="." index="8" instance=ExtResource("7_0s2p3")]
+position = Vector2(-33.3333, -80)
+scale = Vector2(0.409322, 0.409322)

@@ -12,3 +12,5 @@ scale = Vector2(1.5, 1.5)
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(0, -0.5)
+
+[node name="SFX2" type="AudioStreamPlayer2D" parent="." index="2"]

@@ -19,3 +19,8 @@ func _physics_process(delta: float) -> void:
 
 func hit_detected():
 	print("wow")
+
+func _on_area_entered(area: Area2D) -> void:
+	print(area)
+	if(area.get_parent() is Enemy):
+		area.laser_hit_pew_pew(self)

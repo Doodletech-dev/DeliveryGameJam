@@ -60,6 +60,8 @@ bg_color = Color(0.844756, 0.510998, 1.92523e-07, 1)
 
 [node name="Turret" type="Area2D"]
 scale = Vector2(5, 5)
+collision_layer = 2048
+collision_mask = 2048
 script = ExtResource("1_unrih")
 bullet = ExtResource("2_ysxpq")
 
@@ -87,7 +89,7 @@ scale = Vector2(0.115, 0.115)
 color = SubResource("StyleBoxFlat_ryojv")
 
 [node name="CooldownTimer" type="Timer" parent="."]
-wait_time = 0.6
+wait_time = 0.7
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://noegit3p7wn5"
+path="res://.godot/imported/hit enm.mp3-3f34a7c7e2d6910deab550341a6350d7.mp3str"
+
+[deps]
+
+source_file="res://sound/hit enm.mp3"
+dest_files=["res://.godot/imported/hit enm.mp3-3f34a7c7e2d6910deab550341a6350d7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

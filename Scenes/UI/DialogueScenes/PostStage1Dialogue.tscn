@@ -52,7 +52,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Commander Taryn: 
 
-Yeehaw! Good work clearing out the resistance, Rookie. It looks like the road splits up ahead. Our scouts report large amounts of infantry to the left or an increased number of laser drones to the right. Pick the one that suites you best. Keep up the good work soldier. 
+Yeehaw! Good work clearing out the resistance, Rookie. It looks like the road splits up ahead. Our scouts report large amounts of infantry to the left or an increased number of laser drones to the right. Pick the route that compliments your walker uppgrades the most. And keep up the good work soldier. 
 
 Commander Taryn out!"
 
@@ -74,6 +74,7 @@ pivot_offset = Vector2(22.5, 0)
 texture = ExtResource("3_xdclf")
 
 [node name="Label" type="Label" parent="."]
+layout_mode = 0
 offset_left = 817.0
 offset_top = 928.0
 offset_right = 1154.0

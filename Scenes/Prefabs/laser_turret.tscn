@@ -62,7 +62,8 @@ bg_color = Color(1, 0.910167, 0.23, 1)
 [node name="LaserTurret" type="Area2D"]
 z_as_relative = false
 scale = Vector2(5, 5)
-collision_layer = 512
+collision_layer = 2048
+collision_mask = 2048
 script = ExtResource("1_eslmb")
 bullet = ExtResource("11_16cq7")
 laser_hit_effect = ExtResource("3_budha")
@@ -86,6 +87,7 @@ scale = Vector2(0.115, 0.115)
 color = SubResource("StyleBoxFlat_ovtwg")
 
 [node name="CooldownTimer" type="Timer" parent="."]
+wait_time = 0.8
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

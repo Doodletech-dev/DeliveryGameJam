@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://fxy8wdu3ucyv"]
+[gd_scene load_steps=6 format=3 uid="uid://fxy8wdu3ucyv"]
 
 [ext_resource type="Script" path="res://Scripts/bullet.gd" id="1_l3ygl"]
 [ext_resource type="PackedScene" uid="uid://hl2i4fr237v2" path="res://Scenes/Effects/MissileExplosion.tscn" id="2_ygo6g"]
 [ext_resource type="Texture2D" uid="uid://cpg6ekwfe3uu4" path="res://Assets/Turret/Bullet/bullet.png" id="3_2yr2i"]
+[ext_resource type="AudioStream" uid="uid://bovev1kylsxrq" path="res://sound/turret_fire.wav" id="3_j737k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wo1k4"]
 size = Vector2(12, 13)
@@ -14,6 +15,7 @@ position = Vector2(222, 690)
 collision_layer = 513
 script = ExtResource("1_l3ygl")
 trail_effect = ExtResource("2_ygo6g")
+fire_sfx = ExtResource("3_j737k")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(2.5, 2.5)
@@ -21,3 +23,6 @@ texture = ExtResource("3_2yr2i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_wo1k4")
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="."]
+volume_db = 15.0
